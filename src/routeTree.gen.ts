@@ -9,38 +9,255 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TrackerRouteImport } from './routes/tracker'
+import { Route as SymptomsRouteImport } from './routes/symptoms'
+import { Route as SignupRouteImport } from './routes/signup'
+import { Route as OnboardingRouteImport } from './routes/onboarding'
+import { Route as MoreRouteImport } from './routes/more'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as KicksRouteImport } from './routes/kicks'
+import { Route as HomeRouteImport } from './routes/home'
+import { Route as DietRouteImport } from './routes/diet'
+import { Route as AppointmentsRouteImport } from './routes/appointments'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as WeekWeekRouteImport } from './routes/week.$week'
 
+const TrackerRoute = TrackerRouteImport.update({
+  id: '/tracker',
+  path: '/tracker',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SymptomsRoute = SymptomsRouteImport.update({
+  id: '/symptoms',
+  path: '/symptoms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OnboardingRoute = OnboardingRouteImport.update({
+  id: '/onboarding',
+  path: '/onboarding',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MoreRoute = MoreRouteImport.update({
+  id: '/more',
+  path: '/more',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KicksRoute = KicksRouteImport.update({
+  id: '/kicks',
+  path: '/kicks',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HomeRoute = HomeRouteImport.update({
+  id: '/home',
+  path: '/home',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DietRoute = DietRouteImport.update({
+  id: '/diet',
+  path: '/diet',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppointmentsRoute = AppointmentsRouteImport.update({
+  id: '/appointments',
+  path: '/appointments',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WeekWeekRoute = WeekWeekRouteImport.update({
+  id: '/week/$week',
+  path: '/week/$week',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/appointments': typeof AppointmentsRoute
+  '/diet': typeof DietRoute
+  '/home': typeof HomeRoute
+  '/kicks': typeof KicksRoute
+  '/login': typeof LoginRoute
+  '/more': typeof MoreRoute
+  '/onboarding': typeof OnboardingRoute
+  '/signup': typeof SignupRoute
+  '/symptoms': typeof SymptomsRoute
+  '/tracker': typeof TrackerRoute
+  '/week/$week': typeof WeekWeekRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/appointments': typeof AppointmentsRoute
+  '/diet': typeof DietRoute
+  '/home': typeof HomeRoute
+  '/kicks': typeof KicksRoute
+  '/login': typeof LoginRoute
+  '/more': typeof MoreRoute
+  '/onboarding': typeof OnboardingRoute
+  '/signup': typeof SignupRoute
+  '/symptoms': typeof SymptomsRoute
+  '/tracker': typeof TrackerRoute
+  '/week/$week': typeof WeekWeekRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/appointments': typeof AppointmentsRoute
+  '/diet': typeof DietRoute
+  '/home': typeof HomeRoute
+  '/kicks': typeof KicksRoute
+  '/login': typeof LoginRoute
+  '/more': typeof MoreRoute
+  '/onboarding': typeof OnboardingRoute
+  '/signup': typeof SignupRoute
+  '/symptoms': typeof SymptomsRoute
+  '/tracker': typeof TrackerRoute
+  '/week/$week': typeof WeekWeekRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/appointments'
+    | '/diet'
+    | '/home'
+    | '/kicks'
+    | '/login'
+    | '/more'
+    | '/onboarding'
+    | '/signup'
+    | '/symptoms'
+    | '/tracker'
+    | '/week/$week'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/appointments'
+    | '/diet'
+    | '/home'
+    | '/kicks'
+    | '/login'
+    | '/more'
+    | '/onboarding'
+    | '/signup'
+    | '/symptoms'
+    | '/tracker'
+    | '/week/$week'
+  id:
+    | '__root__'
+    | '/'
+    | '/appointments'
+    | '/diet'
+    | '/home'
+    | '/kicks'
+    | '/login'
+    | '/more'
+    | '/onboarding'
+    | '/signup'
+    | '/symptoms'
+    | '/tracker'
+    | '/week/$week'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AppointmentsRoute: typeof AppointmentsRoute
+  DietRoute: typeof DietRoute
+  HomeRoute: typeof HomeRoute
+  KicksRoute: typeof KicksRoute
+  LoginRoute: typeof LoginRoute
+  MoreRoute: typeof MoreRoute
+  OnboardingRoute: typeof OnboardingRoute
+  SignupRoute: typeof SignupRoute
+  SymptomsRoute: typeof SymptomsRoute
+  TrackerRoute: typeof TrackerRoute
+  WeekWeekRoute: typeof WeekWeekRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/tracker': {
+      id: '/tracker'
+      path: '/tracker'
+      fullPath: '/tracker'
+      preLoaderRoute: typeof TrackerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/symptoms': {
+      id: '/symptoms'
+      path: '/symptoms'
+      fullPath: '/symptoms'
+      preLoaderRoute: typeof SymptomsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/onboarding': {
+      id: '/onboarding'
+      path: '/onboarding'
+      fullPath: '/onboarding'
+      preLoaderRoute: typeof OnboardingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/more': {
+      id: '/more'
+      path: '/more'
+      fullPath: '/more'
+      preLoaderRoute: typeof MoreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kicks': {
+      id: '/kicks'
+      path: '/kicks'
+      fullPath: '/kicks'
+      preLoaderRoute: typeof KicksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/home': {
+      id: '/home'
+      path: '/home'
+      fullPath: '/home'
+      preLoaderRoute: typeof HomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/diet': {
+      id: '/diet'
+      path: '/diet'
+      fullPath: '/diet'
+      preLoaderRoute: typeof DietRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/appointments': {
+      id: '/appointments'
+      path: '/appointments'
+      fullPath: '/appointments'
+      preLoaderRoute: typeof AppointmentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +265,29 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/week/$week': {
+      id: '/week/$week'
+      path: '/week/$week'
+      fullPath: '/week/$week'
+      preLoaderRoute: typeof WeekWeekRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AppointmentsRoute: AppointmentsRoute,
+  DietRoute: DietRoute,
+  HomeRoute: HomeRoute,
+  KicksRoute: KicksRoute,
+  LoginRoute: LoginRoute,
+  MoreRoute: MoreRoute,
+  OnboardingRoute: OnboardingRoute,
+  SignupRoute: SignupRoute,
+  SymptomsRoute: SymptomsRoute,
+  TrackerRoute: TrackerRoute,
+  WeekWeekRoute: WeekWeekRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
