@@ -9,19 +9,28 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as YogaRouteImport } from './routes/yoga'
 import { Route as TrackerRouteImport } from './routes/tracker'
 import { Route as SymptomsRouteImport } from './routes/symptoms'
 import { Route as SignupRouteImport } from './routes/signup'
+import { Route as SchemesRouteImport } from './routes/schemes'
 import { Route as OnboardingRouteImport } from './routes/onboarding'
 import { Route as MoreRouteImport } from './routes/more'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as KicksRouteImport } from './routes/kicks'
 import { Route as HomeRouteImport } from './routes/home'
 import { Route as DietRouteImport } from './routes/diet'
+import { Route as CommunityRouteImport } from './routes/community'
 import { Route as AppointmentsRouteImport } from './routes/appointments'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as WeekWeekRouteImport } from './routes/week.$week'
+import { Route as CommunityPostIdRouteImport } from './routes/community.$postId'
 
+const YogaRoute = YogaRouteImport.update({
+  id: '/yoga',
+  path: '/yoga',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TrackerRoute = TrackerRouteImport.update({
   id: '/tracker',
   path: '/tracker',
@@ -35,6 +44,11 @@ const SymptomsRoute = SymptomsRouteImport.update({
 const SignupRoute = SignupRouteImport.update({
   id: '/signup',
   path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SchemesRoute = SchemesRouteImport.update({
+  id: '/schemes',
+  path: '/schemes',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OnboardingRoute = OnboardingRouteImport.update({
@@ -67,6 +81,11 @@ const DietRoute = DietRouteImport.update({
   path: '/diet',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CommunityRoute = CommunityRouteImport.update({
+  id: '/community',
+  path: '/community',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AppointmentsRoute = AppointmentsRouteImport.update({
   id: '/appointments',
   path: '/appointments',
@@ -82,48 +101,65 @@ const WeekWeekRoute = WeekWeekRouteImport.update({
   path: '/week/$week',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CommunityPostIdRoute = CommunityPostIdRouteImport.update({
+  id: '/$postId',
+  path: '/$postId',
+  getParentRoute: () => CommunityRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/appointments': typeof AppointmentsRoute
+  '/community': typeof CommunityRouteWithChildren
   '/diet': typeof DietRoute
   '/home': typeof HomeRoute
   '/kicks': typeof KicksRoute
   '/login': typeof LoginRoute
   '/more': typeof MoreRoute
   '/onboarding': typeof OnboardingRoute
+  '/schemes': typeof SchemesRoute
   '/signup': typeof SignupRoute
   '/symptoms': typeof SymptomsRoute
   '/tracker': typeof TrackerRoute
+  '/yoga': typeof YogaRoute
+  '/community/$postId': typeof CommunityPostIdRoute
   '/week/$week': typeof WeekWeekRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/appointments': typeof AppointmentsRoute
+  '/community': typeof CommunityRouteWithChildren
   '/diet': typeof DietRoute
   '/home': typeof HomeRoute
   '/kicks': typeof KicksRoute
   '/login': typeof LoginRoute
   '/more': typeof MoreRoute
   '/onboarding': typeof OnboardingRoute
+  '/schemes': typeof SchemesRoute
   '/signup': typeof SignupRoute
   '/symptoms': typeof SymptomsRoute
   '/tracker': typeof TrackerRoute
+  '/yoga': typeof YogaRoute
+  '/community/$postId': typeof CommunityPostIdRoute
   '/week/$week': typeof WeekWeekRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/appointments': typeof AppointmentsRoute
+  '/community': typeof CommunityRouteWithChildren
   '/diet': typeof DietRoute
   '/home': typeof HomeRoute
   '/kicks': typeof KicksRoute
   '/login': typeof LoginRoute
   '/more': typeof MoreRoute
   '/onboarding': typeof OnboardingRoute
+  '/schemes': typeof SchemesRoute
   '/signup': typeof SignupRoute
   '/symptoms': typeof SymptomsRoute
   '/tracker': typeof TrackerRoute
+  '/yoga': typeof YogaRoute
+  '/community/$postId': typeof CommunityPostIdRoute
   '/week/$week': typeof WeekWeekRoute
 }
 export interface FileRouteTypes {
@@ -131,63 +167,85 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/appointments'
+    | '/community'
     | '/diet'
     | '/home'
     | '/kicks'
     | '/login'
     | '/more'
     | '/onboarding'
+    | '/schemes'
     | '/signup'
     | '/symptoms'
     | '/tracker'
+    | '/yoga'
+    | '/community/$postId'
     | '/week/$week'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/appointments'
+    | '/community'
     | '/diet'
     | '/home'
     | '/kicks'
     | '/login'
     | '/more'
     | '/onboarding'
+    | '/schemes'
     | '/signup'
     | '/symptoms'
     | '/tracker'
+    | '/yoga'
+    | '/community/$postId'
     | '/week/$week'
   id:
     | '__root__'
     | '/'
     | '/appointments'
+    | '/community'
     | '/diet'
     | '/home'
     | '/kicks'
     | '/login'
     | '/more'
     | '/onboarding'
+    | '/schemes'
     | '/signup'
     | '/symptoms'
     | '/tracker'
+    | '/yoga'
+    | '/community/$postId'
     | '/week/$week'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AppointmentsRoute: typeof AppointmentsRoute
+  CommunityRoute: typeof CommunityRouteWithChildren
   DietRoute: typeof DietRoute
   HomeRoute: typeof HomeRoute
   KicksRoute: typeof KicksRoute
   LoginRoute: typeof LoginRoute
   MoreRoute: typeof MoreRoute
   OnboardingRoute: typeof OnboardingRoute
+  SchemesRoute: typeof SchemesRoute
   SignupRoute: typeof SignupRoute
   SymptomsRoute: typeof SymptomsRoute
   TrackerRoute: typeof TrackerRoute
+  YogaRoute: typeof YogaRoute
   WeekWeekRoute: typeof WeekWeekRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/yoga': {
+      id: '/yoga'
+      path: '/yoga'
+      fullPath: '/yoga'
+      preLoaderRoute: typeof YogaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tracker': {
       id: '/tracker'
       path: '/tracker'
@@ -207,6 +265,13 @@ declare module '@tanstack/react-router' {
       path: '/signup'
       fullPath: '/signup'
       preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/schemes': {
+      id: '/schemes'
+      path: '/schemes'
+      fullPath: '/schemes'
+      preLoaderRoute: typeof SchemesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/onboarding': {
@@ -251,6 +316,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DietRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/community': {
+      id: '/community'
+      path: '/community'
+      fullPath: '/community'
+      preLoaderRoute: typeof CommunityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/appointments': {
       id: '/appointments'
       path: '/appointments'
@@ -272,23 +344,54 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WeekWeekRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/community/$postId': {
+      id: '/community/$postId'
+      path: '/$postId'
+      fullPath: '/community/$postId'
+      preLoaderRoute: typeof CommunityPostIdRouteImport
+      parentRoute: typeof CommunityRoute
+    }
   }
 }
+
+interface CommunityRouteChildren {
+  CommunityPostIdRoute: typeof CommunityPostIdRoute
+}
+
+const CommunityRouteChildren: CommunityRouteChildren = {
+  CommunityPostIdRoute: CommunityPostIdRoute,
+}
+
+const CommunityRouteWithChildren = CommunityRoute._addFileChildren(
+  CommunityRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AppointmentsRoute: AppointmentsRoute,
+  CommunityRoute: CommunityRouteWithChildren,
   DietRoute: DietRoute,
   HomeRoute: HomeRoute,
   KicksRoute: KicksRoute,
   LoginRoute: LoginRoute,
   MoreRoute: MoreRoute,
   OnboardingRoute: OnboardingRoute,
+  SchemesRoute: SchemesRoute,
   SignupRoute: SignupRoute,
   SymptomsRoute: SymptomsRoute,
   TrackerRoute: TrackerRoute,
+  YogaRoute: YogaRoute,
   WeekWeekRoute: WeekWeekRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}
