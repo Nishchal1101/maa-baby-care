@@ -9,9 +9,11 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as YogaRouteImport } from './routes/yoga'
 import { Route as TrackerRouteImport } from './routes/tracker'
 import { Route as SymptomsRouteImport } from './routes/symptoms'
 import { Route as SignupRouteImport } from './routes/signup'
+import { Route as SchemesRouteImport } from './routes/schemes'
 import { Route as OnboardingRouteImport } from './routes/onboarding'
 import { Route as MoreRouteImport } from './routes/more'
 import { Route as LoginRouteImport } from './routes/login'
@@ -22,6 +24,11 @@ import { Route as AppointmentsRouteImport } from './routes/appointments'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as WeekWeekRouteImport } from './routes/week.$week'
 
+const YogaRoute = YogaRouteImport.update({
+  id: '/yoga',
+  path: '/yoga',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TrackerRoute = TrackerRouteImport.update({
   id: '/tracker',
   path: '/tracker',
@@ -35,6 +42,11 @@ const SymptomsRoute = SymptomsRouteImport.update({
 const SignupRoute = SignupRouteImport.update({
   id: '/signup',
   path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SchemesRoute = SchemesRouteImport.update({
+  id: '/schemes',
+  path: '/schemes',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OnboardingRoute = OnboardingRouteImport.update({
@@ -92,9 +104,11 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/more': typeof MoreRoute
   '/onboarding': typeof OnboardingRoute
+  '/schemes': typeof SchemesRoute
   '/signup': typeof SignupRoute
   '/symptoms': typeof SymptomsRoute
   '/tracker': typeof TrackerRoute
+  '/yoga': typeof YogaRoute
   '/week/$week': typeof WeekWeekRoute
 }
 export interface FileRoutesByTo {
@@ -106,9 +120,11 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/more': typeof MoreRoute
   '/onboarding': typeof OnboardingRoute
+  '/schemes': typeof SchemesRoute
   '/signup': typeof SignupRoute
   '/symptoms': typeof SymptomsRoute
   '/tracker': typeof TrackerRoute
+  '/yoga': typeof YogaRoute
   '/week/$week': typeof WeekWeekRoute
 }
 export interface FileRoutesById {
@@ -121,9 +137,11 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/more': typeof MoreRoute
   '/onboarding': typeof OnboardingRoute
+  '/schemes': typeof SchemesRoute
   '/signup': typeof SignupRoute
   '/symptoms': typeof SymptomsRoute
   '/tracker': typeof TrackerRoute
+  '/yoga': typeof YogaRoute
   '/week/$week': typeof WeekWeekRoute
 }
 export interface FileRouteTypes {
@@ -137,9 +155,11 @@ export interface FileRouteTypes {
     | '/login'
     | '/more'
     | '/onboarding'
+    | '/schemes'
     | '/signup'
     | '/symptoms'
     | '/tracker'
+    | '/yoga'
     | '/week/$week'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -151,9 +171,11 @@ export interface FileRouteTypes {
     | '/login'
     | '/more'
     | '/onboarding'
+    | '/schemes'
     | '/signup'
     | '/symptoms'
     | '/tracker'
+    | '/yoga'
     | '/week/$week'
   id:
     | '__root__'
@@ -165,9 +187,11 @@ export interface FileRouteTypes {
     | '/login'
     | '/more'
     | '/onboarding'
+    | '/schemes'
     | '/signup'
     | '/symptoms'
     | '/tracker'
+    | '/yoga'
     | '/week/$week'
   fileRoutesById: FileRoutesById
 }
@@ -180,14 +204,23 @@ export interface RootRouteChildren {
   LoginRoute: typeof LoginRoute
   MoreRoute: typeof MoreRoute
   OnboardingRoute: typeof OnboardingRoute
+  SchemesRoute: typeof SchemesRoute
   SignupRoute: typeof SignupRoute
   SymptomsRoute: typeof SymptomsRoute
   TrackerRoute: typeof TrackerRoute
+  YogaRoute: typeof YogaRoute
   WeekWeekRoute: typeof WeekWeekRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/yoga': {
+      id: '/yoga'
+      path: '/yoga'
+      fullPath: '/yoga'
+      preLoaderRoute: typeof YogaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tracker': {
       id: '/tracker'
       path: '/tracker'
@@ -207,6 +240,13 @@ declare module '@tanstack/react-router' {
       path: '/signup'
       fullPath: '/signup'
       preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/schemes': {
+      id: '/schemes'
+      path: '/schemes'
+      fullPath: '/schemes'
+      preLoaderRoute: typeof SchemesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/onboarding': {
@@ -284,9 +324,11 @@ const rootRouteChildren: RootRouteChildren = {
   LoginRoute: LoginRoute,
   MoreRoute: MoreRoute,
   OnboardingRoute: OnboardingRoute,
+  SchemesRoute: SchemesRoute,
   SignupRoute: SignupRoute,
   SymptomsRoute: SymptomsRoute,
   TrackerRoute: TrackerRoute,
+  YogaRoute: YogaRoute,
   WeekWeekRoute: WeekWeekRoute,
 }
 export const routeTree = rootRouteImport
