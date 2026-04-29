@@ -56,6 +56,92 @@ export type Database = {
         }
         Relationships: []
       }
+      community_posts: {
+        Row: {
+          anonymous: boolean
+          body: string
+          created_at: string
+          display_name: string | null
+          hidden: boolean
+          id: string
+          reply_count: number
+          title: string
+          topic: string
+          updated_at: string
+          user_id: string
+          vote_count: number
+        }
+        Insert: {
+          anonymous?: boolean
+          body: string
+          created_at?: string
+          display_name?: string | null
+          hidden?: boolean
+          id?: string
+          reply_count?: number
+          title: string
+          topic: string
+          updated_at?: string
+          user_id: string
+          vote_count?: number
+        }
+        Update: {
+          anonymous?: boolean
+          body?: string
+          created_at?: string
+          display_name?: string | null
+          hidden?: boolean
+          id?: string
+          reply_count?: number
+          title?: string
+          topic?: string
+          updated_at?: string
+          user_id?: string
+          vote_count?: number
+        }
+        Relationships: []
+      }
+      community_replies: {
+        Row: {
+          anonymous: boolean
+          body: string
+          created_at: string
+          display_name: string | null
+          hidden: boolean
+          id: string
+          post_id: string
+          user_id: string
+        }
+        Insert: {
+          anonymous?: boolean
+          body: string
+          created_at?: string
+          display_name?: string | null
+          hidden?: boolean
+          id?: string
+          post_id: string
+          user_id: string
+        }
+        Update: {
+          anonymous?: boolean
+          body?: string
+          created_at?: string
+          display_name?: string | null
+          hidden?: boolean
+          id?: string
+          post_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "community_replies_post_id_fkey"
+            columns: ["post_id"]
+            isOneToOne: false
+            referencedRelation: "community_posts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       kick_sessions: {
         Row: {
           created_at: string
@@ -82,6 +168,32 @@ export type Database = {
           user_id?: string
         }
         Relationships: []
+      }
+      post_votes: {
+        Row: {
+          created_at: string
+          post_id: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          post_id: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          post_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "post_votes_post_id_fkey"
+            columns: ["post_id"]
+            isOneToOne: false
+            referencedRelation: "community_posts"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       profiles: {
         Row: {
@@ -131,6 +243,51 @@ export type Database = {
         }
         Relationships: []
       }
+      reports: {
+        Row: {
+          created_at: string
+          id: string
+          post_id: string | null
+          reason: string
+          reply_id: string | null
+          reporter_id: string
+          resolved: boolean
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          post_id?: string | null
+          reason: string
+          reply_id?: string | null
+          reporter_id: string
+          resolved?: boolean
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          post_id?: string | null
+          reason?: string
+          reply_id?: string | null
+          reporter_id?: string
+          resolved?: boolean
+        }
+        Relationships: [
+          {
+            foreignKeyName: "reports_post_id_fkey"
+            columns: ["post_id"]
+            isOneToOne: false
+            referencedRelation: "community_posts"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "reports_reply_id_fkey"
+            columns: ["reply_id"]
+            isOneToOne: false
+            referencedRelation: "community_replies"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       symptom_logs: {
         Row: {
           bp_diastolic: number | null
@@ -170,15 +327,42 @@ export type Database = {
         }
         Relationships: []
       }
+      user_roles: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "user" | "moderator" | "admin"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -305,6 +489,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["user", "moderator", "admin"],
+    },
   },
 } as const
