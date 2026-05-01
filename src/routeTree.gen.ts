@@ -14,6 +14,7 @@ import { Route as TrackerRouteImport } from './routes/tracker'
 import { Route as SymptomsRouteImport } from './routes/symptoms'
 import { Route as SignupRouteImport } from './routes/signup'
 import { Route as SchemesRouteImport } from './routes/schemes'
+import { Route as PostpartumRouteImport } from './routes/postpartum'
 import { Route as OnboardingRouteImport } from './routes/onboarding'
 import { Route as MoreRouteImport } from './routes/more'
 import { Route as LoginRouteImport } from './routes/login'
@@ -54,6 +55,11 @@ const SignupRoute = SignupRouteImport.update({
 const SchemesRoute = SchemesRouteImport.update({
   id: '/schemes',
   path: '/schemes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PostpartumRoute = PostpartumRouteImport.update({
+  id: '/postpartum',
+  path: '/postpartum',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OnboardingRoute = OnboardingRouteImport.update({
@@ -148,6 +154,7 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/more': typeof MoreRoute
   '/onboarding': typeof OnboardingRoute
+  '/postpartum': typeof PostpartumRoute
   '/schemes': typeof SchemesRoute
   '/signup': typeof SignupRoute
   '/symptoms': typeof SymptomsRoute
@@ -171,6 +178,7 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/more': typeof MoreRoute
   '/onboarding': typeof OnboardingRoute
+  '/postpartum': typeof PostpartumRoute
   '/schemes': typeof SchemesRoute
   '/signup': typeof SignupRoute
   '/symptoms': typeof SymptomsRoute
@@ -195,6 +203,7 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/more': typeof MoreRoute
   '/onboarding': typeof OnboardingRoute
+  '/postpartum': typeof PostpartumRoute
   '/schemes': typeof SchemesRoute
   '/signup': typeof SignupRoute
   '/symptoms': typeof SymptomsRoute
@@ -220,6 +229,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/more'
     | '/onboarding'
+    | '/postpartum'
     | '/schemes'
     | '/signup'
     | '/symptoms'
@@ -243,6 +253,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/more'
     | '/onboarding'
+    | '/postpartum'
     | '/schemes'
     | '/signup'
     | '/symptoms'
@@ -266,6 +277,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/more'
     | '/onboarding'
+    | '/postpartum'
     | '/schemes'
     | '/signup'
     | '/symptoms'
@@ -290,6 +302,7 @@ export interface RootRouteChildren {
   LoginRoute: typeof LoginRoute
   MoreRoute: typeof MoreRoute
   OnboardingRoute: typeof OnboardingRoute
+  PostpartumRoute: typeof PostpartumRoute
   SchemesRoute: typeof SchemesRoute
   SignupRoute: typeof SignupRoute
   SymptomsRoute: typeof SymptomsRoute
@@ -333,6 +346,13 @@ declare module '@tanstack/react-router' {
       path: '/schemes'
       fullPath: '/schemes'
       preLoaderRoute: typeof SchemesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/postpartum': {
+      id: '/postpartum'
+      path: '/postpartum'
+      fullPath: '/postpartum'
+      preLoaderRoute: typeof PostpartumRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/onboarding': {
@@ -489,6 +509,7 @@ const rootRouteChildren: RootRouteChildren = {
   LoginRoute: LoginRoute,
   MoreRoute: MoreRoute,
   OnboardingRoute: OnboardingRoute,
+  PostpartumRoute: PostpartumRoute,
   SchemesRoute: SchemesRoute,
   SignupRoute: SignupRoute,
   SymptomsRoute: SymptomsRoute,
