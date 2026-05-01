@@ -28,6 +28,7 @@ import { Route as WeekWeekRouteImport } from './routes/week.$week'
 import { Route as CommunityPostIdRouteImport } from './routes/community.$postId'
 import { Route as BabyVaccinationsRouteImport } from './routes/baby.vaccinations'
 import { Route as BabyGrowthRouteImport } from './routes/baby.growth'
+import { Route as BabyFeedsRouteImport } from './routes/baby.feeds'
 
 const YogaRoute = YogaRouteImport.update({
   id: '/yoga',
@@ -124,6 +125,11 @@ const BabyGrowthRoute = BabyGrowthRouteImport.update({
   path: '/growth',
   getParentRoute: () => BabyRoute,
 } as any)
+const BabyFeedsRoute = BabyFeedsRouteImport.update({
+  id: '/feeds',
+  path: '/feeds',
+  getParentRoute: () => BabyRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -141,6 +147,7 @@ export interface FileRoutesByFullPath {
   '/symptoms': typeof SymptomsRoute
   '/tracker': typeof TrackerRoute
   '/yoga': typeof YogaRoute
+  '/baby/feeds': typeof BabyFeedsRoute
   '/baby/growth': typeof BabyGrowthRoute
   '/baby/vaccinations': typeof BabyVaccinationsRoute
   '/community/$postId': typeof CommunityPostIdRoute
@@ -162,6 +169,7 @@ export interface FileRoutesByTo {
   '/symptoms': typeof SymptomsRoute
   '/tracker': typeof TrackerRoute
   '/yoga': typeof YogaRoute
+  '/baby/feeds': typeof BabyFeedsRoute
   '/baby/growth': typeof BabyGrowthRoute
   '/baby/vaccinations': typeof BabyVaccinationsRoute
   '/community/$postId': typeof CommunityPostIdRoute
@@ -184,6 +192,7 @@ export interface FileRoutesById {
   '/symptoms': typeof SymptomsRoute
   '/tracker': typeof TrackerRoute
   '/yoga': typeof YogaRoute
+  '/baby/feeds': typeof BabyFeedsRoute
   '/baby/growth': typeof BabyGrowthRoute
   '/baby/vaccinations': typeof BabyVaccinationsRoute
   '/community/$postId': typeof CommunityPostIdRoute
@@ -207,6 +216,7 @@ export interface FileRouteTypes {
     | '/symptoms'
     | '/tracker'
     | '/yoga'
+    | '/baby/feeds'
     | '/baby/growth'
     | '/baby/vaccinations'
     | '/community/$postId'
@@ -228,6 +238,7 @@ export interface FileRouteTypes {
     | '/symptoms'
     | '/tracker'
     | '/yoga'
+    | '/baby/feeds'
     | '/baby/growth'
     | '/baby/vaccinations'
     | '/community/$postId'
@@ -249,6 +260,7 @@ export interface FileRouteTypes {
     | '/symptoms'
     | '/tracker'
     | '/yoga'
+    | '/baby/feeds'
     | '/baby/growth'
     | '/baby/vaccinations'
     | '/community/$postId'
@@ -409,15 +421,24 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BabyGrowthRouteImport
       parentRoute: typeof BabyRoute
     }
+    '/baby/feeds': {
+      id: '/baby/feeds'
+      path: '/feeds'
+      fullPath: '/baby/feeds'
+      preLoaderRoute: typeof BabyFeedsRouteImport
+      parentRoute: typeof BabyRoute
+    }
   }
 }
 
 interface BabyRouteChildren {
+  BabyFeedsRoute: typeof BabyFeedsRoute
   BabyGrowthRoute: typeof BabyGrowthRoute
   BabyVaccinationsRoute: typeof BabyVaccinationsRoute
 }
 
 const BabyRouteChildren: BabyRouteChildren = {
+  BabyFeedsRoute: BabyFeedsRoute,
   BabyGrowthRoute: BabyGrowthRoute,
   BabyVaccinationsRoute: BabyVaccinationsRoute,
 }
