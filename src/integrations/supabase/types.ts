@@ -56,6 +56,78 @@ export type Database = {
         }
         Relationships: []
       }
+      baby_growth_logs: {
+        Row: {
+          baby_id: string
+          created_at: string
+          head_circumference_cm: number | null
+          height_cm: number | null
+          id: string
+          log_date: string
+          notes: string | null
+          user_id: string
+          weight_kg: number | null
+        }
+        Insert: {
+          baby_id: string
+          created_at?: string
+          head_circumference_cm?: number | null
+          height_cm?: number | null
+          id?: string
+          log_date?: string
+          notes?: string | null
+          user_id: string
+          weight_kg?: number | null
+        }
+        Update: {
+          baby_id?: string
+          created_at?: string
+          head_circumference_cm?: number | null
+          height_cm?: number | null
+          id?: string
+          log_date?: string
+          notes?: string | null
+          user_id?: string
+          weight_kg?: number | null
+        }
+        Relationships: []
+      }
+      baby_profiles: {
+        Row: {
+          birth_length_cm: number | null
+          birth_weight_kg: number | null
+          created_at: string
+          dob: string
+          id: string
+          name: string | null
+          sex: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          birth_length_cm?: number | null
+          birth_weight_kg?: number | null
+          created_at?: string
+          dob: string
+          id?: string
+          name?: string | null
+          sex?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          birth_length_cm?: number | null
+          birth_weight_kg?: number | null
+          created_at?: string
+          dob?: string
+          id?: string
+          name?: string | null
+          sex?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       community_posts: {
         Row: {
           anonymous: boolean
@@ -142,6 +214,42 @@ export type Database = {
           },
         ]
       }
+      feed_logs: {
+        Row: {
+          amount_ml: number | null
+          baby_id: string
+          created_at: string
+          duration_minutes: number | null
+          feed_type: string
+          id: string
+          notes: string | null
+          started_at: string
+          user_id: string
+        }
+        Insert: {
+          amount_ml?: number | null
+          baby_id: string
+          created_at?: string
+          duration_minutes?: number | null
+          feed_type: string
+          id?: string
+          notes?: string | null
+          started_at?: string
+          user_id: string
+        }
+        Update: {
+          amount_ml?: number | null
+          baby_id?: string
+          created_at?: string
+          duration_minutes?: number | null
+          feed_type?: string
+          id?: string
+          notes?: string | null
+          started_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       kick_sessions: {
         Row: {
           created_at: string
@@ -194,6 +302,42 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      postpartum_checkins: {
+        Row: {
+          created_at: string
+          epds_score: number | null
+          feeling_overwhelmed: boolean | null
+          id: string
+          log_date: string
+          mood_score: number | null
+          notes: string | null
+          sleep_hours: number | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          epds_score?: number | null
+          feeling_overwhelmed?: boolean | null
+          id?: string
+          log_date?: string
+          mood_score?: number | null
+          notes?: string | null
+          sleep_hours?: number | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          epds_score?: number | null
+          feeling_overwhelmed?: boolean | null
+          id?: string
+          log_date?: string
+          mood_score?: number | null
+          notes?: string | null
+          sleep_hours?: number | null
+          user_id?: string
+        }
+        Relationships: []
       }
       profiles: {
         Row: {
@@ -345,6 +489,42 @@ export type Database = {
           id?: string
           role?: Database["public"]["Enums"]["app_role"]
           user_id?: string
+        }
+        Relationships: []
+      }
+      vaccinations: {
+        Row: {
+          administered_date: string | null
+          baby_id: string
+          created_at: string
+          id: string
+          notes: string | null
+          scheduled_date: string
+          updated_at: string
+          user_id: string
+          vaccine_code: string
+        }
+        Insert: {
+          administered_date?: string | null
+          baby_id: string
+          created_at?: string
+          id?: string
+          notes?: string | null
+          scheduled_date: string
+          updated_at?: string
+          user_id: string
+          vaccine_code: string
+        }
+        Update: {
+          administered_date?: string | null
+          baby_id?: string
+          created_at?: string
+          id?: string
+          notes?: string | null
+          scheduled_date?: string
+          updated_at?: string
+          user_id?: string
+          vaccine_code?: string
         }
         Relationships: []
       }
