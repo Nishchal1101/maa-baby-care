@@ -14,6 +14,7 @@ import { Route as TrackerRouteImport } from './routes/tracker'
 import { Route as SymptomsRouteImport } from './routes/symptoms'
 import { Route as SignupRouteImport } from './routes/signup'
 import { Route as SchemesRouteImport } from './routes/schemes'
+import { Route as PostpartumRouteImport } from './routes/postpartum'
 import { Route as OnboardingRouteImport } from './routes/onboarding'
 import { Route as MoreRouteImport } from './routes/more'
 import { Route as LoginRouteImport } from './routes/login'
@@ -21,10 +22,15 @@ import { Route as KicksRouteImport } from './routes/kicks'
 import { Route as HomeRouteImport } from './routes/home'
 import { Route as DietRouteImport } from './routes/diet'
 import { Route as CommunityRouteImport } from './routes/community'
+import { Route as BabyRouteImport } from './routes/baby'
 import { Route as AppointmentsRouteImport } from './routes/appointments'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as WeekWeekRouteImport } from './routes/week.$week'
 import { Route as CommunityPostIdRouteImport } from './routes/community.$postId'
+import { Route as BabyVaccinationsRouteImport } from './routes/baby.vaccinations'
+import { Route as BabyGrowthRouteImport } from './routes/baby.growth'
+import { Route as BabyFeedsRouteImport } from './routes/baby.feeds'
+import { Route as BabyCareRouteImport } from './routes/baby.care'
 
 const YogaRoute = YogaRouteImport.update({
   id: '/yoga',
@@ -49,6 +55,11 @@ const SignupRoute = SignupRouteImport.update({
 const SchemesRoute = SchemesRouteImport.update({
   id: '/schemes',
   path: '/schemes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PostpartumRoute = PostpartumRouteImport.update({
+  id: '/postpartum',
+  path: '/postpartum',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OnboardingRoute = OnboardingRouteImport.update({
@@ -86,6 +97,11 @@ const CommunityRoute = CommunityRouteImport.update({
   path: '/community',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BabyRoute = BabyRouteImport.update({
+  id: '/baby',
+  path: '/baby',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AppointmentsRoute = AppointmentsRouteImport.update({
   id: '/appointments',
   path: '/appointments',
@@ -106,10 +122,31 @@ const CommunityPostIdRoute = CommunityPostIdRouteImport.update({
   path: '/$postId',
   getParentRoute: () => CommunityRoute,
 } as any)
+const BabyVaccinationsRoute = BabyVaccinationsRouteImport.update({
+  id: '/vaccinations',
+  path: '/vaccinations',
+  getParentRoute: () => BabyRoute,
+} as any)
+const BabyGrowthRoute = BabyGrowthRouteImport.update({
+  id: '/growth',
+  path: '/growth',
+  getParentRoute: () => BabyRoute,
+} as any)
+const BabyFeedsRoute = BabyFeedsRouteImport.update({
+  id: '/feeds',
+  path: '/feeds',
+  getParentRoute: () => BabyRoute,
+} as any)
+const BabyCareRoute = BabyCareRouteImport.update({
+  id: '/care',
+  path: '/care',
+  getParentRoute: () => BabyRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/appointments': typeof AppointmentsRoute
+  '/baby': typeof BabyRouteWithChildren
   '/community': typeof CommunityRouteWithChildren
   '/diet': typeof DietRoute
   '/home': typeof HomeRoute
@@ -117,17 +154,23 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/more': typeof MoreRoute
   '/onboarding': typeof OnboardingRoute
+  '/postpartum': typeof PostpartumRoute
   '/schemes': typeof SchemesRoute
   '/signup': typeof SignupRoute
   '/symptoms': typeof SymptomsRoute
   '/tracker': typeof TrackerRoute
   '/yoga': typeof YogaRoute
+  '/baby/care': typeof BabyCareRoute
+  '/baby/feeds': typeof BabyFeedsRoute
+  '/baby/growth': typeof BabyGrowthRoute
+  '/baby/vaccinations': typeof BabyVaccinationsRoute
   '/community/$postId': typeof CommunityPostIdRoute
   '/week/$week': typeof WeekWeekRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/appointments': typeof AppointmentsRoute
+  '/baby': typeof BabyRouteWithChildren
   '/community': typeof CommunityRouteWithChildren
   '/diet': typeof DietRoute
   '/home': typeof HomeRoute
@@ -135,11 +178,16 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/more': typeof MoreRoute
   '/onboarding': typeof OnboardingRoute
+  '/postpartum': typeof PostpartumRoute
   '/schemes': typeof SchemesRoute
   '/signup': typeof SignupRoute
   '/symptoms': typeof SymptomsRoute
   '/tracker': typeof TrackerRoute
   '/yoga': typeof YogaRoute
+  '/baby/care': typeof BabyCareRoute
+  '/baby/feeds': typeof BabyFeedsRoute
+  '/baby/growth': typeof BabyGrowthRoute
+  '/baby/vaccinations': typeof BabyVaccinationsRoute
   '/community/$postId': typeof CommunityPostIdRoute
   '/week/$week': typeof WeekWeekRoute
 }
@@ -147,6 +195,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/appointments': typeof AppointmentsRoute
+  '/baby': typeof BabyRouteWithChildren
   '/community': typeof CommunityRouteWithChildren
   '/diet': typeof DietRoute
   '/home': typeof HomeRoute
@@ -154,11 +203,16 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/more': typeof MoreRoute
   '/onboarding': typeof OnboardingRoute
+  '/postpartum': typeof PostpartumRoute
   '/schemes': typeof SchemesRoute
   '/signup': typeof SignupRoute
   '/symptoms': typeof SymptomsRoute
   '/tracker': typeof TrackerRoute
   '/yoga': typeof YogaRoute
+  '/baby/care': typeof BabyCareRoute
+  '/baby/feeds': typeof BabyFeedsRoute
+  '/baby/growth': typeof BabyGrowthRoute
+  '/baby/vaccinations': typeof BabyVaccinationsRoute
   '/community/$postId': typeof CommunityPostIdRoute
   '/week/$week': typeof WeekWeekRoute
 }
@@ -167,6 +221,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/appointments'
+    | '/baby'
     | '/community'
     | '/diet'
     | '/home'
@@ -174,17 +229,23 @@ export interface FileRouteTypes {
     | '/login'
     | '/more'
     | '/onboarding'
+    | '/postpartum'
     | '/schemes'
     | '/signup'
     | '/symptoms'
     | '/tracker'
     | '/yoga'
+    | '/baby/care'
+    | '/baby/feeds'
+    | '/baby/growth'
+    | '/baby/vaccinations'
     | '/community/$postId'
     | '/week/$week'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/appointments'
+    | '/baby'
     | '/community'
     | '/diet'
     | '/home'
@@ -192,17 +253,23 @@ export interface FileRouteTypes {
     | '/login'
     | '/more'
     | '/onboarding'
+    | '/postpartum'
     | '/schemes'
     | '/signup'
     | '/symptoms'
     | '/tracker'
     | '/yoga'
+    | '/baby/care'
+    | '/baby/feeds'
+    | '/baby/growth'
+    | '/baby/vaccinations'
     | '/community/$postId'
     | '/week/$week'
   id:
     | '__root__'
     | '/'
     | '/appointments'
+    | '/baby'
     | '/community'
     | '/diet'
     | '/home'
@@ -210,11 +277,16 @@ export interface FileRouteTypes {
     | '/login'
     | '/more'
     | '/onboarding'
+    | '/postpartum'
     | '/schemes'
     | '/signup'
     | '/symptoms'
     | '/tracker'
     | '/yoga'
+    | '/baby/care'
+    | '/baby/feeds'
+    | '/baby/growth'
+    | '/baby/vaccinations'
     | '/community/$postId'
     | '/week/$week'
   fileRoutesById: FileRoutesById
@@ -222,6 +294,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AppointmentsRoute: typeof AppointmentsRoute
+  BabyRoute: typeof BabyRouteWithChildren
   CommunityRoute: typeof CommunityRouteWithChildren
   DietRoute: typeof DietRoute
   HomeRoute: typeof HomeRoute
@@ -229,6 +302,7 @@ export interface RootRouteChildren {
   LoginRoute: typeof LoginRoute
   MoreRoute: typeof MoreRoute
   OnboardingRoute: typeof OnboardingRoute
+  PostpartumRoute: typeof PostpartumRoute
   SchemesRoute: typeof SchemesRoute
   SignupRoute: typeof SignupRoute
   SymptomsRoute: typeof SymptomsRoute
@@ -272,6 +346,13 @@ declare module '@tanstack/react-router' {
       path: '/schemes'
       fullPath: '/schemes'
       preLoaderRoute: typeof SchemesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/postpartum': {
+      id: '/postpartum'
+      path: '/postpartum'
+      fullPath: '/postpartum'
+      preLoaderRoute: typeof PostpartumRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/onboarding': {
@@ -323,6 +404,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CommunityRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/baby': {
+      id: '/baby'
+      path: '/baby'
+      fullPath: '/baby'
+      preLoaderRoute: typeof BabyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/appointments': {
       id: '/appointments'
       path: '/appointments'
@@ -351,8 +439,52 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CommunityPostIdRouteImport
       parentRoute: typeof CommunityRoute
     }
+    '/baby/vaccinations': {
+      id: '/baby/vaccinations'
+      path: '/vaccinations'
+      fullPath: '/baby/vaccinations'
+      preLoaderRoute: typeof BabyVaccinationsRouteImport
+      parentRoute: typeof BabyRoute
+    }
+    '/baby/growth': {
+      id: '/baby/growth'
+      path: '/growth'
+      fullPath: '/baby/growth'
+      preLoaderRoute: typeof BabyGrowthRouteImport
+      parentRoute: typeof BabyRoute
+    }
+    '/baby/feeds': {
+      id: '/baby/feeds'
+      path: '/feeds'
+      fullPath: '/baby/feeds'
+      preLoaderRoute: typeof BabyFeedsRouteImport
+      parentRoute: typeof BabyRoute
+    }
+    '/baby/care': {
+      id: '/baby/care'
+      path: '/care'
+      fullPath: '/baby/care'
+      preLoaderRoute: typeof BabyCareRouteImport
+      parentRoute: typeof BabyRoute
+    }
   }
 }
+
+interface BabyRouteChildren {
+  BabyCareRoute: typeof BabyCareRoute
+  BabyFeedsRoute: typeof BabyFeedsRoute
+  BabyGrowthRoute: typeof BabyGrowthRoute
+  BabyVaccinationsRoute: typeof BabyVaccinationsRoute
+}
+
+const BabyRouteChildren: BabyRouteChildren = {
+  BabyCareRoute: BabyCareRoute,
+  BabyFeedsRoute: BabyFeedsRoute,
+  BabyGrowthRoute: BabyGrowthRoute,
+  BabyVaccinationsRoute: BabyVaccinationsRoute,
+}
+
+const BabyRouteWithChildren = BabyRoute._addFileChildren(BabyRouteChildren)
 
 interface CommunityRouteChildren {
   CommunityPostIdRoute: typeof CommunityPostIdRoute
@@ -369,6 +501,7 @@ const CommunityRouteWithChildren = CommunityRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AppointmentsRoute: AppointmentsRoute,
+  BabyRoute: BabyRouteWithChildren,
   CommunityRoute: CommunityRouteWithChildren,
   DietRoute: DietRoute,
   HomeRoute: HomeRoute,
@@ -376,6 +509,7 @@ const rootRouteChildren: RootRouteChildren = {
   LoginRoute: LoginRoute,
   MoreRoute: MoreRoute,
   OnboardingRoute: OnboardingRoute,
+  PostpartumRoute: PostpartumRoute,
   SchemesRoute: SchemesRoute,
   SignupRoute: SignupRoute,
   SymptomsRoute: SymptomsRoute,

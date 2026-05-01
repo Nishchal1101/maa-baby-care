@@ -4,7 +4,7 @@ import { useAuth } from "@/lib/auth";
 import { useI18n } from "@/lib/i18n";
 import { LanguageToggle } from "@/components/language-toggle";
 import { Button } from "@/components/ui/button";
-import { Footprints, Activity, LogOut, User, Flower2, Landmark, MessageCircle } from "lucide-react";
+import { Footprints, Activity, LogOut, User, Flower2, Landmark, MessageCircle, Baby, Heart } from "lucide-react";
 
 export const Route = createFileRoute("/more")({
   component: MorePage,
@@ -31,6 +31,12 @@ function MorePage() {
         </div>
 
         <div className="mt-4 space-y-2">
+          <Link to="/baby" className="flex items-center gap-3 rounded-2xl bg-card p-4 shadow-sm">
+            <Baby className="h-5 w-5 text-primary" /> {t("baby")}
+          </Link>
+          <Link to="/postpartum" className="flex items-center gap-3 rounded-2xl bg-card p-4 shadow-sm">
+            <Heart className="h-5 w-5 text-primary" /> {t("postpartum")}
+          </Link>
           <Link to="/kicks" className="flex items-center gap-3 rounded-2xl bg-card p-4 shadow-sm">
             <Footprints className="h-5 w-5 text-primary" /> {t("kicks_title")}
           </Link>
