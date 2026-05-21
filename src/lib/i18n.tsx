@@ -22,6 +22,16 @@ const en: Dict = {
   language: "Language",
   english: "English",
   hindi: "हिन्दी",
+  get_started: "Get started",
+  skip: "Skip",
+  next: "Next",
+  welcome_1_title: "A gentle companion for every week",
+  welcome_1_body: "Track your pregnancy week-by-week with size comparisons you'll actually recognise — mango, papaya, coconut.",
+  welcome_2_title: "Indian diet, made for you",
+  welcome_2_body: "Trimester-wise veg, non-veg and eggetarian meal plans rooted in Indian kitchens.",
+  welcome_3_title: "Care that travels with you",
+  welcome_3_body: "ANC reminders, kick counter, symptom log, baby vaccinations and a kind community — all in one place.",
+  hindi: "हिन्दी",
 
   // Onboarding
   welcome: "Welcome, mama 🌸",
