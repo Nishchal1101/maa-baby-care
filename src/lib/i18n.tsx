@@ -197,6 +197,12 @@ const en: Dict = {
   breastfeeding: "Breastfeeding",
   postpartum: "Postpartum check-in",
   postpartum_intro: "How are YOU feeling? A weekly check-in based on the EPDS scale.",
+
+  // Reset / storage
+  clear_storage: "Clear all app data",
+  reset_confirm_title: "Reset app?",
+  reset_confirm_body: "This clears all local data (language, welcome state, login session) and signs you out. Your cloud data stays safe.",
+  confirm: "Confirm",
   not_at_all: "Not at all",
   rarely: "Rarely",
   sometimes: "Sometimes",
