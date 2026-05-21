@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as YogaRouteImport } from './routes/yoga'
+import { Route as WelcomeRouteImport } from './routes/welcome'
 import { Route as TrackerRouteImport } from './routes/tracker'
 import { Route as SymptomsRouteImport } from './routes/symptoms'
 import { Route as SignupRouteImport } from './routes/signup'
@@ -35,6 +36,11 @@ import { Route as BabyCareRouteImport } from './routes/baby.care'
 const YogaRoute = YogaRouteImport.update({
   id: '/yoga',
   path: '/yoga',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WelcomeRoute = WelcomeRouteImport.update({
+  id: '/welcome',
+  path: '/welcome',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TrackerRoute = TrackerRouteImport.update({
@@ -159,6 +165,7 @@ export interface FileRoutesByFullPath {
   '/signup': typeof SignupRoute
   '/symptoms': typeof SymptomsRoute
   '/tracker': typeof TrackerRoute
+  '/welcome': typeof WelcomeRoute
   '/yoga': typeof YogaRoute
   '/baby/care': typeof BabyCareRoute
   '/baby/feeds': typeof BabyFeedsRoute
@@ -183,6 +190,7 @@ export interface FileRoutesByTo {
   '/signup': typeof SignupRoute
   '/symptoms': typeof SymptomsRoute
   '/tracker': typeof TrackerRoute
+  '/welcome': typeof WelcomeRoute
   '/yoga': typeof YogaRoute
   '/baby/care': typeof BabyCareRoute
   '/baby/feeds': typeof BabyFeedsRoute
@@ -208,6 +216,7 @@ export interface FileRoutesById {
   '/signup': typeof SignupRoute
   '/symptoms': typeof SymptomsRoute
   '/tracker': typeof TrackerRoute
+  '/welcome': typeof WelcomeRoute
   '/yoga': typeof YogaRoute
   '/baby/care': typeof BabyCareRoute
   '/baby/feeds': typeof BabyFeedsRoute
@@ -234,6 +243,7 @@ export interface FileRouteTypes {
     | '/signup'
     | '/symptoms'
     | '/tracker'
+    | '/welcome'
     | '/yoga'
     | '/baby/care'
     | '/baby/feeds'
@@ -258,6 +268,7 @@ export interface FileRouteTypes {
     | '/signup'
     | '/symptoms'
     | '/tracker'
+    | '/welcome'
     | '/yoga'
     | '/baby/care'
     | '/baby/feeds'
@@ -282,6 +293,7 @@ export interface FileRouteTypes {
     | '/signup'
     | '/symptoms'
     | '/tracker'
+    | '/welcome'
     | '/yoga'
     | '/baby/care'
     | '/baby/feeds'
@@ -307,6 +319,7 @@ export interface RootRouteChildren {
   SignupRoute: typeof SignupRoute
   SymptomsRoute: typeof SymptomsRoute
   TrackerRoute: typeof TrackerRoute
+  WelcomeRoute: typeof WelcomeRoute
   YogaRoute: typeof YogaRoute
   WeekWeekRoute: typeof WeekWeekRoute
 }
@@ -318,6 +331,13 @@ declare module '@tanstack/react-router' {
       path: '/yoga'
       fullPath: '/yoga'
       preLoaderRoute: typeof YogaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/welcome': {
+      id: '/welcome'
+      path: '/welcome'
+      fullPath: '/welcome'
+      preLoaderRoute: typeof WelcomeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tracker': {
@@ -514,18 +534,10 @@ const rootRouteChildren: RootRouteChildren = {
   SignupRoute: SignupRoute,
   SymptomsRoute: SymptomsRoute,
   TrackerRoute: TrackerRoute,
+  WelcomeRoute: WelcomeRoute,
   YogaRoute: YogaRoute,
   WeekWeekRoute: WeekWeekRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-  }
-}

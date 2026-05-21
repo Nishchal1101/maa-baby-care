@@ -66,13 +66,13 @@ function CommunityPage() {
           <ChevronLeft className="h-4 w-4" /> {t("back")}
         </Link>
         <div className="flex items-start justify-between gap-3">
-          <div className="flex items-center gap-3">
-            <span className="grid h-11 w-11 place-items-center rounded-full bg-primary/10 text-primary">
+          <div className="flex min-w-0 flex-1 items-center gap-3">
+            <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-primary/10 text-primary">
               <MessageCircle className="h-5 w-5" />
             </span>
-            <div>
-              <h1 className="font-display text-2xl">{t("community")}</h1>
-              <p className="text-xs text-muted-foreground">{t("community_intro")}</p>
+            <div className="min-w-0 flex-1">
+              <h1 className="font-display text-2xl leading-tight">{t("community")}</h1>
+              <p className="text-xs text-muted-foreground break-words">{t("community_intro")}</p>
             </div>
           </div>
           <Dialog open={open} onOpenChange={setOpen}>
@@ -131,15 +131,15 @@ function PostCard({ post }: { post: Post }) {
       params={{ postId: post.id }}
       className="block rounded-2xl bg-card p-4 shadow-sm active:scale-[0.99]"
     >
-      <div className="flex items-center gap-2 text-[11px] text-muted-foreground">
-        <span>{topic?.emoji} {topic?.label ?? post.topic}</span>
+      <div className="flex flex-wrap items-center gap-x-1.5 gap-y-0.5 text-[11px] text-muted-foreground">
+        <span className="truncate max-w-[40%]">{topic?.emoji} {topic?.label ?? post.topic}</span>
         <span>·</span>
-        <span>{t("by")} {author}</span>
+        <span className="truncate max-w-[35%]">{t("by")} {author}</span>
         <span>·</span>
-        <span>{formatDistanceToNow(new Date(post.created_at), { addSuffix: true })}</span>
+        <span className="truncate">{formatDistanceToNow(new Date(post.created_at), { addSuffix: true })}</span>
       </div>
-      <h3 className="mt-1.5 font-medium leading-snug">{post.title}</h3>
-      <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">{post.body}</p>
+      <h3 className="mt-1.5 font-medium leading-snug break-words">{post.title}</h3>
+      <p className="mt-1 line-clamp-2 text-sm text-muted-foreground break-words">{post.body}</p>
       <div className="mt-2 flex items-center gap-4 text-xs text-muted-foreground">
         <span className="inline-flex items-center gap-1"><ArrowUp className="h-3.5 w-3.5" /> {post.vote_count}</span>
         <span className="inline-flex items-center gap-1"><MessageCircle className="h-3.5 w-3.5" /> {post.reply_count}</span>

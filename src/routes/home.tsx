@@ -46,12 +46,12 @@ function HomePage() {
   return (
     <MobileShell>
       <div className="px-5 pb-6 pt-8">
-        <div className="flex items-center justify-between">
-          <div>
+        <div className="flex items-center justify-between gap-3">
+          <div className="min-w-0 flex-1">
             <p className="text-xs text-muted-foreground">{t("app_name")}</p>
-            <h1 className="font-display text-2xl">Hi {profile?.name || "mama"} 🌸</h1>
+            <h1 className="truncate font-display text-2xl">Hi {profile?.name || "mama"} 🌸</h1>
           </div>
-          <LanguageToggle />
+          <div className="shrink-0"><LanguageToggle /></div>
         </div>
 
         {/* Week banner */}
@@ -83,8 +83,8 @@ function HomePage() {
             <Link to="/appointments" className="text-xs font-medium text-primary">View all</Link>
           </div>
           {nextAppt ? (
-            <div className="mt-2">
-              <p className="text-sm font-medium">{nextAppt.title}</p>
+            <div className="mt-2 min-w-0">
+              <p className="truncate text-sm font-medium">{nextAppt.title}</p>
               <p className="text-xs text-muted-foreground">{new Date(nextAppt.scheduled_at).toLocaleString()}</p>
             </div>
           ) : (
@@ -125,8 +125,8 @@ function ActionCard({
       params={params}
       className="flex flex-col items-start gap-2 rounded-2xl bg-card p-4 shadow-sm transition-transform active:scale-[0.98]"
     >
-      <span className="grid h-9 w-9 place-items-center rounded-full bg-primary/10 text-primary">{icon}</span>
-      <span className="text-sm font-medium">{label}</span>
+      <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-primary/10 text-primary">{icon}</span>
+      <span className="w-full break-words text-sm font-medium leading-snug">{label}</span>
     </Link>
   );
 }

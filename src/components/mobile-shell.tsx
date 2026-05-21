@@ -6,9 +6,9 @@ import { cn } from "@/lib/utils";
 
 export function MobileShell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen bg-background">
-      <div className="mx-auto flex min-h-screen max-w-md flex-col">
-        <main className="flex-1 pb-24">{children}</main>
+    <div className="min-h-screen overflow-x-hidden bg-background">
+      <div className="mx-auto flex min-h-screen w-full max-w-md flex-col overflow-x-hidden">
+        <main className="w-full flex-1 pb-24">{children}</main>
         <BottomNav />
       </div>
     </div>
@@ -35,12 +35,12 @@ function BottomNav() {
               <Link
                 to={to}
                 className={cn(
-                  "flex flex-col items-center gap-1 py-3 text-[11px] transition-colors",
+                  "flex flex-col items-center gap-1 px-1 py-3 text-[11px] transition-colors",
                   active ? "text-primary" : "text-muted-foreground hover:text-foreground",
                 )}
               >
-                <Icon className="h-5 w-5" />
-                <span>{label}</span>
+                <Icon className="h-5 w-5 shrink-0" />
+                <span className="max-w-full truncate">{label}</span>
               </Link>
             </li>
           );
