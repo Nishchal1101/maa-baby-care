@@ -95,8 +95,8 @@ function BabyPage() {
         <div className="mt-5 grid grid-cols-2 gap-3">
           {tiles.map(({ to, icon: Icon, label }) => (
             <Link key={to} to={to} className="flex flex-col gap-2 rounded-2xl bg-card p-4 shadow-sm">
-              <Icon className="h-5 w-5 text-primary" />
-              <span className="text-sm font-medium">{label}</span>
+              <Icon className="h-5 w-5 shrink-0 text-primary" />
+              <span className="break-words text-sm font-medium leading-snug">{label}</span>
             </Link>
           ))}
         </div>
