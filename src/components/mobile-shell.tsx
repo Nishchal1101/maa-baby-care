@@ -35,12 +35,12 @@ function BottomNav() {
               <Link
                 to={to}
                 className={cn(
-                  "flex flex-col items-center gap-1 py-3 text-[11px] transition-colors",
+                  "flex flex-col items-center gap-1 px-1 py-3 text-[11px] transition-colors",
                   active ? "text-primary" : "text-muted-foreground hover:text-foreground",
                 )}
               >
-                <Icon className="h-5 w-5" />
-                <span>{label}</span>
+                <Icon className="h-5 w-5 shrink-0" />
+                <span className="max-w-full truncate">{label}</span>
               </Link>
             </li>
           );
