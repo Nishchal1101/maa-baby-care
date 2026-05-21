@@ -125,8 +125,8 @@ function ActionCard({
       params={params}
       className="flex flex-col items-start gap-2 rounded-2xl bg-card p-4 shadow-sm transition-transform active:scale-[0.98]"
     >
-      <span className="grid h-9 w-9 place-items-center rounded-full bg-primary/10 text-primary">{icon}</span>
-      <span className="text-sm font-medium">{label}</span>
+      <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-primary/10 text-primary">{icon}</span>
+      <span className="w-full break-words text-sm font-medium leading-snug">{label}</span>
     </Link>
   );
 }
