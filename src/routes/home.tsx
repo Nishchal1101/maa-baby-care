@@ -46,12 +46,12 @@ function HomePage() {
   return (
     <MobileShell>
       <div className="px-5 pb-6 pt-8">
-        <div className="flex items-center justify-between">
-          <div>
+        <div className="flex items-center justify-between gap-3">
+          <div className="min-w-0 flex-1">
             <p className="text-xs text-muted-foreground">{t("app_name")}</p>
-            <h1 className="font-display text-2xl">Hi {profile?.name || "mama"} 🌸</h1>
+            <h1 className="truncate font-display text-2xl">Hi {profile?.name || "mama"} 🌸</h1>
           </div>
-          <LanguageToggle />
+          <div className="shrink-0"><LanguageToggle /></div>
         </div>
 
         {/* Week banner */}
