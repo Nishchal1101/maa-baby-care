@@ -31,7 +31,6 @@ const en: Dict = {
   welcome_2_body: "Trimester-wise veg, non-veg and eggetarian meal plans rooted in Indian kitchens.",
   welcome_3_title: "Care that travels with you",
   welcome_3_body: "ANC reminders, kick counter, symptom log, baby vaccinations and a kind community — all in one place.",
-  hindi: "हिन्दी",
 
   // Onboarding
   welcome: "Welcome, mama 🌸",
