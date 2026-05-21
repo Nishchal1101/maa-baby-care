@@ -83,8 +83,8 @@ function HomePage() {
             <Link to="/appointments" className="text-xs font-medium text-primary">View all</Link>
           </div>
           {nextAppt ? (
-            <div className="mt-2">
-              <p className="text-sm font-medium">{nextAppt.title}</p>
+            <div className="mt-2 min-w-0">
+              <p className="truncate text-sm font-medium">{nextAppt.title}</p>
               <p className="text-xs text-muted-foreground">{new Date(nextAppt.scheduled_at).toLocaleString()}</p>
             </div>
           ) : (
