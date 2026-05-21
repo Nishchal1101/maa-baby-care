@@ -66,13 +66,13 @@ function CommunityPage() {
           <ChevronLeft className="h-4 w-4" /> {t("back")}
         </Link>
         <div className="flex items-start justify-between gap-3">
-          <div className="flex items-center gap-3">
-            <span className="grid h-11 w-11 place-items-center rounded-full bg-primary/10 text-primary">
+          <div className="flex min-w-0 flex-1 items-center gap-3">
+            <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-primary/10 text-primary">
               <MessageCircle className="h-5 w-5" />
             </span>
-            <div>
-              <h1 className="font-display text-2xl">{t("community")}</h1>
-              <p className="text-xs text-muted-foreground">{t("community_intro")}</p>
+            <div className="min-w-0 flex-1">
+              <h1 className="font-display text-2xl leading-tight">{t("community")}</h1>
+              <p className="text-xs text-muted-foreground break-words">{t("community_intro")}</p>
             </div>
           </div>
           <Dialog open={open} onOpenChange={setOpen}>
