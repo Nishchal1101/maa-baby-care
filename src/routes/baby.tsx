@@ -63,12 +63,12 @@ function BabyPage() {
         <h1 className="font-display text-2xl">{t("baby_overview")}</h1>
 
         <div className="mt-6 rounded-3xl bg-gradient-to-br from-[oklch(0.92_0.07_15)] to-[oklch(0.9_0.06_150)] p-6 shadow-sm">
-          <div className="flex items-center gap-3">
-            <span className="grid h-12 w-12 place-items-center rounded-full bg-card text-primary">
+          <div className="flex min-w-0 items-center gap-3">
+            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-card text-primary">
               <BabyIcon className="h-6 w-6" />
             </span>
-            <div>
-              <p className="font-display text-xl">{baby.name || t("baby")}</p>
+            <div className="min-w-0 flex-1">
+              <p className="truncate font-display text-xl">{baby.name || t("baby")}</p>
               <p className="text-xs text-muted-foreground">
                 {t("age")}: {ageLabel(baby.dob, lang)}
               </p>
