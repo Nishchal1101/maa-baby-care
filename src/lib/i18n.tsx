@@ -395,6 +395,12 @@ const hi: Dict = {
   breastfeeding: "स्तनपान",
   postpartum: "प्रसवोत्तर जाँच",
   postpartum_intro: "आप कैसा महसूस कर रही हैं? EPDS पैमाने पर साप्ताहिक जाँच।",
+
+  // Reset / storage
+  clear_storage: "सभी ऐप डेटा साफ़ करें",
+  reset_confirm_title: "ऐप रीसेट करें?",
+  reset_confirm_body: "यह सभी स्थानीय डेटा (भाषा, वेलकम स्थिति, लॉगिन सत्र) साफ़ कर देगा और साइन आउट कर देगा। आपका क्लाउड डेटा सुरक्षित रहेगा।",
+  confirm: "पुष्टि करें",
   not_at_all: "बिल्कुल नहीं",
   rarely: "कभी-कभार",
   sometimes: "कभी-कभी",
