@@ -29,6 +29,9 @@ function Landing() {
     if (loading) return;
     if (user && profile?.onboarded) nav({ to: "/home" });
     else if (user && profile && !profile.onboarded) nav({ to: "/onboarding" });
+    else if (!user && typeof window !== "undefined" && !localStorage.getItem("welcomed")) {
+      nav({ to: "/welcome" });
+    }
   }, [loading, user, profile, nav]);
 
   return (
