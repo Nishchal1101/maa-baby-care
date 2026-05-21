@@ -197,6 +197,12 @@ const en: Dict = {
   breastfeeding: "Breastfeeding",
   postpartum: "Postpartum check-in",
   postpartum_intro: "How are YOU feeling? A weekly check-in based on the EPDS scale.",
+
+  // Reset / storage
+  clear_storage: "Clear all app data",
+  reset_confirm_title: "Reset app?",
+  reset_confirm_body: "This clears all local data (language, welcome state, login session) and signs you out. Your cloud data stays safe.",
+  confirm: "Confirm",
   not_at_all: "Not at all",
   rarely: "Rarely",
   sometimes: "Sometimes",
@@ -389,6 +395,12 @@ const hi: Dict = {
   breastfeeding: "स्तनपान",
   postpartum: "प्रसवोत्तर जाँच",
   postpartum_intro: "आप कैसा महसूस कर रही हैं? EPDS पैमाने पर साप्ताहिक जाँच।",
+
+  // Reset / storage
+  clear_storage: "सभी ऐप डेटा साफ़ करें",
+  reset_confirm_title: "ऐप रीसेट करें?",
+  reset_confirm_body: "यह सभी स्थानीय डेटा (भाषा, वेलकम स्थिति, लॉगिन सत्र) साफ़ कर देगा और साइन आउट कर देगा। आपका क्लाउड डेटा सुरक्षित रहेगा।",
+  confirm: "पुष्टि करें",
   not_at_all: "बिल्कुल नहीं",
   rarely: "कभी-कभार",
   sometimes: "कभी-कभी",
