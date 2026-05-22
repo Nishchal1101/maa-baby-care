@@ -130,6 +130,14 @@ function LoginPage() {
       <p className="mt-6 text-center text-sm text-muted-foreground">
         New here? <Link to="/signup" className="font-medium text-primary">{t("signup")}</Link>
       </p>
+
+      <button
+        type="button"
+        onClick={clearSavedCredentials}
+        className="mt-4 text-[10px] text-muted-foreground hover:text-destructive w-full text-center"
+      >
+        Clear saved credentials
+      </button>
     </div>
   );
 }
