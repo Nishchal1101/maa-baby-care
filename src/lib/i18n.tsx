@@ -223,6 +223,8 @@ const hi: Dict = {
   logout: "लॉग आउट",
   email: "ईमेल",
   password: "पासवर्ड",
+  forgot_password: "पासवर्ड भूल गए?",
+  reset_password_sent: "पासवर्ड रीसेट लिंक के लिए अपना ईमेल देखें।",
   name: "आपका नाम",
   continue: "आगे",
   back: "वापस",
