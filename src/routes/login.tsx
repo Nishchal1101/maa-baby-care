@@ -28,11 +28,28 @@ function LoginPage() {
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!email || !password) {
+      toast.error("Please enter your email and password.");
+      return;
+    }
     setBusy(true);
     const { error } = await supabase.auth.signInWithPassword({ email, password });
     setBusy(false);
     if (error) {
-      toast.error(error.message);
+      const msg = error.message?.toLowerCase() ?? "";
+      let friendly = error.message || "Login failed. Please try again.";
+      if (msg.includes("invalid login credentials")) {
+        friendly = "Incorrect email or password. Please check and try again.";
+      } else if (msg.includes("email not confirmed")) {
+        friendly = "Please verify your email first. Check your inbox for the confirmation link.";
+      } else if (msg.includes("user not found")) {
+        friendly = "No account found with this email. Please sign up first.";
+      } else if (msg.includes("rate limit") || msg.includes("too many")) {
+        friendly = "Too many attempts. Please wait a moment and try again.";
+      } else if (msg.includes("network") || msg.includes("fetch")) {
+        friendly = "Network error. Please check your internet connection.";
+      }
+      toast.error(friendly, { description: error.message });
       return;
     }
     toast.success("Welcome back!");
