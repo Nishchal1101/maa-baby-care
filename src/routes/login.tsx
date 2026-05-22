@@ -55,6 +55,21 @@ function LoginPage() {
     toast.success("Welcome back!");
   };
 
+  const forgotPassword = async () => {
+    if (!email) {
+      toast.error("Please enter your email first.");
+      return;
+    }
+    setBusy(true);
+    const { error } = await supabase.auth.resetPasswordForEmail(email);
+    setBusy(false);
+    if (error) {
+      toast.error(error.message);
+      return;
+    }
+    toast.success(t("reset_password_sent"));
+  };
+
   return (
     <div className="mx-auto flex min-h-screen max-w-md flex-col px-6 pb-10 pt-8">
       <div className="flex justify-end"><LanguageToggle /></div>
@@ -69,6 +84,13 @@ function LoginPage() {
         <div className="space-y-2">
           <Label htmlFor="password">{t("password")}</Label>
           <Input id="password" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} className="h-12 rounded-xl" />
+          <button
+            type="button"
+            onClick={forgotPassword}
+            className="text-[10px] text-muted-foreground hover:text-primary w-full text-right"
+          >
+            {t("forgot_password")}
+          </button>
         </div>
         <Button type="submit" disabled={busy} className="h-12 w-full rounded-full text-base">
           {busy ? t("loading") : t("login")}
