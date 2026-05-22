@@ -12,6 +12,8 @@ const en: Dict = {
   logout: "Log out",
   email: "Email",
   password: "Password",
+  forgot_password: "Forgot Password?",
+  reset_password_sent: "Check your email for the password reset link.",
   name: "Your name",
   continue: "Continue",
   back: "Back",
