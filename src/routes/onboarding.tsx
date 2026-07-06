@@ -123,11 +123,45 @@ function OnboardingPage() {
           <div className="grid grid-cols-2 gap-3">
             <div className="space-y-2">
               <Label htmlFor="city">{t("city")}</Label>
-              <Input id="city" value={city} onChange={(e) => setCity(e.target.value)} className="h-12 rounded-xl" />
+              <Input
+                id="city"
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+                onFocus={() => setCityOpen(true)}
+                onBlur={() => setTimeout(() => setCityOpen(false), 150)}
+                autoComplete="off"
+                className="h-12 rounded-xl"
+              />
+              {cityOpen && city.trim().length > 0 && citySuggestions.length > 0 && (
+                <div className="relative">
+                  <ul className="absolute z-20 mt-1 max-h-56 w-full overflow-auto rounded-xl border border-border bg-popover text-popover-foreground shadow-md">
+                    {citySuggestions.map((c) => (
+                      <li key={c}>
+                        <button
+                          type="button"
+                          onMouseDown={(e) => { e.preventDefault(); setCity(c); setCityOpen(false); }}
+                          className="block w-full px-3 py-2 text-left text-sm hover:bg-accent hover:text-accent-foreground"
+                        >
+                          {c}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
             <div className="space-y-2">
               <Label htmlFor="state">{t("state")}</Label>
-              <Input id="state" value={stateName} onChange={(e) => setStateName(e.target.value)} className="h-12 rounded-xl" />
+              <Select value={stateName} onValueChange={setStateName}>
+                <SelectTrigger id="state" className="h-12 rounded-xl">
+                  <SelectValue placeholder="Select state" />
+                </SelectTrigger>
+                <SelectContent>
+                  {INDIAN_STATES.map((s) => (
+                    <SelectItem key={s} value={s}>{s}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
           </div>
         </div>
