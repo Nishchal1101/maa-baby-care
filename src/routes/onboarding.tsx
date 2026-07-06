@@ -27,6 +27,12 @@ function OnboardingPage() {
   const [city, setCity] = React.useState("");
   const [stateName, setStateName] = React.useState("");
   const [busy, setBusy] = React.useState(false);
+  const [cityOpen, setCityOpen] = React.useState(false);
+  const citySuggestions = React.useMemo(() => {
+    const q = city.trim().toLowerCase();
+    if (!q) return [];
+    return INDIAN_CITIES.filter((c) => c.toLowerCase().startsWith(q)).slice(0, 8);
+  }, [city]);
 
   React.useEffect(() => {
     if (loading) return;
