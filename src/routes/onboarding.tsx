@@ -6,7 +6,9 @@ import { useI18n } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { calcDueFromLMP } from "@/lib/pregnancy";
+import { INDIAN_CITIES, INDIAN_STATES } from "@/lib/india-locations";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/onboarding")({
