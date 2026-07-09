@@ -27,9 +27,6 @@ function YogaPage() {
   return (
     <MobileShell>
       <div className="px-5 pb-6 pt-6">
-        <Link to="/more" className="mb-3 inline-flex items-center gap-1 text-sm text-muted-foreground">
-          <ChevronLeft className="h-4 w-4" /> {t("back")}
-        </Link>
         <div className="flex items-center gap-3">
           <span className="grid h-11 w-11 place-items-center rounded-full bg-primary/10 text-primary">
             <Flower2 className="h-5 w-5" />
