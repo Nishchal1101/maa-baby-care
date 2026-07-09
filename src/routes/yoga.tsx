@@ -38,11 +38,11 @@ function YogaPage() {
         </div>
 
         <Tabs defaultValue="poses" className="mt-6">
-          <TabsList className="grid w-full grid-cols-4 rounded-full bg-muted p-1">
-            <TabsTrigger value="poses" className="rounded-full text-xs">{t("poses")}</TabsTrigger>
-            <TabsTrigger value="breathing" className="rounded-full text-xs">{t("breathing")}</TabsTrigger>
-            <TabsTrigger value="kegels" className="rounded-full text-xs">{t("kegels")}</TabsTrigger>
-            <TabsTrigger value="walking" className="rounded-full text-xs">{t("walking")}</TabsTrigger>
+          <TabsList className="flex w-full overflow-x-auto rounded-full bg-muted p-1 [scrollbar-width:none]">
+            <TabsTrigger value="poses" className="shrink-0 rounded-full text-xs">{t("poses")}</TabsTrigger>
+            <TabsTrigger value="breathing" className="shrink-0 rounded-full text-xs">{t("breathing")}</TabsTrigger>
+            <TabsTrigger value="kegels" className="shrink-0 rounded-full text-xs">{t("kegels")}</TabsTrigger>
+            <TabsTrigger value="walking" className="shrink-0 rounded-full text-xs">{t("walking")}</TabsTrigger>
           </TabsList>
 
           <TabsContent value="poses" className="mt-4 space-y-4">
