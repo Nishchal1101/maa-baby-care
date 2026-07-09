@@ -40,6 +40,7 @@ function Landing() {
       <div className="mx-auto flex min-h-screen max-w-md flex-col px-6 pb-10 pt-8">
         <header className="flex items-center justify-between">
           <div className="flex items-center gap-2">
+            <BackButton />
             <span className="grid h-9 w-9 place-items-center rounded-full bg-primary text-primary-foreground">
               <Heart className="h-5 w-5" />
             </span>
