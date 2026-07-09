@@ -3,6 +3,7 @@ import * as React from "react";
 import { useAuth } from "@/lib/auth";
 import { useI18n } from "@/lib/i18n";
 import { LanguageToggle } from "@/components/language-toggle";
+import { BackButton } from "@/components/back-button";
 import { Button } from "@/components/ui/button";
 import { Heart, Sparkles, Calendar, Salad } from "lucide-react";
 
