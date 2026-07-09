@@ -6,7 +6,7 @@ import { yogaPoses, breathing, kegelGuide, exerciseAvoid, walkingGoal, type Trim
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
-import { ChevronLeft, Wind, Footprints, ShieldAlert, Flower2 } from "lucide-react";
+import { Wind, Footprints, ShieldAlert, Flower2 } from "lucide-react";
 
 export const Route = createFileRoute("/yoga")({
   head: () => ({
