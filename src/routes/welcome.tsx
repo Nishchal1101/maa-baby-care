@@ -2,6 +2,7 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import * as React from "react";
 import { Heart, Calendar, Salad, Sparkles } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
+import { BackButton } from "@/components/back-button";
 import { LanguageToggle } from "@/components/language-toggle";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
