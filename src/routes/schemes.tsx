@@ -3,7 +3,7 @@ import { MobileShell } from "@/components/mobile-shell";
 import { useI18n } from "@/lib/i18n";
 import { schemes, emergencyContacts } from "@/lib/schemes";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { ChevronLeft, Phone, Landmark, ExternalLink } from "lucide-react";
+import { Phone, Landmark, ExternalLink } from "lucide-react";
 
 export const Route = createFileRoute("/schemes")({
   head: () => ({
