@@ -6,6 +6,7 @@ import { useI18n } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { BackButton } from "@/components/back-button";
 import { LanguageToggle } from "@/components/language-toggle";
 import { toast } from "sonner";
 
