@@ -3,6 +3,7 @@ import * as React from "react";
 import { useAuth } from "@/lib/auth";
 import { useI18n } from "@/lib/i18n";
 import { LanguageToggle } from "@/components/language-toggle";
+import { BackButton } from "@/components/back-button";
 import { Button } from "@/components/ui/button";
 import { Heart, Sparkles, Calendar, Salad } from "lucide-react";
 
@@ -39,6 +40,7 @@ function Landing() {
       <div className="mx-auto flex min-h-screen max-w-md flex-col px-6 pb-10 pt-8">
         <header className="flex items-center justify-between">
           <div className="flex items-center gap-2">
+            <BackButton />
             <span className="grid h-9 w-9 place-items-center rounded-full bg-primary text-primary-foreground">
               <Heart className="h-5 w-5" />
             </span>

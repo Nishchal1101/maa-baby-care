@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Link, useLocation } from "@tanstack/react-router";
 import { useI18n } from "@/lib/i18n";
+import { BackButton } from "@/components/back-button";
 import { Home, Calendar, Salad, Activity, MoreHorizontal } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -8,12 +9,18 @@ export function MobileShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen overflow-x-hidden bg-background">
       <div className="mx-auto flex min-h-screen w-full max-w-md flex-col overflow-x-hidden">
-        <main className="w-full flex-1 pb-24">{children}</main>
+        <main className="w-full flex-1 pb-24">
+          <div className="px-5 pt-5">
+            <BackButton />
+          </div>
+          {children}
+        </main>
         <BottomNav />
       </div>
     </div>
   );
 }
+
 
 function BottomNav() {
   const { t } = useI18n();

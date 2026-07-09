@@ -6,6 +6,7 @@ import { useI18n } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { BackButton } from "@/components/back-button";
 import { LanguageToggle } from "@/components/language-toggle";
 import { toast } from "sonner";
 
@@ -129,7 +130,8 @@ function SignupPage() {
 
   return (
     <div className="mx-auto flex min-h-screen max-w-md flex-col px-6 pb-10 pt-8">
-      <div className="flex justify-end">
+      <div className="flex items-center justify-between">
+        <BackButton />
         <LanguageToggle />
       </div>
       <h1 className="mt-6 font-display text-3xl">{t("signup")}</h1>

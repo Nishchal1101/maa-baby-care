@@ -5,6 +5,7 @@ import { useAuth } from "@/lib/auth";
 import { useI18n } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { BackButton } from "@/components/back-button";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { calcDueFromLMP } from "@/lib/pregnancy";
@@ -70,8 +71,9 @@ function OnboardingPage() {
   };
 
   return (
-    <div className="mx-auto flex min-h-screen max-w-md flex-col px-6 pb-10 pt-10">
-      <div className="mb-6 flex gap-2">
+    <div className="mx-auto flex min-h-screen max-w-md flex-col px-6 pb-10 pt-8">
+      <BackButton />
+      <div className="mb-6 mt-5 flex gap-2">
         {[0, 1, 2].map((i) => (
           <span key={i} className={"h-1.5 flex-1 rounded-full " + (i <= step ? "bg-primary" : "bg-muted")} />
         ))}

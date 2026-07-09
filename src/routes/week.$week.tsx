@@ -19,8 +19,7 @@ function WeekPage() {
   return (
     <MobileShell>
       <div className="px-5 pb-6 pt-8">
-        <div className="flex items-center justify-between">
-          <Link to="/home" className="text-sm text-muted-foreground">← {t("home")}</Link>
+        <div className="flex items-center justify-end">
           <span className="text-xs text-muted-foreground">T{tri}</span>
         </div>
 
