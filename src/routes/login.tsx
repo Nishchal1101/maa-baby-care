@@ -187,7 +187,8 @@ function LoginPage() {
 
   return (
     <div className="mx-auto flex min-h-screen max-w-md flex-col px-6 pb-10 pt-8">
-      <div className="flex justify-end">
+      <div className="flex items-center justify-between">
+        <BackButton />
         <LanguageToggle />
       </div>
       <h1 className="mt-6 font-display text-3xl">{t("login")}</h1>
