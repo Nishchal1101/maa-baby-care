@@ -71,8 +71,9 @@ function OnboardingPage() {
   };
 
   return (
-    <div className="mx-auto flex min-h-screen max-w-md flex-col px-6 pb-10 pt-10">
-      <div className="mb-6 flex gap-2">
+    <div className="mx-auto flex min-h-screen max-w-md flex-col px-6 pb-10 pt-8">
+      <BackButton />
+      <div className="mb-6 mt-5 flex gap-2">
         {[0, 1, 2].map((i) => (
           <span key={i} className={"h-1.5 flex-1 rounded-full " + (i <= step ? "bg-primary" : "bg-muted")} />
         ))}
