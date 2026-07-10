@@ -8,6 +8,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { DisclaimerBanner } from "@/components/disclaimer-banner";
+import { SourceNote } from "@/components/source-note";
+import { symptomGuides, symptomsSource } from "@/lib/symptoms-guide";
 import { toast } from "sonner";
 
 const symptomList = ["Nausea", "Vomiting", "Headache", "Backache", "Swelling", "Cramps", "Heartburn", "Dizziness", "Constipation"];
