@@ -7,7 +7,7 @@ import { LanguageToggle } from "@/components/language-toggle";
 import { calcWeekFromLMP, calcWeekFromDue, weekInfo, trimester } from "@/lib/pregnancy";
 import { mealPlan, type DietPref } from "@/lib/diet";
 import { supabase } from "@/integrations/supabase/client";
-import { Activity, Salad, Calendar, Footprints } from "lucide-react";
+import { Activity, Salad, Calendar, Footprints, AlertTriangle } from "lucide-react";
 
 export const Route = createFileRoute("/home")({
   component: HomePage,
@@ -53,6 +53,13 @@ function HomePage() {
           </div>
           <div className="shrink-0"><LanguageToggle /></div>
         </div>
+
+        <Link
+          to="/emergency"
+          className="mt-4 flex items-center gap-2 rounded-full border border-destructive/30 bg-destructive/10 px-4 py-2 text-sm font-medium text-destructive"
+        >
+          <AlertTriangle className="h-4 w-4" /> Know the emergency signs
+        </Link>
 
         {/* Week banner */}
         <Link

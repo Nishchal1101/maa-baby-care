@@ -4,7 +4,7 @@ import { useAuth } from "@/lib/auth";
 import { useI18n } from "@/lib/i18n";
 import { LanguageToggle } from "@/components/language-toggle";
 import { Button } from "@/components/ui/button";
-import { Footprints, Activity, LogOut, User, Flower2, Landmark, MessageCircle, Baby, Heart, Trash2 } from "lucide-react";
+import { Footprints, Activity, LogOut, User, Flower2, Landmark, MessageCircle, Baby, Heart, Trash2, AlertTriangle, Stethoscope, Syringe, Apple, Dumbbell, Pill, HelpCircle, Timer } from "lucide-react";
 import { useState } from "react";
 
 export const Route = createFileRoute("/more")({
@@ -41,27 +41,68 @@ function MorePage() {
           </div>
         </div>
 
-        <div className="mt-4 space-y-2">
-          <Link to="/baby" className="flex items-center gap-3 rounded-2xl bg-card p-4 shadow-sm">
-            <Baby className="h-5 w-5 shrink-0 text-primary" /> <span className="min-w-1">{t("baby")}</span>
+        <p className="mt-6 mb-2 text-xs uppercase tracking-wider text-muted-foreground">Urgent</p>
+        <div className="space-y-2">
+          <Link to="/emergency" className="flex items-center gap-3 rounded-2xl border border-destructive/30 bg-destructive/10 p-4 font-medium text-destructive shadow-sm">
+            <AlertTriangle className="h-5 w-5 shrink-0" /> <span>Emergency signs</span>
           </Link>
-          <Link to="/postpartum" className="flex items-center gap-3 rounded-2xl bg-card p-4 shadow-sm">
-            <Heart className="h-5 w-5 shrink-0 text-primary" /> <span className="min-w-1">{t("postpartum")}</span>
+          <Link to="/labor-signs" className="flex items-center gap-3 rounded-2xl bg-card p-4 shadow-sm">
+            <Timer className="h-5 w-5 shrink-0 text-primary" /> <span>Labor warning signs</span>
           </Link>
-          <Link to="/kicks" className="flex items-center gap-3 rounded-2xl bg-card p-4 shadow-sm">
-            <Footprints className="h-5 w-5 shrink-0 text-primary" /> <span className="min-w-1">{t("kicks_title")}</span>
+        </div>
+
+        <p className="mt-5 mb-2 text-xs uppercase tracking-wider text-muted-foreground">Care during pregnancy</p>
+        <div className="space-y-2">
+          <Link to="/investigations" className="flex items-center gap-3 rounded-2xl bg-card p-4 shadow-sm">
+            <Stethoscope className="h-5 w-5 shrink-0 text-primary" /> <span>ANC checkups & tests</span>
+          </Link>
+          <Link to="/vaccines-pregnancy" className="flex items-center gap-3 rounded-2xl bg-card p-4 shadow-sm">
+            <Syringe className="h-5 w-5 shrink-0 text-primary" /> <span>Vaccinations in pregnancy</span>
           </Link>
           <Link to="/symptoms" className="flex items-center gap-3 rounded-2xl bg-card p-4 shadow-sm">
-            <Activity className="h-5 w-5 shrink-0 text-primary" /> <span className="min-w-1">{t("sym_title")}</span>
+            <Activity className="h-5 w-5 shrink-0 text-primary" /> <span>{t("sym_title")} & symptom guide</span>
+          </Link>
+          <Link to="/kicks" className="flex items-center gap-3 rounded-2xl bg-card p-4 shadow-sm">
+            <Footprints className="h-5 w-5 shrink-0 text-primary" /> <span>{t("kicks_title")}</span>
+          </Link>
+        </div>
+
+        <p className="mt-5 mb-2 text-xs uppercase tracking-wider text-muted-foreground">Learn</p>
+        <div className="space-y-2">
+          <Link to="/nutrition-guide" className="flex items-center gap-3 rounded-2xl bg-card p-4 shadow-sm">
+            <Apple className="h-5 w-5 shrink-0 text-primary" /> <span>Nutrition guide</span>
+          </Link>
+          <Link to="/exercise" className="flex items-center gap-3 rounded-2xl bg-card p-4 shadow-sm">
+            <Dumbbell className="h-5 w-5 shrink-0 text-primary" /> <span>Safe exercise</span>
+          </Link>
+          <Link to="/meds-safety" className="flex items-center gap-3 rounded-2xl bg-card p-4 shadow-sm">
+            <Pill className="h-5 w-5 shrink-0 text-primary" /> <span>Medication safety</span>
+          </Link>
+          <Link to="/faq" className="flex items-center gap-3 rounded-2xl bg-card p-4 shadow-sm">
+            <HelpCircle className="h-5 w-5 shrink-0 text-primary" /> <span>Common questions</span>
           </Link>
           <Link to="/yoga" className="flex items-center gap-3 rounded-2xl bg-card p-4 shadow-sm">
-            <Flower2 className="h-5 w-5 shrink-0 text-primary" /> <span className="min-w-1">{t("yoga_title")}</span>
+            <Flower2 className="h-5 w-5 shrink-0 text-primary" /> <span>{t("yoga_title")}</span>
           </Link>
+        </div>
+
+        <p className="mt-5 mb-2 text-xs uppercase tracking-wider text-muted-foreground">After birth</p>
+        <div className="space-y-2">
+          <Link to="/baby" className="flex items-center gap-3 rounded-2xl bg-card p-4 shadow-sm">
+            <Baby className="h-5 w-5 shrink-0 text-primary" /> <span>{t("baby")}</span>
+          </Link>
+          <Link to="/postpartum" className="flex items-center gap-3 rounded-2xl bg-card p-4 shadow-sm">
+            <Heart className="h-5 w-5 shrink-0 text-primary" /> <span>{t("postpartum")}</span>
+          </Link>
+        </div>
+
+        <p className="mt-5 mb-2 text-xs uppercase tracking-wider text-muted-foreground">More</p>
+        <div className="space-y-2">
           <Link to="/community" className="flex items-center gap-3 rounded-2xl bg-card p-4 shadow-sm">
-            <MessageCircle className="h-5 w-5 shrink-0 text-primary" /> <span className="min-w-1">{t("community")}</span>
+            <MessageCircle className="h-5 w-5 shrink-0 text-primary" /> <span>{t("community")}</span>
           </Link>
           <Link to="/schemes" className="flex items-center gap-3 rounded-2xl bg-card p-4 shadow-sm">
-            <Landmark className="h-5 w-5 shrink-0 text-primary" /> <span className="min-w-1">{t("schemes_title")}</span>
+            <Landmark className="h-5 w-5 shrink-0 text-primary" /> <span>{t("schemes_title")}</span>
           </Link>
           <div className="flex items-center justify-between rounded-2xl bg-card p-4 shadow-sm">
             <span>{t("language")}</span>

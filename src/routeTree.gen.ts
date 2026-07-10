@@ -11,16 +11,24 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as YogaRouteImport } from './routes/yoga'
 import { Route as WelcomeRouteImport } from './routes/welcome'
+import { Route as VaccinesPregnancyRouteImport } from './routes/vaccines-pregnancy'
 import { Route as TrackerRouteImport } from './routes/tracker'
 import { Route as SymptomsRouteImport } from './routes/symptoms'
 import { Route as SignupRouteImport } from './routes/signup'
 import { Route as SchemesRouteImport } from './routes/schemes'
 import { Route as PostpartumRouteImport } from './routes/postpartum'
 import { Route as OnboardingRouteImport } from './routes/onboarding'
+import { Route as NutritionGuideRouteImport } from './routes/nutrition-guide'
 import { Route as MoreRouteImport } from './routes/more'
+import { Route as MedsSafetyRouteImport } from './routes/meds-safety'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as LaborSignsRouteImport } from './routes/labor-signs'
 import { Route as KicksRouteImport } from './routes/kicks'
+import { Route as InvestigationsRouteImport } from './routes/investigations'
 import { Route as HomeRouteImport } from './routes/home'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as ExerciseRouteImport } from './routes/exercise'
+import { Route as EmergencyRouteImport } from './routes/emergency'
 import { Route as DietRouteImport } from './routes/diet'
 import { Route as CommunityRouteImport } from './routes/community'
 import { Route as BabyRouteImport } from './routes/baby'
@@ -41,6 +49,11 @@ const YogaRoute = YogaRouteImport.update({
 const WelcomeRoute = WelcomeRouteImport.update({
   id: '/welcome',
   path: '/welcome',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VaccinesPregnancyRoute = VaccinesPregnancyRouteImport.update({
+  id: '/vaccines-pregnancy',
+  path: '/vaccines-pregnancy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TrackerRoute = TrackerRouteImport.update({
@@ -73,9 +86,19 @@ const OnboardingRoute = OnboardingRouteImport.update({
   path: '/onboarding',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NutritionGuideRoute = NutritionGuideRouteImport.update({
+  id: '/nutrition-guide',
+  path: '/nutrition-guide',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MoreRoute = MoreRouteImport.update({
   id: '/more',
   path: '/more',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MedsSafetyRoute = MedsSafetyRouteImport.update({
+  id: '/meds-safety',
+  path: '/meds-safety',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LoginRoute = LoginRouteImport.update({
@@ -83,14 +106,39 @@ const LoginRoute = LoginRouteImport.update({
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LaborSignsRoute = LaborSignsRouteImport.update({
+  id: '/labor-signs',
+  path: '/labor-signs',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const KicksRoute = KicksRouteImport.update({
   id: '/kicks',
   path: '/kicks',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InvestigationsRoute = InvestigationsRouteImport.update({
+  id: '/investigations',
+  path: '/investigations',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HomeRoute = HomeRouteImport.update({
   id: '/home',
   path: '/home',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExerciseRoute = ExerciseRouteImport.update({
+  id: '/exercise',
+  path: '/exercise',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmergencyRoute = EmergencyRouteImport.update({
+  id: '/emergency',
+  path: '/emergency',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DietRoute = DietRouteImport.update({
@@ -155,16 +203,24 @@ export interface FileRoutesByFullPath {
   '/baby': typeof BabyRouteWithChildren
   '/community': typeof CommunityRouteWithChildren
   '/diet': typeof DietRoute
+  '/emergency': typeof EmergencyRoute
+  '/exercise': typeof ExerciseRoute
+  '/faq': typeof FaqRoute
   '/home': typeof HomeRoute
+  '/investigations': typeof InvestigationsRoute
   '/kicks': typeof KicksRoute
+  '/labor-signs': typeof LaborSignsRoute
   '/login': typeof LoginRoute
+  '/meds-safety': typeof MedsSafetyRoute
   '/more': typeof MoreRoute
+  '/nutrition-guide': typeof NutritionGuideRoute
   '/onboarding': typeof OnboardingRoute
   '/postpartum': typeof PostpartumRoute
   '/schemes': typeof SchemesRoute
   '/signup': typeof SignupRoute
   '/symptoms': typeof SymptomsRoute
   '/tracker': typeof TrackerRoute
+  '/vaccines-pregnancy': typeof VaccinesPregnancyRoute
   '/welcome': typeof WelcomeRoute
   '/yoga': typeof YogaRoute
   '/baby/care': typeof BabyCareRoute
@@ -180,16 +236,24 @@ export interface FileRoutesByTo {
   '/baby': typeof BabyRouteWithChildren
   '/community': typeof CommunityRouteWithChildren
   '/diet': typeof DietRoute
+  '/emergency': typeof EmergencyRoute
+  '/exercise': typeof ExerciseRoute
+  '/faq': typeof FaqRoute
   '/home': typeof HomeRoute
+  '/investigations': typeof InvestigationsRoute
   '/kicks': typeof KicksRoute
+  '/labor-signs': typeof LaborSignsRoute
   '/login': typeof LoginRoute
+  '/meds-safety': typeof MedsSafetyRoute
   '/more': typeof MoreRoute
+  '/nutrition-guide': typeof NutritionGuideRoute
   '/onboarding': typeof OnboardingRoute
   '/postpartum': typeof PostpartumRoute
   '/schemes': typeof SchemesRoute
   '/signup': typeof SignupRoute
   '/symptoms': typeof SymptomsRoute
   '/tracker': typeof TrackerRoute
+  '/vaccines-pregnancy': typeof VaccinesPregnancyRoute
   '/welcome': typeof WelcomeRoute
   '/yoga': typeof YogaRoute
   '/baby/care': typeof BabyCareRoute
@@ -206,16 +270,24 @@ export interface FileRoutesById {
   '/baby': typeof BabyRouteWithChildren
   '/community': typeof CommunityRouteWithChildren
   '/diet': typeof DietRoute
+  '/emergency': typeof EmergencyRoute
+  '/exercise': typeof ExerciseRoute
+  '/faq': typeof FaqRoute
   '/home': typeof HomeRoute
+  '/investigations': typeof InvestigationsRoute
   '/kicks': typeof KicksRoute
+  '/labor-signs': typeof LaborSignsRoute
   '/login': typeof LoginRoute
+  '/meds-safety': typeof MedsSafetyRoute
   '/more': typeof MoreRoute
+  '/nutrition-guide': typeof NutritionGuideRoute
   '/onboarding': typeof OnboardingRoute
   '/postpartum': typeof PostpartumRoute
   '/schemes': typeof SchemesRoute
   '/signup': typeof SignupRoute
   '/symptoms': typeof SymptomsRoute
   '/tracker': typeof TrackerRoute
+  '/vaccines-pregnancy': typeof VaccinesPregnancyRoute
   '/welcome': typeof WelcomeRoute
   '/yoga': typeof YogaRoute
   '/baby/care': typeof BabyCareRoute
@@ -233,16 +305,24 @@ export interface FileRouteTypes {
     | '/baby'
     | '/community'
     | '/diet'
+    | '/emergency'
+    | '/exercise'
+    | '/faq'
     | '/home'
+    | '/investigations'
     | '/kicks'
+    | '/labor-signs'
     | '/login'
+    | '/meds-safety'
     | '/more'
+    | '/nutrition-guide'
     | '/onboarding'
     | '/postpartum'
     | '/schemes'
     | '/signup'
     | '/symptoms'
     | '/tracker'
+    | '/vaccines-pregnancy'
     | '/welcome'
     | '/yoga'
     | '/baby/care'
@@ -258,16 +338,24 @@ export interface FileRouteTypes {
     | '/baby'
     | '/community'
     | '/diet'
+    | '/emergency'
+    | '/exercise'
+    | '/faq'
     | '/home'
+    | '/investigations'
     | '/kicks'
+    | '/labor-signs'
     | '/login'
+    | '/meds-safety'
     | '/more'
+    | '/nutrition-guide'
     | '/onboarding'
     | '/postpartum'
     | '/schemes'
     | '/signup'
     | '/symptoms'
     | '/tracker'
+    | '/vaccines-pregnancy'
     | '/welcome'
     | '/yoga'
     | '/baby/care'
@@ -283,16 +371,24 @@ export interface FileRouteTypes {
     | '/baby'
     | '/community'
     | '/diet'
+    | '/emergency'
+    | '/exercise'
+    | '/faq'
     | '/home'
+    | '/investigations'
     | '/kicks'
+    | '/labor-signs'
     | '/login'
+    | '/meds-safety'
     | '/more'
+    | '/nutrition-guide'
     | '/onboarding'
     | '/postpartum'
     | '/schemes'
     | '/signup'
     | '/symptoms'
     | '/tracker'
+    | '/vaccines-pregnancy'
     | '/welcome'
     | '/yoga'
     | '/baby/care'
@@ -309,16 +405,24 @@ export interface RootRouteChildren {
   BabyRoute: typeof BabyRouteWithChildren
   CommunityRoute: typeof CommunityRouteWithChildren
   DietRoute: typeof DietRoute
+  EmergencyRoute: typeof EmergencyRoute
+  ExerciseRoute: typeof ExerciseRoute
+  FaqRoute: typeof FaqRoute
   HomeRoute: typeof HomeRoute
+  InvestigationsRoute: typeof InvestigationsRoute
   KicksRoute: typeof KicksRoute
+  LaborSignsRoute: typeof LaborSignsRoute
   LoginRoute: typeof LoginRoute
+  MedsSafetyRoute: typeof MedsSafetyRoute
   MoreRoute: typeof MoreRoute
+  NutritionGuideRoute: typeof NutritionGuideRoute
   OnboardingRoute: typeof OnboardingRoute
   PostpartumRoute: typeof PostpartumRoute
   SchemesRoute: typeof SchemesRoute
   SignupRoute: typeof SignupRoute
   SymptomsRoute: typeof SymptomsRoute
   TrackerRoute: typeof TrackerRoute
+  VaccinesPregnancyRoute: typeof VaccinesPregnancyRoute
   WelcomeRoute: typeof WelcomeRoute
   YogaRoute: typeof YogaRoute
   WeekWeekRoute: typeof WeekWeekRoute
@@ -338,6 +442,13 @@ declare module '@tanstack/react-router' {
       path: '/welcome'
       fullPath: '/welcome'
       preLoaderRoute: typeof WelcomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vaccines-pregnancy': {
+      id: '/vaccines-pregnancy'
+      path: '/vaccines-pregnancy'
+      fullPath: '/vaccines-pregnancy'
+      preLoaderRoute: typeof VaccinesPregnancyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tracker': {
@@ -382,11 +493,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OnboardingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/nutrition-guide': {
+      id: '/nutrition-guide'
+      path: '/nutrition-guide'
+      fullPath: '/nutrition-guide'
+      preLoaderRoute: typeof NutritionGuideRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/more': {
       id: '/more'
       path: '/more'
       fullPath: '/more'
       preLoaderRoute: typeof MoreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/meds-safety': {
+      id: '/meds-safety'
+      path: '/meds-safety'
+      fullPath: '/meds-safety'
+      preLoaderRoute: typeof MedsSafetyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/login': {
@@ -396,6 +521,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/labor-signs': {
+      id: '/labor-signs'
+      path: '/labor-signs'
+      fullPath: '/labor-signs'
+      preLoaderRoute: typeof LaborSignsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/kicks': {
       id: '/kicks'
       path: '/kicks'
@@ -403,11 +535,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof KicksRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/investigations': {
+      id: '/investigations'
+      path: '/investigations'
+      fullPath: '/investigations'
+      preLoaderRoute: typeof InvestigationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/home': {
       id: '/home'
       path: '/home'
       fullPath: '/home'
       preLoaderRoute: typeof HomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/exercise': {
+      id: '/exercise'
+      path: '/exercise'
+      fullPath: '/exercise'
+      preLoaderRoute: typeof ExerciseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/emergency': {
+      id: '/emergency'
+      path: '/emergency'
+      fullPath: '/emergency'
+      preLoaderRoute: typeof EmergencyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/diet': {
@@ -524,16 +684,24 @@ const rootRouteChildren: RootRouteChildren = {
   BabyRoute: BabyRouteWithChildren,
   CommunityRoute: CommunityRouteWithChildren,
   DietRoute: DietRoute,
+  EmergencyRoute: EmergencyRoute,
+  ExerciseRoute: ExerciseRoute,
+  FaqRoute: FaqRoute,
   HomeRoute: HomeRoute,
+  InvestigationsRoute: InvestigationsRoute,
   KicksRoute: KicksRoute,
+  LaborSignsRoute: LaborSignsRoute,
   LoginRoute: LoginRoute,
+  MedsSafetyRoute: MedsSafetyRoute,
   MoreRoute: MoreRoute,
+  NutritionGuideRoute: NutritionGuideRoute,
   OnboardingRoute: OnboardingRoute,
   PostpartumRoute: PostpartumRoute,
   SchemesRoute: SchemesRoute,
   SignupRoute: SignupRoute,
   SymptomsRoute: SymptomsRoute,
   TrackerRoute: TrackerRoute,
+  VaccinesPregnancyRoute: VaccinesPregnancyRoute,
   WelcomeRoute: WelcomeRoute,
   YogaRoute: YogaRoute,
   WeekWeekRoute: WeekWeekRoute,
