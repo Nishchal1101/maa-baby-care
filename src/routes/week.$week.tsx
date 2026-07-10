@@ -3,6 +3,8 @@ import { MobileShell } from "@/components/mobile-shell";
 import { useAuth } from "@/lib/auth";
 import { useI18n } from "@/lib/i18n";
 import { calcWeekFromLMP, calcWeekFromDue, weekInfo, trimester } from "@/lib/pregnancy";
+import { RedFlagCard } from "@/components/red-flag-card";
+import { pregnancyRedFlags } from "@/lib/red-flags";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export const Route = createFileRoute("/week/$week")({
@@ -50,6 +52,13 @@ function WeekPage() {
         <Section title="Baby this week">{info.babyDev}</Section>
         <Section title="Your body">{info.momChange}</Section>
         <Section title={t("todays_tip")}>{info.tip}</Section>
+
+        <RedFlagCard title="Watch out for" items={pregnancyRedFlags.items.slice(0, 6)} source={pregnancyRedFlags.source} />
+
+        <div className="mt-4 grid grid-cols-2 gap-2">
+          <Link to="/investigations" className="rounded-2xl bg-card p-3 text-center text-sm shadow-sm">Checkups & tests</Link>
+          <Link to="/emergency" className="rounded-2xl bg-destructive/10 p-3 text-center text-sm font-medium text-destructive shadow-sm">Emergency signs</Link>
+        </div>
       </div>
     </MobileShell>
   );
