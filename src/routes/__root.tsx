@@ -2,6 +2,7 @@ import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/r
 import { I18nProvider } from "@/lib/i18n";
 import { AuthProvider } from "@/lib/auth";
 import { Toaster } from "@/components/ui/sonner";
+import { Analytics } from "@vercel/analytics/react";
 
 import appCss from "../styles.css?url";
 
@@ -81,6 +82,7 @@ function RootComponent() {
       <AuthProvider>
         <Outlet />
         <Toaster />
+        <Analytics />
       </AuthProvider>
     </I18nProvider>
   );
