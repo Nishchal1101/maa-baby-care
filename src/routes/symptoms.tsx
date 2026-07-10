@@ -57,66 +57,94 @@ function SymptomsPage() {
 
   return (
     <MobileShell>
-      <div className="px-5 pb-6 pt-8">
+      <div className="px-5 pb-6 pt-4">
         <h1 className="font-display text-2xl">{t("sym_title")}</h1>
 
-        <form onSubmit={save} className="mt-6 space-y-4">
-          <div className="rounded-2xl bg-card p-4 shadow-sm">
-            <Label>{t("weight_kg")}</Label>
-            <Input type="number" step="0.1" value={weight} onChange={(e) => setWeight(e.target.value)} className="mt-2 h-11 rounded-xl" />
-          </div>
+        <Tabs defaultValue="log" className="mt-4">
+          <TabsList className="grid w-full grid-cols-2 rounded-full">
+            <TabsTrigger value="log" className="rounded-full">Log today</TabsTrigger>
+            <TabsTrigger value="guide" className="rounded-full">Symptom guide</TabsTrigger>
+          </TabsList>
 
-          <div className="rounded-2xl bg-card p-4 shadow-sm">
-            <Label>{t("bp")}</Label>
-            <div className="mt-2 grid grid-cols-2 gap-2">
-              <Input type="number" placeholder={t("systolic")} value={sys} onChange={(e) => setSys(e.target.value)} className="h-11 rounded-xl" />
-              <Input type="number" placeholder={t("diastolic")} value={dia} onChange={(e) => setDia(e.target.value)} className="h-11 rounded-xl" />
-            </div>
-          </div>
+          <TabsContent value="log">
+            <form onSubmit={save} className="mt-4 space-y-4">
+              <div className="rounded-2xl bg-card p-4 shadow-sm">
+                <Label>{t("weight_kg")}</Label>
+                <Input type="number" step="0.1" value={weight} onChange={(e) => setWeight(e.target.value)} className="mt-2 h-11 rounded-xl" />
+              </div>
 
-          <div className="rounded-2xl bg-card p-4 shadow-sm">
-            <Label>{t("mood")}</Label>
-            <div className="mt-2 flex justify-between text-3xl">
-              {moods.map((m) => (
-                <button
-                  key={m}
-                  type="button"
-                  onClick={() => setMood(m)}
-                  className={"grid h-12 w-12 place-items-center rounded-full transition-colors " + (mood === m ? "bg-primary/15" : "")}
-                >{m}</button>
-              ))}
-            </div>
-          </div>
+              <div className="rounded-2xl bg-card p-4 shadow-sm">
+                <Label>{t("bp")}</Label>
+                <div className="mt-2 grid grid-cols-2 gap-2">
+                  <Input type="number" placeholder={t("systolic")} value={sys} onChange={(e) => setSys(e.target.value)} className="h-11 rounded-xl" />
+                  <Input type="number" placeholder={t("diastolic")} value={dia} onChange={(e) => setDia(e.target.value)} className="h-11 rounded-xl" />
+                </div>
+              </div>
 
-          <div className="rounded-2xl bg-card p-4 shadow-sm">
-            <Label>{t("symptoms")}</Label>
-            <div className="mt-2 flex flex-wrap gap-2">
-              {symptomList.map((s) => {
-                const on = picked.includes(s);
-                return (
-                  <button
-                    key={s}
-                    type="button"
-                    onClick={() => toggle(s)}
-                    className={
-                      "rounded-full border px-3 py-1.5 text-xs transition-colors " +
-                      (on ? "border-primary bg-primary/10 text-foreground" : "border-border bg-card text-muted-foreground")
-                    }
-                  >{s}</button>
-                );
-              })}
-            </div>
-          </div>
+              <div className="rounded-2xl bg-card p-4 shadow-sm">
+                <Label>{t("mood")}</Label>
+                <div className="mt-2 flex justify-between text-3xl">
+                  {moods.map((m) => (
+                    <button
+                      key={m}
+                      type="button"
+                      onClick={() => setMood(m)}
+                      className={"grid h-12 w-12 place-items-center rounded-full transition-colors " + (mood === m ? "bg-primary/15" : "")}
+                    >{m}</button>
+                  ))}
+                </div>
+              </div>
 
-          <div className="rounded-2xl bg-card p-4 shadow-sm">
-            <Label>{t("notes")}</Label>
-            <Textarea value={notes} onChange={(e) => setNotes(e.target.value)} className="mt-2 rounded-xl" />
-          </div>
+              <div className="rounded-2xl bg-card p-4 shadow-sm">
+                <Label>{t("symptoms")}</Label>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {symptomList.map((s) => {
+                    const on = picked.includes(s);
+                    return (
+                      <button
+                        key={s}
+                        type="button"
+                        onClick={() => toggle(s)}
+                        className={
+                          "rounded-full border px-3 py-1.5 text-xs transition-colors " +
+                          (on ? "border-primary bg-primary/10 text-foreground" : "border-border bg-card text-muted-foreground")
+                        }
+                      >{s}</button>
+                    );
+                  })}
+                </div>
+              </div>
 
-          <Button type="submit" disabled={busy} className="h-12 w-full rounded-full">
-            {busy ? t("loading") : t("save")}
-          </Button>
-        </form>
+              <div className="rounded-2xl bg-card p-4 shadow-sm">
+                <Label>{t("notes")}</Label>
+                <Textarea value={notes} onChange={(e) => setNotes(e.target.value)} className="mt-2 rounded-xl" />
+              </div>
+
+              <Button type="submit" disabled={busy} className="h-12 w-full rounded-full">
+                {busy ? t("loading") : t("save")}
+              </Button>
+            </form>
+          </TabsContent>
+
+          <TabsContent value="guide">
+            <DisclaimerBanner />
+            {symptomGuides.map((g) => (
+              <section key={g.name} className="mt-3 rounded-2xl bg-card p-4 shadow-sm">
+                <p className="font-medium">{g.name}</p>
+                <p className="mt-1 text-sm text-muted-foreground">{g.normal}</p>
+                <p className="mt-3 text-xs uppercase tracking-wider text-muted-foreground">Self-care</p>
+                <ul className="mt-1 space-y-1 text-sm">
+                  {g.selfCare.map((s) => <li key={s} className="flex gap-2"><span>•</span><span>{s}</span></li>)}
+                </ul>
+                <p className="mt-3 text-xs uppercase tracking-wider text-destructive">See a doctor if</p>
+                <ul className="mt-1 space-y-1 text-sm">
+                  {g.seeDoctor.map((s) => <li key={s} className="flex gap-2"><span>•</span><span>{s}</span></li>)}
+                </ul>
+              </section>
+            ))}
+            <SourceNote source={symptomsSource} />
+          </TabsContent>
+        </Tabs>
       </div>
     </MobileShell>
   );
