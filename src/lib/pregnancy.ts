@@ -41,8 +41,8 @@ export type WeekInfo = {
 };
 
 const data: Partial<Record<number, Omit<WeekInfo, "week">>> = {
-  4: { size: "khus-khus seed (poppy)", babyDev: "The embryo has implanted; major organs begin forming.", momChange: "Missed period, mild cramps. Start folic acid 400mcg.", tip: "Begin folic acid daily — it protects baby's spine." },
-  6: { size: "moong dal grain", babyDev: "Tiny heart starts beating around now.", momChange: "Morning sickness may begin.", tip: "Eat small frequent meals — try dry toast or roasted chana." },
+  4: { size: "khus-khus seed (poppy)", babyDev: "The embryo has implanted; major organs begin forming.", momChange: "Missed period, mild cramps. Start folic acid 400mcg.", tip: "Begin folic acid daily  -  it protects baby's spine." },
+  6: { size: "moong dal grain", babyDev: "Tiny heart starts beating around now.", momChange: "Morning sickness may begin.", tip: "Eat small frequent meals  -  try dry toast or roasted chana." },
   8: { size: "rajma bean", babyDev: "Fingers and toes are forming.", momChange: "Fatigue and nausea peak.", tip: "Sip ginger-lemon water for nausea." },
   10: { size: "amla (gooseberry)", babyDev: "All organs in place; baby is now a fetus.", momChange: "Hormones may cause mood swings.", tip: "Book your first ANC visit if you haven't." },
   12: { size: "nimbu (lemon)", babyDev: "Reflexes develop; baby can curl fingers.", momChange: "Nausea often starts easing.", tip: "Time for the NT scan (11–13 weeks)." },
@@ -52,10 +52,10 @@ const data: Partial<Record<number, Omit<WeekInfo, "week">>> = {
   24: { size: "bhutta (corn cob)", babyDev: "Lungs developing; viable with NICU support.", momChange: "Glucose tolerance test time.", tip: "Walk 20–30 min daily unless advised otherwise." },
   28: { size: "baingan (brinjal)", babyDev: "Eyes can open; brain growing fast.", momChange: "3rd trimester begins. Heartburn?", tip: "Start TT/Tdap booster as advised." },
   30: { size: "narangi (orange)", babyDev: "Baby practices breathing.", momChange: "Backache, swollen feet.", tip: "Sleep on left side; pillow between knees." },
-  32: { size: "anaar (pomegranate)", babyDev: "Bones harden (except skull).", momChange: "Braxton-Hicks contractions possible.", tip: "Begin daily kick count — 10 in 2 hours." },
+  32: { size: "anaar (pomegranate)", babyDev: "Bones harden (except skull).", momChange: "Braxton-Hicks contractions possible.", tip: "Begin daily kick count  -  10 in 2 hours." },
   36: { size: "papita (small papaya)", babyDev: "Baby usually head-down now.", momChange: "Weekly checkups begin.", tip: "Pack hospital bag; keep documents ready." },
   38: { size: "kaddu (small pumpkin)", babyDev: "Fully developed; gaining fat.", momChange: "Pelvic pressure increases.", tip: "Watch for labor signs: regular contractions, water break." },
-  40: { size: "nariyal (coconut)", babyDev: "Ready to meet you!", momChange: "Due week — stay calm, stay close to hospital.", tip: "Trust your body. Call doctor for any concern." },
+  40: { size: "nariyal (coconut)", babyDev: "Ready to meet you!", momChange: "Due week  -  stay calm, stay close to hospital.", tip: "Trust your body. Call doctor for any concern." },
 };
 
 export function weekInfo(week: number): WeekInfo {

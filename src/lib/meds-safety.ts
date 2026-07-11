@@ -4,7 +4,7 @@ import { SRC } from "./sources";
 export const medsGuidance = [
   {
     title: "Never self-medicate in pregnancy",
-    body: "Even common over-the-counter medicines can affect the baby. Always confirm with your doctor before taking anything — including herbal, ayurvedic, or homeopathic remedies.",
+    body: "Even common over-the-counter medicines can affect the baby. Always confirm with your doctor before taking anything  -  including herbal, ayurvedic, or homeopathic remedies.",
   },
   {
     title: "Pain & fever",

@@ -64,7 +64,7 @@ export const yogaPoses: YogaPose[] = [
       "Sit sideways next to a wall.",
       "Swing legs up the wall and lie back on a folded blanket.",
       "Place a small bolster under hips for support.",
-      "Rest with eyes closed and breathe softly. Skip in 3rd trimester — use side-lying instead.",
+      "Rest with eyes closed and breathe softly. Skip in 3rd trimester  -  use side-lying instead.",
     ],
   },
   {
@@ -122,7 +122,7 @@ export const breathing = [
       "Sit comfortably with spine tall.",
       "Close right nostril with thumb, inhale through left.",
       "Close left nostril, exhale through right.",
-      "Inhale right, exhale left — that's 1 round.",
+      "Inhale right, exhale left  -  that's 1 round.",
     ],
   },
   {
@@ -152,7 +152,7 @@ export const breathing = [
 ];
 
 export const kegelGuide = {
-  what: "Kegels strengthen the pelvic floor — the muscles that support uterus, bladder & bowels. Strong pelvic floor helps in delivery and recovery.",
+  what: "Kegels strengthen the pelvic floor  -  the muscles that support uterus, bladder & bowels. Strong pelvic floor helps in delivery and recovery.",
   how: [
     "Identify the muscles: try to stop urine mid-flow (only to locate, do NOT do this regularly).",
     "Empty bladder, lie or sit comfortably.",
@@ -176,7 +176,7 @@ export const walkingGoal = {
   tips: [
     "Walk in cool hours (early morning / evening).",
     "Wear supportive footwear.",
-    "Stay hydrated — sip water before and after.",
+    "Stay hydrated  -  sip water before and after.",
     "Slow down if you feel breathless or dizzy.",
   ],
 };

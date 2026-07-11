@@ -68,30 +68,30 @@ function SymptomsPage() {
 
           <TabsContent value="log">
             <form onSubmit={save} className="mt-4 space-y-4">
-              <div className="rounded-2xl bg-card p-4 shadow-sm">
+              <div className="rounded-lg bg-card p-4 shadow-sm">
                 <Label>{t("weight_kg")}</Label>
-                <Input type="number" step="0.1" value={weight} onChange={(e) => setWeight(e.target.value)} className="mt-2 h-11 rounded-xl" />
+                <Input type="number" step="0.1" value={weight} onChange={(e) => setWeight(e.target.value)} className="mt-2 h-11 rounded-md" />
               </div>
 
-              <div className="rounded-2xl bg-card p-4 shadow-sm">
+              <div className="rounded-lg bg-card p-4 shadow-sm">
                 <Label>{t("bp")}</Label>
                 <p className="mt-1 text-xs text-muted-foreground">
                   Your BP reading has two numbers (e.g. 120/80). The upper number is systolic, the lower is diastolic.
                 </p>
                 <div className="mt-2 grid grid-cols-2 gap-2">
                   <div>
-                    <Input type="number" placeholder={t("systolic")} value={sys} onChange={(e) => setSys(e.target.value)} className="h-11 rounded-xl" />
-                    <p className="mt-1 text-[11px] text-muted-foreground">Systolic — upper number (when the heart beats)</p>
+                    <Input type="number" placeholder={t("systolic")} value={sys} onChange={(e) => setSys(e.target.value)} className="h-11 rounded-md" />
+                    <p className="mt-1 text-[11px] text-muted-foreground">Systolic  -  upper number (when the heart beats)</p>
                   </div>
                   <div>
-                    <Input type="number" placeholder={t("diastolic")} value={dia} onChange={(e) => setDia(e.target.value)} className="h-11 rounded-xl" />
-                    <p className="mt-1 text-[11px] text-muted-foreground">Diastolic — lower number (when the heart rests)</p>
+                    <Input type="number" placeholder={t("diastolic")} value={dia} onChange={(e) => setDia(e.target.value)} className="h-11 rounded-md" />
+                    <p className="mt-1 text-[11px] text-muted-foreground">Diastolic  -  lower number (when the heart rests)</p>
                   </div>
                 </div>
               </div>
 
 
-              <div className="rounded-2xl bg-card p-4 shadow-sm">
+              <div className="rounded-lg bg-card p-4 shadow-sm">
                 <Label>{t("mood")}</Label>
                 <div className="mt-2 flex justify-between text-3xl">
                   {moods.map((m) => (
@@ -105,7 +105,7 @@ function SymptomsPage() {
                 </div>
               </div>
 
-              <div className="rounded-2xl bg-card p-4 shadow-sm">
+              <div className="rounded-lg bg-card p-4 shadow-sm">
                 <Label>{t("symptoms")}</Label>
                 <div className="mt-2 flex flex-wrap gap-2">
                   {symptomList.map((s) => {
@@ -125,12 +125,12 @@ function SymptomsPage() {
                 </div>
               </div>
 
-              <div className="rounded-2xl bg-card p-4 shadow-sm">
+              <div className="rounded-lg bg-card p-4 shadow-sm">
                 <Label>{t("notes")}</Label>
-                <Textarea value={notes} onChange={(e) => setNotes(e.target.value)} className="mt-2 rounded-xl" />
+                <Textarea value={notes} onChange={(e) => setNotes(e.target.value)} className="mt-2 rounded-md" />
               </div>
 
-              <Button type="submit" disabled={busy} className="h-12 w-full rounded-full">
+              <Button type="submit" disabled={busy} className="h-12 w-full rounded-lg">
                 {busy ? t("loading") : t("save")}
               </Button>
             </form>
@@ -139,7 +139,7 @@ function SymptomsPage() {
           <TabsContent value="guide">
             <DisclaimerBanner />
             {symptomGuides.map((g) => (
-              <section key={g.name} className="mt-3 rounded-2xl bg-card p-4 shadow-sm">
+              <section key={g.name} className="mt-3 rounded-lg bg-card p-4 shadow-sm">
                 <p className="font-medium">{g.name}</p>
                 <p className="mt-1 text-sm text-muted-foreground">{g.normal}</p>
                 <p className="mt-3 text-xs uppercase tracking-wider text-muted-foreground">Self-care</p>

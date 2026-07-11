@@ -34,7 +34,7 @@ function BottomNav() {
   ];
   return (
     <nav className="fixed bottom-4 left-1/2 z-30 w-full max-w-md -translate-x-1/2 px-4">
-      <div className="rounded-2xl border border-border/60 bg-card/95 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.15)] backdrop-blur-md">
+      <div className="rounded-lg border border-border/60 bg-card/95 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.15)] backdrop-blur-md">
         <ul className="grid grid-cols-5 py-2">
           {items.map(({ to, icon: Icon, label }) => {
             const active =

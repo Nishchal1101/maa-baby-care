@@ -23,7 +23,7 @@ function CarePage() {
 
           <TabsContent value="newborn" className="mt-4 space-y-3">
             {NEWBORN_TIPS.map((tip, i) => (
-              <article key={i} className="rounded-2xl bg-card p-4 shadow-sm">
+              <article key={i} className="rounded-lg bg-card p-4 shadow-sm">
                 <h2 className="font-display text-base">{tip.title[lang]}</h2>
                 <p className="mt-1 text-sm text-muted-foreground">{tip.body[lang]}</p>
               </article>
@@ -32,7 +32,7 @@ function CarePage() {
 
           <TabsContent value="bf" className="mt-4 space-y-3">
             {BREASTFEEDING_TIPS.map((tip, i) => (
-              <article key={i} className="rounded-2xl bg-card p-4 shadow-sm">
+              <article key={i} className="rounded-lg bg-card p-4 shadow-sm">
                 <h2 className="font-display text-base">{tip.title[lang]}</h2>
                 <p className="mt-1 text-sm text-muted-foreground">{tip.body[lang]}</p>
               </article>

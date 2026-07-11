@@ -47,7 +47,7 @@ function DietPage() {
         <Meal label={t("snack")} items={meals.snack} />
         <Meal label={t("dinner")} items={meals.dinner} />
 
-        <section className="mt-6 rounded-2xl bg-destructive/5 p-4">
+        <section className="mt-6 rounded-lg bg-destructive/5 p-4">
           <p className="text-xs font-semibold uppercase tracking-wider text-destructive">{t("avoid")}</p>
           <ul className="mt-2 space-y-1.5 text-sm">
             {foodsToAvoid.map((f) => (
@@ -62,7 +62,7 @@ function DietPage() {
 
 function Meal({ label, items }: { label: string; items: string[] }) {
   return (
-    <section className="mt-4 rounded-2xl bg-card p-4 shadow-sm">
+    <section className="mt-4 rounded-lg bg-card p-4 shadow-sm">
       <p className="text-xs uppercase tracking-wider text-muted-foreground">{label}</p>
       <ul className="mt-2 space-y-1.5 text-sm">
         {items.map((i) => (

@@ -6,15 +6,15 @@ export const NEWBORN_TIPS: Tip[] = [
   {
     title: { en: "Skin-to-skin in the first hour", hi: "पहले घंटे में त्वचा-से-त्वचा संपर्क" },
     body: {
-      en: "Hold baby on your bare chest right after birth — it regulates temperature, kickstarts breastfeeding and bonding.",
-      hi: "जन्म के तुरंत बाद शिशु को अपनी छाती से लगाएं — यह तापमान संतुलित रखता है और स्तनपान शुरू करने में मदद करता है।",
+      en: "Hold baby on your bare chest right after birth  -  it regulates temperature, kickstarts breastfeeding and bonding.",
+      hi: "जन्म के तुरंत बाद शिशु को अपनी छाती से लगाएं  -  यह तापमान संतुलित रखता है और स्तनपान शुरू करने में मदद करता है।",
     },
   },
   {
     title: { en: "Umbilical cord care", hi: "नाभि की देखभाल" },
     body: {
-      en: "Keep the stump clean and dry. Do NOT apply oil, turmeric, or kajal — only sterile water if soiled. Cord falls off in 5–15 days.",
-      hi: "नाभि को साफ़ और सूखा रखें। तेल, हल्दी या काजल न लगाएं — केवल साफ़ पानी से ज़रूरत पड़ने पर पोंछें। 5–15 दिन में नाभि गिर जाती है।",
+      en: "Keep the stump clean and dry. Do NOT apply oil, turmeric, or kajal  -  only sterile water if soiled. Cord falls off in 5–15 days.",
+      hi: "नाभि को साफ़ और सूखा रखें। तेल, हल्दी या काजल न लगाएं  -  केवल साफ़ पानी से ज़रूरत पड़ने पर पोंछें। 5–15 दिन में नाभि गिर जाती है।",
     },
   },
   {
@@ -42,17 +42,17 @@ export const NEWBORN_TIPS: Tip[] = [
 
 export const BREASTFEEDING_TIPS: Tip[] = [
   {
-    title: { en: "Colostrum is liquid gold", hi: "कोलोस्ट्रम — सोने जैसा मूल्यवान" },
+    title: { en: "Colostrum is liquid gold", hi: "कोलोस्ट्रम  -  सोने जैसा मूल्यवान" },
     body: {
-      en: "The first thick yellow milk is full of antibodies. Feed it — never discard, never give honey or ghutti.",
-      hi: "पहली गाढ़ी पीली खीस इम्युनिटी से भरपूर होती है। ज़रूर पिलाएं — कभी न फेंकें, शहद/घुट्टी न दें।",
+      en: "The first thick yellow milk is full of antibodies. Feed it  -  never discard, never give honey or ghutti.",
+      hi: "पहली गाढ़ी पीली खीस इम्युनिटी से भरपूर होती है। ज़रूर पिलाएं  -  कभी न फेंकें, शहद/घुट्टी न दें।",
     },
   },
   {
     title: { en: "Feed on demand", hi: "जब-जब चाहे, तब-तब पिलाएं" },
     body: {
-      en: "Newborns feed 8–12 times in 24 hours. Watch for cues: rooting, sucking on hands, lip smacking — don't wait for crying.",
-      hi: "नवजात 24 घंटे में 8–12 बार दूध पीते हैं। संकेत देखें: मुंह घुमाना, हाथ चूसना — रोने तक इंतज़ार न करें।",
+      en: "Newborns feed 8–12 times in 24 hours. Watch for cues: rooting, sucking on hands, lip smacking  -  don't wait for crying.",
+      hi: "नवजात 24 घंटे में 8–12 बार दूध पीते हैं। संकेत देखें: मुंह घुमाना, हाथ चूसना  -  रोने तक इंतज़ार न करें।",
     },
   },
   {
@@ -65,15 +65,15 @@ export const BREASTFEEDING_TIPS: Tip[] = [
   {
     title: { en: "Mom's diet", hi: "माँ का आहार" },
     body: {
-      en: "Eat 500 extra kcal — dal, roti, sabzi, ghee, methi laddoo, gond ke laddoo, jeera water, plenty of fluids. Avoid heavy caffeine and alcohol.",
-      hi: "500 अतिरिक्त कैलोरी लें — दाल, रोटी, सब्ज़ी, घी, मेथी/गोंद के लड्डू, जीरा पानी, खूब तरल पदार्थ। चाय/कॉफ़ी कम करें।",
+      en: "Eat 500 extra kcal  -  dal, roti, sabzi, ghee, methi laddoo, gond ke laddoo, jeera water, plenty of fluids. Avoid heavy caffeine and alcohol.",
+      hi: "500 अतिरिक्त कैलोरी लें  -  दाल, रोटी, सब्ज़ी, घी, मेथी/गोंद के लड्डू, जीरा पानी, खूब तरल पदार्थ। चाय/कॉफ़ी कम करें।",
     },
   },
   {
     title: { en: "Exclusive breastfeeding for 6 months", hi: "6 महीने तक केवल स्तनपान" },
     body: {
       en: "No water, honey, formula or solids before 6 months unless medically advised. Continue breastfeeding alongside solids till 2 years.",
-      hi: "6 महीने तक केवल माँ का दूध — पानी, शहद, फॉर्मूला या ठोस आहार नहीं (जब तक डॉक्टर न कहें)। 2 वर्ष तक स्तनपान जारी रखें।",
+      hi: "6 महीने तक केवल माँ का दूध  -  पानी, शहद, फॉर्मूला या ठोस आहार नहीं (जब तक डॉक्टर न कहें)। 2 वर्ष तक स्तनपान जारी रखें।",
     },
   },
 ];

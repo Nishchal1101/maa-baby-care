@@ -7,7 +7,7 @@ import { rda, indianFoodSources, nutritionTips, nutritionSource } from "@/lib/nu
 export const Route = createFileRoute("/nutrition-guide")({
   head: () => ({
     meta: [
-      { title: "Nutrition in pregnancy — Maa Baby Care" },
+      { title: "Nutrition in pregnancy  -  Maa Baby Care" },
       { name: "description", content: "ICMR-NIN nutrition targets and Indian food sources for pregnant mothers." },
     ],
   }),
@@ -22,7 +22,7 @@ function NutritionGuidePage() {
         <p className="mt-1 text-sm text-muted-foreground">Daily targets from ICMR-NIN with easy Indian food sources.</p>
         <DisclaimerBanner />
 
-        <section className="mt-4 rounded-2xl bg-card p-4 shadow-sm">
+        <section className="mt-4 rounded-lg bg-card p-4 shadow-sm">
           <p className="text-xs uppercase tracking-wider text-muted-foreground">Daily targets (RDA)</p>
           <ul className="mt-2 divide-y">
             {rda.map((r) => (
@@ -34,7 +34,7 @@ function NutritionGuidePage() {
           </ul>
         </section>
 
-        <section className="mt-4 rounded-2xl bg-card p-4 shadow-sm">
+        <section className="mt-4 rounded-lg bg-card p-4 shadow-sm">
           <p className="text-xs uppercase tracking-wider text-muted-foreground">Indian food sources</p>
           <ul className="mt-2 space-y-2 text-sm">
             {indianFoodSources.map((f) => (
@@ -46,7 +46,7 @@ function NutritionGuidePage() {
           </ul>
         </section>
 
-        <section className="mt-4 rounded-2xl bg-card p-4 shadow-sm">
+        <section className="mt-4 rounded-lg bg-card p-4 shadow-sm">
           <p className="text-xs uppercase tracking-wider text-muted-foreground">Practical tips</p>
           <ul className="mt-2 space-y-1.5 text-sm">
             {nutritionTips.map((t) => (

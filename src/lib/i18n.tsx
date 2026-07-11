@@ -28,11 +28,11 @@ const en: Dict = {
   skip: "Skip",
   next: "Next",
   welcome_1_title: "A gentle companion for every week",
-  welcome_1_body: "Track your pregnancy week-by-week with size comparisons you'll actually recognise — mango, papaya, coconut.",
+  welcome_1_body: "Track your pregnancy week-by-week with size comparisons you'll actually recognise  -  mango, papaya, coconut.",
   welcome_2_title: "Indian diet, made for you",
   welcome_2_body: "Trimester-wise veg, non-veg and eggetarian meal plans rooted in Indian kitchens.",
   welcome_3_title: "Care that travels with you",
-  welcome_3_body: "ANC reminders, kick counter, symptom log, baby vaccinations and a kind community — all in one place.",
+  welcome_3_body: "ANC reminders, kick counter, symptom log, baby vaccinations and a kind community  -  all in one place.",
 
   // Onboarding
   welcome: "Welcome, mama 🌸",
@@ -106,7 +106,7 @@ const en: Dict = {
 
   // Yoga
   yoga_title: "Yoga & Exercise",
-  yoga_intro: "Gentle prenatal yoga, breathing and walking — safe for each trimester.",
+  yoga_intro: "Gentle prenatal yoga, breathing and walking  -  safe for each trimester.",
   poses: "Yoga poses",
   breathing: "Breathing (Pranayama)",
   kegels: "Kegel exercises",
@@ -132,7 +132,7 @@ const en: Dict = {
 
   // Community
   community: "Community",
-  community_intro: "Ask, share & support — anonymously if you wish.",
+  community_intro: "Ask, share & support  -  anonymously if you wish.",
   ask_question: "Ask a question",
   topics: "Topics",
   all_topics: "All topics",
@@ -145,10 +145,10 @@ const en: Dict = {
   body_label: "Your question / message",
   post_anonymously: "Post anonymously",
   display_name: "Display name (optional)",
-  no_posts: "No posts yet — be the first to ask!",
+  no_posts: "No posts yet  -  be the first to ask!",
   report: "Report",
   report_reason: "Why are you reporting this?",
-  reported: "Thanks — our moderators will review.",
+  reported: "Thanks  -  our moderators will review.",
   by: "by",
   anonymous: "Anonymous",
   just_now: "just now",
@@ -211,7 +211,7 @@ const en: Dict = {
   often: "Often",
   log_checkin: "Log check-in",
   checkin_saved: "Saved. Take care of yourself, mama 💗",
-  high_score_warning: "Your score suggests you may be struggling. Please talk to your doctor or call iCall (9152987821) — you don't have to do this alone.",
+  high_score_warning: "Your score suggests you may be struggling. Please talk to your doctor or call iCall (9152987821)  -  you don't have to do this alone.",
   alert_q10: "If you've had thoughts of harming yourself, please call iCall (9152987821) or Vandrevala Foundation (1860-2662-345) right now.",
 };
 
@@ -239,11 +239,11 @@ const hi: Dict = {
   skip: "छोड़ें",
   next: "आगे",
   welcome_1_title: "हर सप्ताह के लिए एक कोमल साथी",
-  welcome_1_body: "अपनी गर्भावस्था को सप्ताह दर सप्ताह ट्रैक करें — आम, पपीता, नारियल जैसे परिचित आकारों के साथ।",
+  welcome_1_body: "अपनी गर्भावस्था को सप्ताह दर सप्ताह ट्रैक करें  -  आम, पपीता, नारियल जैसे परिचित आकारों के साथ।",
   welcome_2_title: "आपके लिए बना भारतीय आहार",
   welcome_2_body: "तिमाही के अनुसार शाकाहारी, मांसाहारी और अंडाहारी भारतीय भोजन योजनाएँ।",
   welcome_3_title: "हर कदम पर देखभाल",
-  welcome_3_body: "ANC रिमाइंडर, किक काउंटर, लक्षण लॉग, टीकाकरण और एक सहायक समुदाय — सब एक जगह।",
+  welcome_3_body: "ANC रिमाइंडर, किक काउंटर, लक्षण लॉग, टीकाकरण और एक सहायक समुदाय  -  सब एक जगह।",
 
   welcome: "स्वागत है, माँ 🌸",
   onb_intro: "आइए आपकी गर्भावस्था यात्रा सेट करें।",
@@ -333,7 +333,7 @@ const hi: Dict = {
   visit_site: "आधिकारिक साइट",
 
   community: "समुदाय",
-  community_intro: "पूछें, साझा करें और सहयोग पाएं — चाहें तो गुमनाम रहकर।",
+  community_intro: "पूछें, साझा करें और सहयोग पाएं  -  चाहें तो गुमनाम रहकर।",
   ask_question: "प्रश्न पूछें",
   topics: "विषय",
   all_topics: "सभी विषय",
@@ -346,10 +346,10 @@ const hi: Dict = {
   body_label: "आपका प्रश्न / संदेश",
   post_anonymously: "गुमनाम रूप से पोस्ट करें",
   display_name: "प्रदर्शन नाम (वैकल्पिक)",
-  no_posts: "अभी कोई पोस्ट नहीं — पहला प्रश्न आप पूछें!",
+  no_posts: "अभी कोई पोस्ट नहीं  -  पहला प्रश्न आप पूछें!",
   report: "रिपोर्ट",
   report_reason: "आप इसकी रिपोर्ट क्यों कर रही हैं?",
-  reported: "धन्यवाद — हमारी टीम समीक्षा करेगी।",
+  reported: "धन्यवाद  -  हमारी टीम समीक्षा करेगी।",
   by: "द्वारा",
   anonymous: "गुमनाम",
   just_now: "अभी",

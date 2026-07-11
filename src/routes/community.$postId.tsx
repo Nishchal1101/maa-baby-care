@@ -126,7 +126,7 @@ function PostPage() {
   return (
     <MobileShell>
       <div className="px-5 pb-8 pt-6">
-        <article className="rounded-2xl bg-card p-4 shadow-sm">
+        <article className="rounded-lg bg-card p-4 shadow-sm">
           <div className="flex items-center gap-2 text-[11px] text-muted-foreground">
             <span>{topic?.emoji} {topic?.label ?? post.topic}</span>
             <span>·</span>
@@ -163,7 +163,7 @@ function PostPage() {
           {replies.map((r) => {
             const rAuthor = r.anonymous ? t("anonymous") : r.display_name || t("anonymous");
             return (
-              <div key={r.id} className="rounded-2xl bg-card p-3 shadow-sm">
+              <div key={r.id} className="rounded-lg bg-card p-3 shadow-sm">
                 <div className="flex items-center justify-between text-[11px] text-muted-foreground">
                   <span>{t("by")} {rAuthor} · {formatDistanceToNow(new Date(r.created_at), { addSuffix: true })}</span>
                   <ReportDialog replyId={r.id} compact />
@@ -175,7 +175,7 @@ function PostPage() {
         </div>
 
         {/* Reply box */}
-        <div className="mt-6 rounded-2xl bg-card p-4 shadow-sm">
+        <div className="mt-6 rounded-lg bg-card p-4 shadow-sm">
           <Label htmlFor="reply" className="text-sm font-medium">{t("reply")}</Label>
           <Textarea id="reply" rows={3} value={body} onChange={(e) => setBody(e.target.value)} maxLength={1000} className="mt-2" />
           <div className="mt-3 flex items-center justify-between">
@@ -231,14 +231,14 @@ function ReportDialog({ postId, replyId, compact }: { postId?: string; replyId?:
             <button
               key={r}
               onClick={() => setReason(r)}
-              className={`w-full rounded-xl px-3 py-2 text-left text-sm ${
+              className={`w-full rounded-md px-3 py-2 text-left text-sm ${
                 reason === r ? "bg-primary text-primary-foreground" : "bg-muted text-foreground"
               }`}
             >
               {r}
             </button>
           ))}
-          <Button onClick={submit} disabled={sending} className="mt-2 h-11 w-full rounded-full">
+          <Button onClick={submit} disabled={sending} className="mt-2 h-11 w-full rounded-lg">
             {sending ? t("loading") : t("report")}
           </Button>
         </div>

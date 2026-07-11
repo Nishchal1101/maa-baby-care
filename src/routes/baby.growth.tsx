@@ -70,33 +70,33 @@ function GrowthPage() {
         <p className="mt-2 text-sm text-muted-foreground">{t("growth_intro")}</p>
 
         <form onSubmit={save} className="mt-6 space-y-3">
-          <div className="rounded-2xl bg-card p-4 shadow-sm">
+          <div className="rounded-lg bg-card p-4 shadow-sm">
             <Label>{t("date")}</Label>
-            <Input type="date" value={date} onChange={(e) => setDate(e.target.value)} className="mt-2 h-11 rounded-xl" />
+            <Input type="date" value={date} onChange={(e) => setDate(e.target.value)} className="mt-2 h-11 rounded-md" />
           </div>
           <div className="grid grid-cols-3 gap-3">
-            <div className="rounded-2xl bg-card p-3 shadow-sm">
+            <div className="rounded-lg bg-card p-3 shadow-sm">
               <Label className="text-xs">{t("weight_kg")}</Label>
-              <Input type="number" step="0.01" value={w} onChange={(e) => setW(e.target.value)} className="mt-2 h-11 rounded-xl" />
+              <Input type="number" step="0.01" value={w} onChange={(e) => setW(e.target.value)} className="mt-2 h-11 rounded-md" />
             </div>
-            <div className="rounded-2xl bg-card p-3 shadow-sm">
+            <div className="rounded-lg bg-card p-3 shadow-sm">
               <Label className="text-xs">{t("height_cm")}</Label>
-              <Input type="number" step="0.1" value={h} onChange={(e) => setH(e.target.value)} className="mt-2 h-11 rounded-xl" />
+              <Input type="number" step="0.1" value={h} onChange={(e) => setH(e.target.value)} className="mt-2 h-11 rounded-md" />
             </div>
-            <div className="rounded-2xl bg-card p-3 shadow-sm">
+            <div className="rounded-lg bg-card p-3 shadow-sm">
               <Label className="text-xs">{t("head_cm")}</Label>
-              <Input type="number" step="0.1" value={hc} onChange={(e) => setHc(e.target.value)} className="mt-2 h-11 rounded-xl" />
+              <Input type="number" step="0.1" value={hc} onChange={(e) => setHc(e.target.value)} className="mt-2 h-11 rounded-md" />
             </div>
           </div>
-          <Button type="submit" className="h-12 w-full rounded-full">{t("add_growth")}</Button>
+          <Button type="submit" className="h-12 w-full rounded-lg">{t("add_growth")}</Button>
         </form>
 
         <ul className="mt-6 space-y-2">
           {rows.map((r) => (
-            <li key={r.id} className="rounded-2xl bg-card p-4 text-sm shadow-sm">
+            <li key={r.id} className="rounded-lg bg-card p-4 text-sm shadow-sm">
               <p className="text-xs text-muted-foreground">{r.log_date}</p>
               <p className="mt-1">
-                {r.weight_kg ? `${r.weight_kg} kg` : "—"} · {r.height_cm ? `${r.height_cm} cm` : "—"} · {r.head_circumference_cm ? `${r.head_circumference_cm} cm` : "—"}
+                {r.weight_kg ? `${r.weight_kg} kg` : " - "} · {r.height_cm ? `${r.height_cm} cm` : " - "} · {r.head_circumference_cm ? `${r.head_circumference_cm} cm` : " - "}
               </p>
             </li>
           ))}
