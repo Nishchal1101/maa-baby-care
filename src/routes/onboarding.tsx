@@ -87,7 +87,7 @@ function OnboardingPage() {
           </div>
           <div className="space-y-2">
             <Label htmlFor="name">{t("name")}</Label>
-            <Input id="name" value={name} onChange={(e) => setName(e.target.value)} className="h-12 rounded-xl" />
+            <Input id="name" value={name} onChange={(e) => setName(e.target.value)} className="h-12 rounded-md" />
           </div>
         </div>
       )}
@@ -97,12 +97,12 @@ function OnboardingPage() {
           <h2 className="font-display text-2xl">When did your journey begin?</h2>
           <div className="space-y-2">
             <Label htmlFor="lmp">{t("lmp_question")}</Label>
-            <Input id="lmp" type="date" value={lmp} onChange={(e) => { setLmp(e.target.value); setDue(""); }} className="h-12 rounded-xl" />
+            <Input id="lmp" type="date" value={lmp} onChange={(e) => { setLmp(e.target.value); setDue(""); }} className="h-12 rounded-md" />
           </div>
           <div className="text-center text-xs uppercase tracking-wider text-muted-foreground">or</div>
           <div className="space-y-2">
             <Label htmlFor="due">{t("due_question")}</Label>
-            <Input id="due" type="date" value={due} onChange={(e) => { setDue(e.target.value); setLmp(""); }} className="h-12 rounded-xl" />
+            <Input id="due" type="date" value={due} onChange={(e) => { setDue(e.target.value); setLmp(""); }} className="h-12 rounded-md" />
           </div>
         </div>
       )}
@@ -119,7 +119,7 @@ function OnboardingPage() {
                   type="button"
                   onClick={() => setDiet(d)}
                   className={
-                    "rounded-2xl border p-3 text-sm transition-colors " +
+                    "rounded-lg border p-3 text-sm transition-colors " +
                     (diet === d ? "border-primary bg-primary/10 text-foreground" : "border-border bg-card text-muted-foreground")
                   }
                 >
@@ -138,11 +138,11 @@ function OnboardingPage() {
                 onFocus={() => setCityOpen(true)}
                 onBlur={() => setTimeout(() => setCityOpen(false), 150)}
                 autoComplete="off"
-                className="h-12 rounded-xl"
+                className="h-12 rounded-md"
               />
               {cityOpen && city.trim().length > 0 && citySuggestions.length > 0 && (
                 <div className="relative">
-                  <ul className="absolute z-20 mt-1 max-h-56 w-full overflow-auto rounded-xl border border-border bg-popover text-popover-foreground shadow-md">
+                  <ul className="absolute z-20 mt-1 max-h-56 w-full overflow-auto rounded-md border border-border bg-popover text-popover-foreground shadow-md">
                     {citySuggestions.map((c) => (
                       <li key={c}>
                         <button
@@ -161,7 +161,7 @@ function OnboardingPage() {
             <div className="space-y-2">
               <Label htmlFor="state">{t("state")}</Label>
               <Select value={stateName} onValueChange={setStateName}>
-                <SelectTrigger id="state" className="h-12 rounded-xl">
+                <SelectTrigger id="state" className="h-12 rounded-md">
                   <SelectValue placeholder="Select state" />
                 </SelectTrigger>
                 <SelectContent>

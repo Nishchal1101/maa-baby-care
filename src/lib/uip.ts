@@ -15,7 +15,7 @@ export const UIP_SCHEDULE: Vaccine[] = [
     name: { en: "BCG", hi: "बीसीजी" },
     ageDays: 0,
     protects: { en: "Tuberculosis", hi: "तपेदिक (TB)" },
-    notes: { en: "Given at birth — single dose, left upper arm.", hi: "जन्म पर — एक खुराक, बाएं कंधे पर।" },
+    notes: { en: "Given at birth  -  single dose, left upper arm.", hi: "जन्म पर  -  एक खुराक, बाएं कंधे पर।" },
   },
   {
     code: "OPV-0",

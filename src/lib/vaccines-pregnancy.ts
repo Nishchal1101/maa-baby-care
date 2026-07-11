@@ -14,7 +14,7 @@ export const maternalVaccines: MaternalVaccine[] = [
     why: "Prevents maternal & neonatal tetanus; Tdap gives the newborn passive protection against pertussis.",
   },
   {
-    name: "Influenza (flu) — inactivated",
+    name: "Influenza (flu)  -  inactivated",
     when: "Any trimester during flu season. Single dose each year.",
     why: "Pregnant women are at higher risk of severe flu; the antibodies also protect the baby for the first months.",
   },
@@ -27,7 +27,7 @@ export const maternalVaccines: MaternalVaccine[] = [
 
 export const contraindicatedVaccines = {
   note: "Live vaccines are generally avoided during pregnancy",
-  list: ["MMR (Measles-Mumps-Rubella)", "Varicella (chicken pox)", "Live typhoid (oral)", "Yellow fever (unless travel is unavoidable — discuss with doctor)"] ,
+  list: ["MMR (Measles-Mumps-Rubella)", "Varicella (chicken pox)", "Live typhoid (oral)", "Yellow fever (unless travel is unavoidable  -  discuss with doctor)"] ,
 };
 
 export const maternalVaccinesSource = `${SRC.mohfwANC}; ${SRC.fogsi}; ${SRC.who}`;

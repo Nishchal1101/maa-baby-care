@@ -77,7 +77,7 @@ function SignupPage() {
           toast.error(error.message);
           return;
         }
-        toast.success("Account created — check your email to confirm 🌸");
+        toast.success("Account created  -  check your email to confirm 🌸");
       } else {
         const phone = normalizePhone(identifier);
         const { error } = await supabase.auth.signUp({
@@ -117,7 +117,7 @@ function SignupPage() {
       toast.error(error.message);
       return;
     }
-    toast.success("Phone verified — welcome 🌸");
+    toast.success("Phone verified  -  welcome 🌸");
   };
 
   const resendOtp = async () => {
@@ -146,7 +146,7 @@ function SignupPage() {
               required
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="h-12 rounded-xl"
+              className="h-12 rounded-md"
             />
           </div>
           <div className="space-y-2">
@@ -159,7 +159,7 @@ function SignupPage() {
               placeholder="you@example.com or +91 98765 43210"
               value={identifier}
               onChange={(e) => setIdentifier(e.target.value)}
-              className="h-12 rounded-xl"
+              className="h-12 rounded-md"
             />
             <p className="text-[11px] text-muted-foreground">
               {identifier.trim()
@@ -178,16 +178,16 @@ function SignupPage() {
               minLength={8}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="h-12 rounded-xl"
+              className="h-12 rounded-md"
             />
           </div>
-          <Button type="submit" disabled={busy} className="h-12 w-full rounded-full text-base">
+          <Button type="submit" disabled={busy} className="h-12 w-full rounded-lg text-base">
             {busy ? t("loading") : t("signup")}
           </Button>
         </form>
       ) : (
         <form onSubmit={verifyOtp} className="mt-8 space-y-4">
-          <div className="rounded-xl bg-muted/50 p-3 text-sm text-muted-foreground">
+          <div className="rounded-md bg-muted/50 p-3 text-sm text-muted-foreground">
             Enter the 6-digit code we sent to <span className="font-medium text-foreground">{phoneUsed}</span>.
           </div>
           <div className="space-y-2">
@@ -199,11 +199,11 @@ function SignupPage() {
               maxLength={6}
               value={otpCode}
               onChange={(e) => setOtpCode(e.target.value.replace(/\D/g, ""))}
-              className="h-12 rounded-xl text-center text-lg tracking-[0.5em]"
+              className="h-12 rounded-md text-center text-lg tracking-[0.5em]"
               placeholder="••••••"
             />
           </div>
-          <Button type="submit" disabled={busy} className="h-12 w-full rounded-full text-base">
+          <Button type="submit" disabled={busy} className="h-12 w-full rounded-lg text-base">
             {busy ? t("loading") : "Verify & continue"}
           </Button>
           <div className="flex items-center justify-between text-xs">

@@ -70,7 +70,7 @@ function FeedsPage() {
         <p className="mt-2 text-sm text-muted-foreground">{t("feed_intro")}</p>
 
         <form onSubmit={save} className="mt-6 space-y-3">
-          <div className="rounded-2xl bg-card p-4 shadow-sm">
+          <div className="rounded-lg bg-card p-4 shadow-sm">
             <Label>{t("feed_type")}</Label>
             <div className="mt-2 flex flex-wrap gap-2">
               {types.map((tt) => (
@@ -87,27 +87,27 @@ function FeedsPage() {
             </div>
           </div>
           <div className="grid grid-cols-2 gap-3">
-            <div className="rounded-2xl bg-card p-3 shadow-sm">
+            <div className="rounded-lg bg-card p-3 shadow-sm">
               <Label className="text-xs">{t("duration_min")}</Label>
-              <Input type="number" value={dur} onChange={(e) => setDur(e.target.value)} className="mt-2 h-11 rounded-xl" />
+              <Input type="number" value={dur} onChange={(e) => setDur(e.target.value)} className="mt-2 h-11 rounded-md" />
             </div>
-            <div className="rounded-2xl bg-card p-3 shadow-sm">
+            <div className="rounded-lg bg-card p-3 shadow-sm">
               <Label className="text-xs">{t("amount_ml")}</Label>
-              <Input type="number" value={ml} onChange={(e) => setMl(e.target.value)} className="mt-2 h-11 rounded-xl" />
+              <Input type="number" value={ml} onChange={(e) => setMl(e.target.value)} className="mt-2 h-11 rounded-md" />
             </div>
           </div>
-          <Button type="submit" className="h-12 w-full rounded-full">{t("add_feed")}</Button>
+          <Button type="submit" className="h-12 w-full rounded-lg">{t("add_feed")}</Button>
         </form>
 
         <ul className="mt-6 space-y-2">
           {rows.map((r) => (
-            <li key={r.id} className="rounded-2xl bg-card p-4 text-sm shadow-sm">
+            <li key={r.id} className="rounded-lg bg-card p-4 text-sm shadow-sm">
               <div className="flex justify-between text-xs text-muted-foreground">
                 <span>{new Date(r.started_at).toLocaleString()}</span>
                 <span>{t(r.feed_type)}</span>
               </div>
               <p className="mt-1">
-                {r.duration_minutes ? `${r.duration_minutes} min` : "—"}
+                {r.duration_minutes ? `${r.duration_minutes} min` : " - "}
                 {r.amount_ml ? ` · ${r.amount_ml} ml` : ""}
               </p>
             </li>

@@ -6,7 +6,7 @@ export const rda = [
   { nutrient: "Iron", value: "27 mg/day" },
   { nutrient: "Calcium", value: "1000 mg/day" },
   { nutrient: "Folate", value: "600 µg/day (start 400 µg pre-conception)" },
-  { nutrient: "Iodine", value: "220 µg/day — use iodised salt" },
+  { nutrient: "Iodine", value: "220 µg/day  -  use iodised salt" },
   { nutrient: "Vitamin B12", value: "2.2 µg/day" },
   { nutrient: "Water", value: "2.5 – 3 L/day" },
 ];

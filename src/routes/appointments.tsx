@@ -68,7 +68,7 @@ function ApptPage() {
         <section className="mt-5 space-y-3">
           {items.length === 0 && <p className="text-sm text-muted-foreground">{t("none_scheduled")}</p>}
           {items.map((a) => (
-            <div key={a.id} className={"rounded-2xl bg-card p-4 shadow-sm " + (a.completed ? "opacity-60" : "")}>
+            <div key={a.id} className={"rounded-lg bg-card p-4 shadow-sm " + (a.completed ? "opacity-60" : "")}>
               <div className="flex items-start justify-between gap-2">
                 <div className="min-w-0">
                   <p className="font-medium">{a.title}</p>
@@ -100,7 +100,7 @@ function ApptPage() {
           <p className="mt-1 text-xs text-muted-foreground">India's recommended antenatal visits</p>
           <ul className="mt-3 space-y-3">
             {ancSchedule.map((v) => (
-              <li key={v.week} className="rounded-2xl bg-card p-4 shadow-sm">
+              <li key={v.week} className="rounded-lg bg-card p-4 shadow-sm">
                 <div className="flex items-baseline gap-2">
                   <span className="rounded-full bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary">
                     {t("week")} {v.week}
@@ -146,28 +146,28 @@ function ApptForm({ onDone, onCancel }: { onDone: () => void; onCancel: () => vo
   };
 
   return (
-    <form onSubmit={save} className="mt-4 space-y-3 rounded-2xl bg-card p-4 shadow-sm">
+    <form onSubmit={save} className="mt-4 space-y-3 rounded-lg bg-card p-4 shadow-sm">
       <div className="space-y-1.5">
         <Label>{t("appt_title")}</Label>
-        <Input required value={title} onChange={(e) => setTitle(e.target.value)} className="h-11 rounded-xl" />
+        <Input required value={title} onChange={(e) => setTitle(e.target.value)} className="h-11 rounded-md" />
       </div>
       <div className="grid grid-cols-2 gap-2">
         <div className="space-y-1.5">
           <Label>{t("doctor")}</Label>
-          <Input value={doctor} onChange={(e) => setDoctor(e.target.value)} className="h-11 rounded-xl" />
+          <Input value={doctor} onChange={(e) => setDoctor(e.target.value)} className="h-11 rounded-md" />
         </div>
         <div className="space-y-1.5">
           <Label>{t("hospital")}</Label>
-          <Input value={hospital} onChange={(e) => setHospital(e.target.value)} className="h-11 rounded-xl" />
+          <Input value={hospital} onChange={(e) => setHospital(e.target.value)} className="h-11 rounded-md" />
         </div>
       </div>
       <div className="space-y-1.5">
         <Label>{t("date_time")}</Label>
-        <Input required type="datetime-local" value={when} onChange={(e) => setWhen(e.target.value)} className="h-11 rounded-xl" />
+        <Input required type="datetime-local" value={when} onChange={(e) => setWhen(e.target.value)} className="h-11 rounded-md" />
       </div>
       <div className="space-y-1.5">
         <Label>{t("notes")}</Label>
-        <Textarea value={notes} onChange={(e) => setNotes(e.target.value)} className="rounded-xl" />
+        <Textarea value={notes} onChange={(e) => setNotes(e.target.value)} className="rounded-md" />
       </div>
       <div className="flex gap-2">
         <Button type="button" variant="ghost" onClick={onCancel} className="flex-1 rounded-full">{t("cancel")}</Button>

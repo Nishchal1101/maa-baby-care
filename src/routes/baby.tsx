@@ -77,13 +77,13 @@ function BabyPage() {
           {(baby.birth_weight_kg || baby.birth_length_cm) && (
             <div className="mt-4 grid grid-cols-2 gap-3 text-sm">
               {baby.birth_weight_kg && (
-                <div className="rounded-xl bg-card/70 p-3">
+                <div className="rounded-md bg-card/70 p-3">
                   <p className="text-[11px] uppercase text-muted-foreground">{t("birth_weight")}</p>
                   <p className="font-medium">{baby.birth_weight_kg} kg</p>
                 </div>
               )}
               {baby.birth_length_cm && (
-                <div className="rounded-xl bg-card/70 p-3">
+                <div className="rounded-md bg-card/70 p-3">
                   <p className="text-[11px] uppercase text-muted-foreground">{t("birth_length")}</p>
                   <p className="font-medium">{baby.birth_length_cm} cm</p>
                 </div>
@@ -94,7 +94,7 @@ function BabyPage() {
 
         <div className="mt-5 grid grid-cols-2 gap-3">
           {tiles.map(({ to, icon: Icon, label }) => (
-            <Link key={to} to={to} className="flex flex-col gap-2 rounded-2xl bg-card p-4 shadow-sm">
+            <Link key={to} to={to} className="flex flex-col gap-2 rounded-lg bg-card p-4 shadow-sm">
               <Icon className="h-5 w-5 shrink-0 text-primary" />
               <span className="break-words text-sm font-medium leading-snug">{label}</span>
             </Link>
@@ -154,15 +154,15 @@ function BabySetup({ onCreated }: { onCreated: () => void }) {
         <p className="mt-2 text-sm text-muted-foreground">{t("baby_setup_intro")}</p>
 
         <form onSubmit={submit} className="mt-6 space-y-4">
-          <div className="rounded-2xl bg-card p-4 shadow-sm">
+          <div className="rounded-lg bg-card p-4 shadow-sm">
             <Label>{t("baby_name")}</Label>
-            <Input value={name} onChange={(e) => setName(e.target.value)} className="mt-2 h-11 rounded-xl" />
+            <Input value={name} onChange={(e) => setName(e.target.value)} className="mt-2 h-11 rounded-md" />
           </div>
-          <div className="rounded-2xl bg-card p-4 shadow-sm">
+          <div className="rounded-lg bg-card p-4 shadow-sm">
             <Label>{t("baby_dob")}</Label>
-            <Input type="date" value={dob} onChange={(e) => setDob(e.target.value)} className="mt-2 h-11 rounded-xl" required />
+            <Input type="date" value={dob} onChange={(e) => setDob(e.target.value)} className="mt-2 h-11 rounded-md" required />
           </div>
-          <div className="rounded-2xl bg-card p-4 shadow-sm">
+          <div className="rounded-lg bg-card p-4 shadow-sm">
             <Label>{t("baby_sex")}</Label>
             <div className="mt-2 grid grid-cols-3 gap-2">
               {(["female", "male", "other"] as const).map((s) => (
@@ -171,7 +171,7 @@ function BabySetup({ onCreated }: { onCreated: () => void }) {
                   type="button"
                   onClick={() => setSex(s)}
                   className={
-                    "rounded-xl border px-3 py-2 text-sm transition-colors " +
+                    "rounded-md border px-3 py-2 text-sm transition-colors " +
                     (sex === s ? "border-primary bg-primary/10" : "border-border bg-card text-muted-foreground")
                   }
                 >{t(s)}</button>
@@ -179,16 +179,16 @@ function BabySetup({ onCreated }: { onCreated: () => void }) {
             </div>
           </div>
           <div className="grid grid-cols-2 gap-3">
-            <div className="rounded-2xl bg-card p-4 shadow-sm">
+            <div className="rounded-lg bg-card p-4 shadow-sm">
               <Label>{t("birth_weight")}</Label>
-              <Input type="number" step="0.01" value={bw} onChange={(e) => setBw(e.target.value)} className="mt-2 h-11 rounded-xl" />
+              <Input type="number" step="0.01" value={bw} onChange={(e) => setBw(e.target.value)} className="mt-2 h-11 rounded-md" />
             </div>
-            <div className="rounded-2xl bg-card p-4 shadow-sm">
+            <div className="rounded-lg bg-card p-4 shadow-sm">
               <Label>{t("birth_length")}</Label>
-              <Input type="number" step="0.1" value={bl} onChange={(e) => setBl(e.target.value)} className="mt-2 h-11 rounded-xl" />
+              <Input type="number" step="0.1" value={bl} onChange={(e) => setBl(e.target.value)} className="mt-2 h-11 rounded-md" />
             </div>
           </div>
-          <Button type="submit" disabled={busy} className="h-12 w-full rounded-full">
+          <Button type="submit" disabled={busy} className="h-12 w-full rounded-lg">
             {busy ? t("loading") : t("save")}
           </Button>
         </form>

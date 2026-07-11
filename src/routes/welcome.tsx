@@ -10,11 +10,11 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/welcome")({
   head: () => ({
     meta: [
-      { title: "Welcome — MatruCare" },
+      { title: "Welcome  -  MatruCare" },
       {
         name: "description",
         content:
-          "Welcome to MatruCare — a gentle India-first pregnancy companion. Tracking, diet, ANC reminders and community.",
+          "Welcome to MatruCare  -  a gentle India-first pregnancy companion. Tracking, diet, ANC reminders and community.",
       },
     ],
   }),
@@ -95,7 +95,7 @@ function WelcomePage() {
             <span className="absolute -right-6 -top-6 text-[7rem] leading-none opacity-30 select-none">
               {slide.emoji}
             </span>
-            <span className="relative grid h-12 w-12 place-items-center rounded-2xl bg-card/80 text-primary backdrop-blur-sm">
+            <span className="relative grid h-12 w-12 place-items-center rounded-lg bg-card/80 text-primary backdrop-blur-sm">
               {slide.icon}
             </span>
             <h1 className="relative mt-6 font-display text-[2rem] leading-[1.15] text-foreground break-words">
@@ -130,10 +130,10 @@ function WelcomePage() {
         <div className="mt-5 space-y-3">
           {isLast ? (
             <>
-              <Button onClick={finish} size="lg" className="h-12 w-full rounded-full text-base">
+              <Button onClick={finish} size="lg" className="h-12 w-full rounded-lg text-base">
                 {t("get_started")}
               </Button>
-              <Button asChild variant="ghost" size="lg" className="h-12 w-full rounded-full text-base">
+              <Button asChild variant="ghost" size="lg" className="h-12 w-full rounded-lg text-base">
                 <Link to="/login">{t("login")}</Link>
               </Button>
             </>
@@ -141,7 +141,7 @@ function WelcomePage() {
             <Button
               size="lg"
               onClick={() => setI((v) => Math.min(v + 1, slides.length - 1))}
-              className="h-12 w-full rounded-full text-base"
+              className="h-12 w-full rounded-lg text-base"
             >
               {t("next")}
             </Button>
@@ -154,7 +154,7 @@ function WelcomePage() {
 
 function FeatureRow({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
-    <li className="flex items-center gap-3 rounded-2xl bg-card px-4 py-3 shadow-sm">
+    <li className="flex items-center gap-3 rounded-lg bg-card px-4 py-3 shadow-sm">
       <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-primary/10 text-primary">
         {icon}
       </span>

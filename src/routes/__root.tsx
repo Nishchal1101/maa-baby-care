@@ -31,13 +31,13 @@ export const Route = createRootRoute({
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
       { name: "theme-color", content: "#f7e7e1" },
-      { title: "MatruCare — Pregnancy care for Indian mothers" },
+      { title: "MatruCare  -  Pregnancy care for Indian mothers" },
       {
         name: "description",
         content:
-          "MatruCare is a gentle pregnancy companion built for Indian mothers — week-by-week tracking, Indian diet plans, ANC reminders, kick counter, and more.",
+          "MatruCare is a gentle pregnancy companion built for Indian mothers  -  week-by-week tracking, Indian diet plans, ANC reminders, kick counter, and more.",
       },
-      { property: "og:title", content: "MatruCare — Pregnancy care for Indian mothers" },
+      { property: "og:title", content: "MatruCare  -  Pregnancy care for Indian mothers" },
       {
         property: "og:description",
         content: "Week-by-week pregnancy guidance with Indian diet, ANC schedule, and kick counter.",

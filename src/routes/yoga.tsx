@@ -11,8 +11,8 @@ import { Wind, Footprints, ShieldAlert, Flower2 } from "lucide-react";
 export const Route = createFileRoute("/yoga")({
   head: () => ({
     meta: [
-      { title: "Yoga & Exercise — MatruCare" },
-      { name: "description", content: "Trimester-wise prenatal yoga, pranayama breathing, kegels and walking goals — safe for Indian mothers." },
+      { title: "Yoga & Exercise  -  MatruCare" },
+      { name: "description", content: "Trimester-wise prenatal yoga, pranayama breathing, kegels and walking goals  -  safe for Indian mothers." },
     ],
   }),
   component: YogaPage,
@@ -62,7 +62,7 @@ function YogaPage() {
 
             <Accordion type="single" collapsible className="space-y-2">
               {filtered.map((pose) => (
-                <AccordionItem key={pose.id} value={pose.id} className="overflow-hidden rounded-2xl border-0 bg-card shadow-sm">
+                <AccordionItem key={pose.id} value={pose.id} className="overflow-hidden rounded-lg border-0 bg-card shadow-sm">
                   <AccordionTrigger className="px-4 py-3 hover:no-underline">
                     <div className="flex flex-1 flex-col items-start text-left">
                       <span className="font-medium">{pose.name}</span>
@@ -86,7 +86,7 @@ function YogaPage() {
               ))}
             </Accordion>
 
-            <div className="rounded-2xl border border-destructive/30 bg-destructive/5 p-4">
+            <div className="rounded-lg border border-destructive/30 bg-destructive/5 p-4">
               <div className="flex items-center gap-2 font-medium text-destructive">
                 <ShieldAlert className="h-4 w-4" /> {t("avoid_list")}
               </div>
@@ -98,7 +98,7 @@ function YogaPage() {
 
           <TabsContent value="breathing" className="mt-4 space-y-2">
             {breathing.map((b) => (
-              <div key={b.id} className="rounded-2xl bg-card p-4 shadow-sm">
+              <div key={b.id} className="rounded-lg bg-card p-4 shadow-sm">
                 <div className="flex items-center gap-2">
                   <Wind className="h-4 w-4 text-primary" />
                   <span className="font-medium">{b.name}</span>
@@ -114,7 +114,7 @@ function YogaPage() {
           </TabsContent>
 
           <TabsContent value="kegels" className="mt-4">
-            <div className="rounded-2xl bg-card p-4 shadow-sm">
+            <div className="rounded-lg bg-card p-4 shadow-sm">
               <p className="text-sm text-muted-foreground">{kegelGuide.what}</p>
               <p className="mt-3 text-sm font-medium">{t("steps")}</p>
               <ol className="mt-1 list-decimal space-y-1 pl-5 text-sm text-muted-foreground">
@@ -124,7 +124,7 @@ function YogaPage() {
           </TabsContent>
 
           <TabsContent value="walking" className="mt-4">
-            <div className="rounded-2xl bg-card p-4 shadow-sm">
+            <div className="rounded-lg bg-card p-4 shadow-sm">
               <div className="flex items-center gap-2">
                 <Footprints className="h-4 w-4 text-primary" />
                 <span className="font-medium">{walkingGoal.goal}</span>

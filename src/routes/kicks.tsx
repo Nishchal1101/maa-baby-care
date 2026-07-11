@@ -53,13 +53,13 @@ function KicksPage() {
         <h1 className="font-display text-2xl">{t("kicks_title")}</h1>
         <p className="mt-1 text-sm text-muted-foreground">{t("kicks_help")}</p>
 
-        <section className="mt-4 rounded-2xl bg-card p-4 shadow-sm">
+        <section className="mt-4 rounded-lg bg-card p-4 shadow-sm">
           <p className="text-xs uppercase tracking-wider text-muted-foreground">How to count (from 28 weeks)</p>
           <ul className="mt-2 space-y-1.5 text-sm">
-            <li className="flex gap-2"><span>•</span><span>Pick the time your baby is usually active — often after meals.</span></li>
+            <li className="flex gap-2"><span>•</span><span>Pick the time your baby is usually active  -  often after meals.</span></li>
             <li className="flex gap-2"><span>•</span><span>Lie on your left side or sit comfortably. Start the timer and tap for each distinct movement (kick, roll, flutter).</span></li>
             <li className="flex gap-2"><span>•</span><span>10 movements within 2 hours is reassuring. If fewer, eat something sweet, drink water, and try again.</span></li>
-            <li className="flex gap-2 text-destructive"><span>•</span><span>If still fewer than 10 in 2 hours, or a clear drop from usual — contact your doctor the same day.</span></li>
+            <li className="flex gap-2 text-destructive"><span>•</span><span>If still fewer than 10 in 2 hours, or a clear drop from usual  -  contact your doctor the same day.</span></li>
           </ul>
           <p className="mt-2 text-[11px] italic text-muted-foreground">Source: FOGSI; RCOG Green-top 57</p>
         </section>

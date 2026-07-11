@@ -8,7 +8,7 @@ import { exerciseSafe, exerciseAvoid, stopIfWarning, exerciseSource } from "@/li
 export const Route = createFileRoute("/exercise")({
   head: () => ({
     meta: [
-      { title: "Safe exercise in pregnancy — Maa Baby Care" },
+      { title: "Safe exercise in pregnancy  -  Maa Baby Care" },
       { name: "description", content: "Safe activities, what to avoid, and warning signs to stop exercising during pregnancy." },
     ],
   }),
@@ -25,7 +25,7 @@ function ExercisePage() {
         </p>
         <DisclaimerBanner />
 
-        <section className="mt-4 rounded-2xl bg-card p-4 shadow-sm">
+        <section className="mt-4 rounded-lg bg-card p-4 shadow-sm">
           <p className="text-xs uppercase tracking-wider text-muted-foreground">Generally safe</p>
           <ul className="mt-2 space-y-1.5 text-sm">
             {exerciseSafe.map((i) => (
@@ -35,7 +35,7 @@ function ExercisePage() {
           <Link to="/yoga" className="mt-3 inline-block text-xs font-medium text-primary">Open prenatal yoga →</Link>
         </section>
 
-        <section className="mt-4 rounded-2xl bg-card p-4 shadow-sm">
+        <section className="mt-4 rounded-lg bg-card p-4 shadow-sm">
           <p className="text-xs uppercase tracking-wider text-muted-foreground">Avoid</p>
           <ul className="mt-2 space-y-1.5 text-sm">
             {exerciseAvoid.map((i) => (

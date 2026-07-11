@@ -62,7 +62,7 @@ function VaccPage() {
               const given = !!r.administered_date;
               const overdue = !given && r.scheduled_date < today;
               return (
-                <li key={r.id} className="rounded-2xl bg-card p-4 shadow-sm">
+                <li key={r.id} className="rounded-lg bg-card p-4 shadow-sm">
                   <div className="flex items-start justify-between gap-3">
                     <div className="flex items-start gap-3">
                       <span className={

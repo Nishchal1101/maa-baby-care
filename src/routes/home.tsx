@@ -78,13 +78,13 @@ function HomePage() {
         </Link>
 
         {/* Tip */}
-        <section className="mt-5 rounded-2xl bg-card p-4 shadow-sm">
+        <section className="mt-5 rounded-lg bg-card p-4 shadow-sm">
           <p className="text-xs uppercase tracking-wider text-muted-foreground">{t("todays_tip")}</p>
           <p className="mt-2 text-sm leading-relaxed">{info.tip}</p>
         </section>
 
         {/* Next appt */}
-        <section className="mt-4 rounded-2xl bg-card p-4 shadow-sm">
+        <section className="mt-4 rounded-lg bg-card p-4 shadow-sm">
           <div className="flex items-center justify-between">
             <p className="text-xs uppercase tracking-wider text-muted-foreground">{t("next_appt")}</p>
             <Link to="/appointments" className="text-xs font-medium text-primary">View all</Link>
@@ -111,7 +111,7 @@ function HomePage() {
         </section>
 
         {/* Diet preview */}
-        <section className="mt-6 rounded-2xl bg-card p-4 shadow-sm">
+        <section className="mt-6 rounded-lg bg-card p-4 shadow-sm">
           <div className="flex items-center justify-between">
             <p className="text-xs uppercase tracking-wider text-muted-foreground">{t("breakfast")}</p>
             <Link to="/diet" className="text-xs font-medium text-primary">{t("view_diet")}</Link>
@@ -130,7 +130,7 @@ function ActionCard({
     <Link
       to={to}
       params={params}
-      className="flex flex-col items-start gap-2 rounded-2xl bg-card p-4 shadow-sm transition-transform active:scale-[0.98]"
+      className="flex flex-col items-start gap-2 rounded-lg bg-card p-4 shadow-sm transition-transform active:scale-[0.98]"
     >
       <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-primary/10 text-primary">{icon}</span>
       <span className="w-full break-words text-sm font-medium leading-snug">{label}</span>

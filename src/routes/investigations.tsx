@@ -7,7 +7,7 @@ import { investigations, investigationsSource } from "@/lib/investigations";
 export const Route = createFileRoute("/investigations")({
   head: () => ({
     meta: [
-      { title: "ANC checkups & tests — Maa Baby Care" },
+      { title: "ANC checkups & tests  -  Maa Baby Care" },
       { name: "description", content: "Trimester-wise antenatal checkups and investigations per Indian ANC guidelines." },
     ],
   }),
@@ -25,7 +25,7 @@ function InvestigationsPage() {
         <DisclaimerBanner />
 
         {investigations.map((b) => (
-          <section key={b.trimester} className="mt-4 rounded-2xl bg-card p-4 shadow-sm">
+          <section key={b.trimester} className="mt-4 rounded-lg bg-card p-4 shadow-sm">
             <p className="text-xs uppercase tracking-wider text-muted-foreground">Trimester {b.trimester} · {b.window}</p>
             <p className="mt-1 text-sm font-medium">{b.visits}</p>
             <ul className="mt-3 space-y-1.5 text-sm">

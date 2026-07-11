@@ -39,7 +39,7 @@ export const symptomGuides: SymptomGuide[] = [
     name: "Constipation",
     normal: "Hormones + iron tablets slow the gut. Very common.",
     selfCare: [
-      "2.5–3 L water daily; fibre — fruits, salad, whole dal, oats",
+      "2.5–3 L water daily; fibre  -  fruits, salad, whole dal, oats",
       "Walk 20–30 min a day",
       "Do not use unprescribed laxatives",
     ],

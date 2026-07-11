@@ -8,8 +8,8 @@ import { Phone, Landmark, ExternalLink } from "lucide-react";
 export const Route = createFileRoute("/schemes")({
   head: () => ({
     meta: [
-      { title: "Govt Schemes & Emergency — MatruCare" },
-      { name: "description", content: "PMMVY, JSY, JSSK, Ayushman Bharat — Indian government maternity schemes and emergency helpline numbers for pregnant mothers." },
+      { title: "Govt Schemes & Emergency  -  MatruCare" },
+      { name: "description", content: "PMMVY, JSY, JSSK, Ayushman Bharat  -  Indian government maternity schemes and emergency helpline numbers for pregnant mothers." },
     ],
   }),
   component: SchemesPage,
@@ -39,7 +39,7 @@ function SchemesPage() {
               <a
                 key={c.number}
                 href={`tel:${c.number}`}
-                className="flex flex-col rounded-2xl bg-card p-3 shadow-sm active:scale-[0.98]"
+                className="flex flex-col rounded-lg bg-card p-3 shadow-sm active:scale-[0.98]"
               >
                 <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
                   <Phone className="h-3 w-3" /> {c.name}
@@ -56,7 +56,7 @@ function SchemesPage() {
           <h2 className="mb-2 text-sm font-medium text-muted-foreground">Schemes</h2>
           <Accordion type="single" collapsible className="space-y-2">
             {schemes.map((s) => (
-              <AccordionItem key={s.id} value={s.id} className="overflow-hidden rounded-2xl border-0 bg-card shadow-sm">
+              <AccordionItem key={s.id} value={s.id} className="overflow-hidden rounded-lg border-0 bg-card shadow-sm">
                 <AccordionTrigger className="px-4 py-3 hover:no-underline">
                   <div className="flex flex-1 flex-col items-start text-left">
                     <span className="font-medium leading-tight">{s.shortName}</span>

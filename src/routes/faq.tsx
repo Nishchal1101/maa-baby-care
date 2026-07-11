@@ -10,7 +10,7 @@ import { ChevronDown } from "lucide-react";
 export const Route = createFileRoute("/faq")({
   head: () => ({
     meta: [
-      { title: "Pregnancy FAQ — Maa Baby Care" },
+      { title: "Pregnancy FAQ  -  Maa Baby Care" },
       { name: "description", content: "Common questions Indian mothers ask their doctors, with sourced short answers." },
     ],
   }),
@@ -40,7 +40,7 @@ function FaqPage() {
           {filtered.map((f, i) => {
             const isOpen = open === i;
             return (
-              <div key={f.q} className="rounded-2xl bg-card shadow-sm">
+              <div key={f.q} className="rounded-lg bg-card shadow-sm">
                 <button
                   onClick={() => setOpen(isOpen ? null : i)}
                   className="flex w-full items-center justify-between gap-3 p-4 text-left"

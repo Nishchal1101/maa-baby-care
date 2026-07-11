@@ -31,8 +31,8 @@ type Post = {
 export const Route = createFileRoute("/community")({
   head: () => ({
     meta: [
-      { title: "Community — MatruCare" },
-      { name: "description", content: "Ask questions and connect with other Indian mothers — anonymously if you wish. Topics: nutrition, symptoms, labor, newborn care, mental health." },
+      { title: "Community  -  MatruCare" },
+      { name: "description", content: "Ask questions and connect with other Indian mothers  -  anonymously if you wish. Topics: nutrition, symptoms, labor, newborn care, mental health." },
     ],
   }),
   component: CommunityPage,
@@ -126,7 +126,7 @@ function PostCard({ post }: { post: Post }) {
     <Link
       to="/community/$postId"
       params={{ postId: post.id }}
-      className="block rounded-2xl bg-card p-4 shadow-sm active:scale-[0.99]"
+      className="block rounded-lg bg-card p-4 shadow-sm active:scale-[0.99]"
     >
       <div className="flex flex-wrap items-center gap-x-1.5 gap-y-0.5 text-[11px] text-muted-foreground">
         <span className="truncate max-w-[40%]">{topic?.emoji} {topic?.label ?? post.topic}</span>
@@ -210,7 +210,7 @@ function NewPostDialog({ onClose }: { onClose: () => void }) {
           <Label htmlFor="body" className="text-xs">{t("body_label")}</Label>
           <Textarea id="body" rows={5} value={body} onChange={(e) => setBody(e.target.value)} maxLength={2000} />
         </div>
-        <div className="flex items-center justify-between rounded-xl bg-muted/40 p-3">
+        <div className="flex items-center justify-between rounded-md bg-muted/40 p-3">
           <Label htmlFor="anon" className="text-sm">{t("post_anonymously")}</Label>
           <Switch id="anon" checked={anonymous} onCheckedChange={setAnonymous} />
         </div>
@@ -220,7 +220,7 @@ function NewPostDialog({ onClose }: { onClose: () => void }) {
             <Input id="dn" value={displayName} onChange={(e) => setDisplayName(e.target.value)} maxLength={40} />
           </div>
         )}
-        <Button onClick={submit} disabled={saving} className="h-11 w-full rounded-full">
+        <Button onClick={submit} disabled={saving} className="h-11 w-full rounded-lg">
           {saving ? t("loading") : t("post")}
         </Button>
       </div>

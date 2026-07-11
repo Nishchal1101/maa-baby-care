@@ -206,7 +206,7 @@ function LoginPage() {
               placeholder="you@example.com or +91 98765 43210"
               value={identifier}
               onChange={(e) => setIdentifier(e.target.value)}
-              className="h-12 rounded-xl"
+              className="h-12 rounded-md"
             />
           </div>
           <div className="space-y-2">
@@ -217,7 +217,7 @@ function LoginPage() {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="h-12 rounded-xl"
+              className="h-12 rounded-md"
             />
             <div className="flex items-center justify-between text-[10px]">
               {mode === "phone" ? (
@@ -241,13 +241,13 @@ function LoginPage() {
               </button>
             </div>
           </div>
-          <Button type="submit" disabled={busy} className="h-12 w-full rounded-full text-base">
+          <Button type="submit" disabled={busy} className="h-12 w-full rounded-lg text-base">
             {busy ? t("loading") : t("login")}
           </Button>
         </form>
       ) : (
         <form onSubmit={verifyOtp} className="mt-8 space-y-4">
-          <div className="rounded-xl bg-muted/50 p-3 text-sm text-muted-foreground">
+          <div className="rounded-md bg-muted/50 p-3 text-sm text-muted-foreground">
             Enter the 6-digit code we sent to{" "}
             <span className="font-medium text-foreground">{phoneUsed}</span>.
           </div>
@@ -260,11 +260,11 @@ function LoginPage() {
               maxLength={6}
               value={otpCode}
               onChange={(e) => setOtpCode(e.target.value.replace(/\D/g, ""))}
-              className="h-12 rounded-xl text-center text-lg tracking-[0.5em]"
+              className="h-12 rounded-md text-center text-lg tracking-[0.5em]"
               placeholder="••••••"
             />
           </div>
-          <Button type="submit" disabled={busy} className="h-12 w-full rounded-full text-base">
+          <Button type="submit" disabled={busy} className="h-12 w-full rounded-lg text-base">
             {busy ? t("loading") : "Verify & continue"}
           </Button>
           <button

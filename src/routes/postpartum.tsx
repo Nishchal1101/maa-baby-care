@@ -67,7 +67,7 @@ function PostpartumPage() {
 
         <form onSubmit={save} className="mt-6 space-y-3">
           {POSTPARTUM_QUESTIONS.map((q, i) => (
-            <fieldset key={q.id} className="rounded-2xl bg-card p-4 shadow-sm">
+            <fieldset key={q.id} className="rounded-lg bg-card p-4 shadow-sm">
               <legend className="text-sm font-medium">
                 {i + 1}. {q.q[lang]}
               </legend>
@@ -80,7 +80,7 @@ function PostpartumPage() {
                       type="button"
                       onClick={() => setAnswers((a) => ({ ...a, [q.id]: v }))}
                       className={
-                        "rounded-xl border px-3 py-2 text-xs transition-colors " +
+                        "rounded-md border px-3 py-2 text-xs transition-colors " +
                         (on ? "border-primary bg-primary/10" : "border-border bg-card text-muted-foreground")
                       }
                     >{labels[v]}</button>
@@ -91,28 +91,28 @@ function PostpartumPage() {
           ))}
 
           {q10Alert && (
-            <div className="flex items-start gap-3 rounded-2xl bg-destructive/10 p-4 text-sm text-destructive">
+            <div className="flex items-start gap-3 rounded-lg bg-destructive/10 p-4 text-sm text-destructive">
               <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0" />
               <span>{t("alert_q10")}</span>
             </div>
           )}
           {high && !q10Alert && (
-            <div className="flex items-start gap-3 rounded-2xl bg-amber-100 p-4 text-sm text-amber-900 dark:bg-amber-950/40 dark:text-amber-200">
+            <div className="flex items-start gap-3 rounded-lg bg-amber-100 p-4 text-sm text-amber-900 dark:bg-amber-950/40 dark:text-amber-200">
               <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0" />
               <span>{t("high_score_warning")}</span>
             </div>
           )}
 
-          <div className="rounded-2xl bg-card p-4 shadow-sm">
+          <div className="rounded-lg bg-card p-4 shadow-sm">
             <Label>Sleep (hours last night)</Label>
-            <Input type="number" step="0.5" value={sleep} onChange={(e) => setSleep(e.target.value)} className="mt-2 h-11 rounded-xl" />
+            <Input type="number" step="0.5" value={sleep} onChange={(e) => setSleep(e.target.value)} className="mt-2 h-11 rounded-md" />
           </div>
-          <div className="rounded-2xl bg-card p-4 shadow-sm">
+          <div className="rounded-lg bg-card p-4 shadow-sm">
             <Label>{t("notes")}</Label>
-            <Textarea value={notes} onChange={(e) => setNotes(e.target.value)} className="mt-2 rounded-xl" />
+            <Textarea value={notes} onChange={(e) => setNotes(e.target.value)} className="mt-2 rounded-md" />
           </div>
 
-          <Button type="submit" disabled={busy || !allAnswered} className="h-12 w-full rounded-full">
+          <Button type="submit" disabled={busy || !allAnswered} className="h-12 w-full rounded-lg">
             {busy ? t("loading") : t("log_checkin")}
           </Button>
         </form>

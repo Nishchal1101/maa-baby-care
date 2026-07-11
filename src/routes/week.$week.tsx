@@ -56,8 +56,8 @@ function WeekPage() {
         <RedFlagCard title="Watch out for" items={pregnancyRedFlags.items.slice(0, 6)} source={pregnancyRedFlags.source} />
 
         <div className="mt-4 grid grid-cols-2 gap-2">
-          <Link to="/investigations" className="rounded-2xl bg-card p-3 text-center text-sm shadow-sm">Checkups & tests</Link>
-          <Link to="/emergency" className="rounded-2xl bg-destructive/10 p-3 text-center text-sm font-medium text-destructive shadow-sm">Emergency signs</Link>
+          <Link to="/investigations" className="rounded-lg bg-card p-3 text-center text-sm shadow-sm">Checkups & tests</Link>
+          <Link to="/emergency" className="rounded-lg bg-destructive/10 p-3 text-center text-sm font-medium text-destructive shadow-sm">Emergency signs</Link>
         </div>
       </div>
     </MobileShell>
@@ -66,7 +66,7 @@ function WeekPage() {
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <section className="mt-4 rounded-2xl bg-card p-4 shadow-sm">
+    <section className="mt-4 rounded-lg bg-card p-4 shadow-sm">
       <p className="text-xs uppercase tracking-wider text-muted-foreground">{title}</p>
       <p className="mt-2 text-sm leading-relaxed">{children}</p>
     </section>

@@ -10,7 +10,7 @@ import { Heart, Sparkles, Calendar, Salad } from "lucide-react";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "MatruCare — Pregnancy care for Indian mothers" },
+      { title: "MatruCare  -  Pregnancy care for Indian mothers" },
       {
         name: "description",
         content:
@@ -59,15 +59,15 @@ function Landing() {
           </div>
 
           <ul className="mt-6 space-y-3 text-sm">
-            <li className="flex items-start gap-3 rounded-2xl bg-card p-4 shadow-sm">
+            <li className="flex items-start gap-3 rounded-lg bg-card p-4 shadow-sm">
               <Calendar className="mt-0.5 h-5 w-5 text-primary" />
               <span>Week-by-week tracker with Indian fruit size comparisons</span>
             </li>
-            <li className="flex items-start gap-3 rounded-2xl bg-card p-4 shadow-sm">
+            <li className="flex items-start gap-3 rounded-lg bg-card p-4 shadow-sm">
               <Salad className="mt-0.5 h-5 w-5 text-primary" />
-              <span>Trimester-wise Indian diet — veg, non-veg & eggetarian</span>
+              <span>Trimester-wise Indian diet  -  veg, non-veg & eggetarian</span>
             </li>
-            <li className="flex items-start gap-3 rounded-2xl bg-card p-4 shadow-sm">
+            <li className="flex items-start gap-3 rounded-lg bg-card p-4 shadow-sm">
               <Heart className="mt-0.5 h-5 w-5 text-primary" />
               <span>ANC visits, kick counter & daily symptom log</span>
             </li>
@@ -75,10 +75,10 @@ function Landing() {
         </section>
 
         <div className="mt-8 space-y-3">
-          <Button asChild size="lg" className="h-12 w-full rounded-full text-base">
+          <Button asChild size="lg" className="h-12 w-full rounded-lg text-base">
             <Link to="/signup">{t("signup")}</Link>
           </Button>
-          <Button asChild variant="ghost" size="lg" className="h-12 w-full rounded-full text-base">
+          <Button asChild variant="ghost" size="lg" className="h-12 w-full rounded-lg text-base">
             <Link to="/login">{t("login")}</Link>
           </Button>
         </div>

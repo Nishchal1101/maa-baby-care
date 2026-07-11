@@ -11,5 +11,5 @@ export const ancSchedule: AncVisit[] = [
   { week: 32, title: "Growth scan", details: "Check baby's growth, position, amniotic fluid." },
   { week: 36, title: "Pre-delivery scan + position check", details: "Confirm head-down position. Plan delivery hospital." },
   { week: 38, title: "Weekly checkups begin", details: "Cervical check, NST if advised." },
-  { week: 40, title: "Due date — stay close to hospital", details: "Call doctor at first sign of labor: regular pains, water break, bleeding, reduced movements. Rh-negative mothers: Anti-D within 72 hours after delivery if baby is Rh-positive." },
+  { week: 40, title: "Due date  -  stay close to hospital", details: "Call doctor at first sign of labor: regular pains, water break, bleeding, reduced movements. Rh-negative mothers: Anti-D within 72 hours after delivery if baby is Rh-positive." },
 ];
