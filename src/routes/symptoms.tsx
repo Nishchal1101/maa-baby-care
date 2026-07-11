@@ -196,19 +196,47 @@ function SymptomsPage() {
               </div>
 
 
-              <div className="rounded-lg bg-card p-4 shadow-sm">
-                <Label>{t("mood")}</Label>
-                <div className="mt-2 flex justify-between text-3xl">
-                  {moods.map((m) => (
-                    <button
-                      key={m}
-                      type="button"
-                      onClick={() => setMood(m)}
-                      className={"grid h-12 w-12 place-items-center rounded-full transition-colors " + (mood === m ? "bg-primary/15" : "")}
-                    >{m}</button>
-                  ))}
+              <div className="rounded-lg bg-card p-5 shadow-sm">
+                <Label className="font-serif text-base text-stone-800">{t("mood")}</Label>
+                <p className="mt-1 text-xs italic text-muted-foreground">How are you feeling, Maa?</p>
+                <div className="mt-4 flex items-end justify-between gap-2">
+                  {moodOptions.map((m) => {
+                    const on = mood === m.value;
+                    return (
+                      <button
+                        key={m.value}
+                        type="button"
+                        onClick={() => setMood(m.value)}
+                        className="group flex flex-1 flex-col items-center gap-2 transition-transform hover:scale-105"
+                      >
+                        <div
+                          className={
+                            "relative flex h-14 w-14 items-center justify-center border-2 transition-colors " +
+                            m.blob + " " +
+                            (on ? `${m.bgActive} ${m.borderActive}` : `${m.bg} ${m.border}`)
+                          }
+                        >
+                          <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth={1.5}
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className={"h-8 w-8 " + m.stroke}
+                          >
+                            {m.path}
+                          </svg>
+                        </div>
+                        <span className={"text-[10px] font-bold uppercase tracking-wider " + m.text}>
+                          {m.label}
+                        </span>
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
+
 
               <div className="rounded-lg bg-card p-4 shadow-sm">
                 <Label>{t("symptoms")}</Label>
