@@ -75,11 +75,21 @@ function SymptomsPage() {
 
               <div className="rounded-2xl bg-card p-4 shadow-sm">
                 <Label>{t("bp")}</Label>
+                <p className="mt-1 text-xs text-muted-foreground">
+                  Your BP reading has two numbers (e.g. 120/80). The upper number is systolic, the lower is diastolic.
+                </p>
                 <div className="mt-2 grid grid-cols-2 gap-2">
-                  <Input type="number" placeholder={t("systolic")} value={sys} onChange={(e) => setSys(e.target.value)} className="h-11 rounded-xl" />
-                  <Input type="number" placeholder={t("diastolic")} value={dia} onChange={(e) => setDia(e.target.value)} className="h-11 rounded-xl" />
+                  <div>
+                    <Input type="number" placeholder={t("systolic")} value={sys} onChange={(e) => setSys(e.target.value)} className="h-11 rounded-xl" />
+                    <p className="mt-1 text-[11px] text-muted-foreground">Systolic — upper number (when the heart beats)</p>
+                  </div>
+                  <div>
+                    <Input type="number" placeholder={t("diastolic")} value={dia} onChange={(e) => setDia(e.target.value)} className="h-11 rounded-xl" />
+                    <p className="mt-1 text-[11px] text-muted-foreground">Diastolic — lower number (when the heart rests)</p>
+                  </div>
                 </div>
               </div>
+
 
               <div className="rounded-2xl bg-card p-4 shadow-sm">
                 <Label>{t("mood")}</Label>
