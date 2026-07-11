@@ -28,12 +28,16 @@ function Landing() {
 
   React.useEffect(() => {
     if (loading) return;
-    if (user && profile?.onboarded) nav({ to: "/home" });
-    else if (user && profile && !profile.onboarded) nav({ to: "/onboarding" });
+    if (user && profile?.onboarded) nav({ to: "/home", replace: true });
+    else if (user && profile && !profile.onboarded) nav({ to: "/onboarding", replace: true });
     else if (!user && typeof window !== "undefined" && !localStorage.getItem("welcomed")) {
-      nav({ to: "/welcome" });
+      nav({ to: "/welcome", replace: true });
     }
   }, [loading, user, profile, nav]);
+
+  // Avoid flashing the landing page for signed-in users
+  if (loading || user) return null;
+
 
   return (
     <div className="min-h-screen bg-background">
