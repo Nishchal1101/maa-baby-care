@@ -13,6 +13,7 @@ import { DisclaimerBanner } from "@/components/disclaimer-banner";
 import { SourceNote } from "@/components/source-note";
 import { symptomGuides, symptomsSource } from "@/lib/symptoms-guide";
 import { toast } from "sonner";
+import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from "recharts";
 
 const symptomList = ["Nausea", "Vomiting", "Headache", "Backache", "Swelling", "Cramps", "Heartburn", "Dizziness", "Constipation"];
 type MoodOption = {
@@ -158,7 +159,44 @@ function SymptomsPage() {
     if (error) { toast.error(error.message); return; }
     toast.success(t("saved"));
     setWeight(""); setSys(""); setDia(""); setMood(""); setPicked([]); setNotes("");
+    loadHistory();
   };
+
+  type LogRow = {
+    id: string;
+    log_date: string;
+    weight_kg: number | null;
+    bp_systolic: number | null;
+    bp_diastolic: number | null;
+    mood: string | null;
+    symptoms: string[] | null;
+    notes: string | null;
+  };
+  const [history, setHistory] = React.useState<LogRow[]>([]);
+  const loadHistory = React.useCallback(async () => {
+    if (!user) return;
+    const { data } = await supabase
+      .from("symptom_logs")
+      .select("id, log_date, weight_kg, bp_systolic, bp_diastolic, mood, symptoms, notes")
+      .eq("user_id", user.id)
+      .order("log_date", { ascending: false })
+      .limit(60);
+    setHistory((data as LogRow[]) ?? []);
+  }, [user]);
+  React.useEffect(() => { loadHistory(); }, [loadHistory]);
+
+  const chartData = React.useMemo(
+    () =>
+      [...history]
+        .reverse()
+        .map((r) => ({
+          date: new Date(r.log_date).toLocaleDateString(undefined, { month: "short", day: "numeric" }),
+          weight: r.weight_kg ?? null,
+          sys: r.bp_systolic ?? null,
+          dia: r.bp_diastolic ?? null,
+        })),
+    [history],
+  );
 
   return (
     <MobileShell>
@@ -166,9 +204,10 @@ function SymptomsPage() {
         <h1 className="font-display text-2xl">{t("sym_title")}</h1>
 
         <Tabs defaultValue="log" className="mt-4">
-          <TabsList className="grid w-full grid-cols-2 rounded-full">
+          <TabsList className="grid w-full grid-cols-3 rounded-full">
             <TabsTrigger value="log" className="rounded-full">Log today</TabsTrigger>
-            <TabsTrigger value="guide" className="rounded-full">Symptom guide</TabsTrigger>
+            <TabsTrigger value="history" className="rounded-full">History</TabsTrigger>
+            <TabsTrigger value="guide" className="rounded-full">Guide</TabsTrigger>
           </TabsList>
 
           <TabsContent value="log">
@@ -269,8 +308,86 @@ function SymptomsPage() {
             </form>
           </TabsContent>
 
+          <TabsContent value="history">
+            {history.length === 0 ? (
+              <p className="mt-6 text-center text-sm text-muted-foreground">
+                No logs yet. Save today's entry and it will appear here.
+              </p>
+            ) : (
+              <>
+                {chartData.some((d) => d.weight != null) && (
+                  <section className="mt-4 rounded-lg bg-card p-4 shadow-sm">
+                    <p className="text-xs uppercase tracking-wider text-muted-foreground">Weight trend (kg)</p>
+                    <div className="mt-3 h-40 w-full">
+                      <ResponsiveContainer width="100%" height="100%">
+                        <LineChart data={chartData} margin={{ top: 5, right: 8, left: -20, bottom: 0 }}>
+                          <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                          <XAxis dataKey="date" fontSize={10} tick={{ fill: "hsl(var(--muted-foreground))" }} />
+                          <YAxis fontSize={10} tick={{ fill: "hsl(var(--muted-foreground))" }} domain={["auto", "auto"]} />
+                          <Tooltip />
+                          <Line type="monotone" dataKey="weight" stroke="hsl(var(--primary))" strokeWidth={2} dot={{ r: 3 }} connectNulls />
+                        </LineChart>
+                      </ResponsiveContainer>
+                    </div>
+                  </section>
+                )}
+
+                {chartData.some((d) => d.sys != null || d.dia != null) && (
+                  <section className="mt-4 rounded-lg bg-card p-4 shadow-sm">
+                    <p className="text-xs uppercase tracking-wider text-muted-foreground">Blood pressure trend</p>
+                    <div className="mt-3 h-40 w-full">
+                      <ResponsiveContainer width="100%" height="100%">
+                        <LineChart data={chartData} margin={{ top: 5, right: 8, left: -20, bottom: 0 }}>
+                          <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                          <XAxis dataKey="date" fontSize={10} tick={{ fill: "hsl(var(--muted-foreground))" }} />
+                          <YAxis fontSize={10} tick={{ fill: "hsl(var(--muted-foreground))" }} domain={["auto", "auto"]} />
+                          <Tooltip />
+                          <Line type="monotone" dataKey="sys" name="Systolic" stroke="#e11d48" strokeWidth={2} dot={{ r: 3 }} connectNulls />
+                          <Line type="monotone" dataKey="dia" name="Diastolic" stroke="#0ea5e9" strokeWidth={2} dot={{ r: 3 }} connectNulls />
+                        </LineChart>
+                      </ResponsiveContainer>
+                    </div>
+                    <div className="mt-2 flex gap-4 text-[11px] text-muted-foreground">
+                      <span className="flex items-center gap-1"><span className="h-2 w-2 rounded-full bg-rose-600" />Systolic</span>
+                      <span className="flex items-center gap-1"><span className="h-2 w-2 rounded-full bg-sky-500" />Diastolic</span>
+                    </div>
+                  </section>
+                )}
+
+                <p className="mt-6 mb-2 text-xs uppercase tracking-wider text-muted-foreground">Past entries</p>
+                <ul className="space-y-2">
+                  {history.map((r) => (
+                    <li key={r.id} className="rounded-lg bg-card p-4 shadow-sm">
+                      <div className="flex items-baseline justify-between gap-2">
+                        <p className="text-sm font-medium">
+                          {new Date(r.log_date).toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" })}
+                        </p>
+                        {r.mood && <span className="text-lg">{r.mood}</span>}
+                      </div>
+                      <div className="mt-1 flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted-foreground">
+                        {r.weight_kg != null && <span>Weight: <b className="text-foreground">{r.weight_kg} kg</b></span>}
+                        {r.bp_systolic != null && r.bp_diastolic != null && (
+                          <span>BP: <b className="text-foreground">{r.bp_systolic}/{r.bp_diastolic}</b></span>
+                        )}
+                      </div>
+                      {r.symptoms && r.symptoms.length > 0 && (
+                        <div className="mt-2 flex flex-wrap gap-1">
+                          {r.symptoms.map((s) => (
+                            <span key={s} className="rounded-full bg-secondary/60 px-2 py-0.5 text-[11px] text-secondary-foreground">{s}</span>
+                          ))}
+                        </div>
+                      )}
+                      {r.notes && <p className="mt-2 text-xs text-foreground/80">{r.notes}</p>}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+          </TabsContent>
+
           <TabsContent value="guide">
             <DisclaimerBanner />
+
             {symptomGuides.map((g) => (
               <section key={g.name} className="mt-3 rounded-lg bg-card p-4 shadow-sm">
                 <p className="font-medium">{g.name}</p>
