@@ -7,7 +7,7 @@ import { LanguageToggle } from "@/components/language-toggle";
 import { calcWeekFromLMP, calcWeekFromDue, weekInfo, trimester } from "@/lib/pregnancy";
 import { mealPlan, type DietPref } from "@/lib/diet";
 import { supabase } from "@/integrations/supabase/client";
-import { Activity, Salad, Calendar, Footprints, AlertTriangle } from "lucide-react";
+import { Activity, Salad, Calendar, Footprints, AlertTriangle, ChevronRight } from "lucide-react";
 
 export const Route = createFileRoute("/home")({
   component: HomePage,
@@ -61,9 +61,16 @@ function HomePage() {
 
         <Link
           to="/emergency"
-          className="mt-4 flex items-center gap-2 rounded-full border border-destructive/30 bg-destructive/10 px-4 py-2 text-sm font-medium text-destructive"
+          className="group mt-4 flex items-center gap-3 rounded-2xl border border-destructive/25 bg-gradient-to-r from-destructive/10 via-destructive/5 to-transparent p-3 shadow-sm transition-all active:scale-[0.99]"
         >
-          <AlertTriangle className="h-4 w-4" /> Know the emergency signs
+          <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-destructive/15 text-destructive">
+            <AlertTriangle className="h-5 w-5" />
+          </span>
+          <span className="min-w-0 flex-1">
+            <span className="block text-sm font-semibold text-destructive">Know the emergency signs</span>
+            <span className="block text-xs text-muted-foreground">Danger signs & urgent care numbers</span>
+          </span>
+          <ChevronRight className="h-5 w-5 shrink-0 text-destructive/70 transition-transform group-active:translate-x-0.5" />
         </Link>
 
         {/* Week banner */}
