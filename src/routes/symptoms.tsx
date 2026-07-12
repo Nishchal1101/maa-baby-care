@@ -159,7 +159,44 @@ function SymptomsPage() {
     if (error) { toast.error(error.message); return; }
     toast.success(t("saved"));
     setWeight(""); setSys(""); setDia(""); setMood(""); setPicked([]); setNotes("");
+    loadHistory();
   };
+
+  type LogRow = {
+    id: string;
+    log_date: string;
+    weight_kg: number | null;
+    bp_systolic: number | null;
+    bp_diastolic: number | null;
+    mood: string | null;
+    symptoms: string[] | null;
+    notes: string | null;
+  };
+  const [history, setHistory] = React.useState<LogRow[]>([]);
+  const loadHistory = React.useCallback(async () => {
+    if (!user) return;
+    const { data } = await supabase
+      .from("symptom_logs")
+      .select("id, log_date, weight_kg, bp_systolic, bp_diastolic, mood, symptoms, notes")
+      .eq("user_id", user.id)
+      .order("log_date", { ascending: false })
+      .limit(60);
+    setHistory((data as LogRow[]) ?? []);
+  }, [user]);
+  React.useEffect(() => { loadHistory(); }, [loadHistory]);
+
+  const chartData = React.useMemo(
+    () =>
+      [...history]
+        .reverse()
+        .map((r) => ({
+          date: new Date(r.log_date).toLocaleDateString(undefined, { month: "short", day: "numeric" }),
+          weight: r.weight_kg ?? null,
+          sys: r.bp_systolic ?? null,
+          dia: r.bp_diastolic ?? null,
+        })),
+    [history],
+  );
 
   return (
     <MobileShell>
