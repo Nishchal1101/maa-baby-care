@@ -13,6 +13,11 @@ export const Route = createFileRoute("/home")({
   component: HomePage,
 });
 
+
+function hoursUntil(iso: string) {
+  return (new Date(iso).getTime() - Date.now()) / 36e5;
+}
+
 function HomePage() {
   const { t } = useI18n();
   const { user, profile, loading } = useAuth();
