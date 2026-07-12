@@ -385,7 +385,9 @@ function SymptomsPage() {
             )}
           </TabsContent>
 
+          <TabsContent value="guide">
             <DisclaimerBanner />
+
             {symptomGuides.map((g) => (
               <section key={g.name} className="mt-3 rounded-lg bg-card p-4 shadow-sm">
                 <p className="font-medium">{g.name}</p>
