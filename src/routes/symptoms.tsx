@@ -204,9 +204,10 @@ function SymptomsPage() {
         <h1 className="font-display text-2xl">{t("sym_title")}</h1>
 
         <Tabs defaultValue="log" className="mt-4">
-          <TabsList className="grid w-full grid-cols-2 rounded-full">
+          <TabsList className="grid w-full grid-cols-3 rounded-full">
             <TabsTrigger value="log" className="rounded-full">Log today</TabsTrigger>
-            <TabsTrigger value="guide" className="rounded-full">Symptom guide</TabsTrigger>
+            <TabsTrigger value="history" className="rounded-full">History</TabsTrigger>
+            <TabsTrigger value="guide" className="rounded-full">Guide</TabsTrigger>
           </TabsList>
 
           <TabsContent value="log">
