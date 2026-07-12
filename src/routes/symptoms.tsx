@@ -13,6 +13,7 @@ import { DisclaimerBanner } from "@/components/disclaimer-banner";
 import { SourceNote } from "@/components/source-note";
 import { symptomGuides, symptomsSource } from "@/lib/symptoms-guide";
 import { toast } from "sonner";
+import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from "recharts";
 
 const symptomList = ["Nausea", "Vomiting", "Headache", "Backache", "Swelling", "Cramps", "Heartburn", "Dizziness", "Constipation"];
 type MoodOption = {
