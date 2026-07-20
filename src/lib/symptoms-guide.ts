@@ -5,6 +5,7 @@ export type SymptomGuide = {
   normal: string;
   selfCare: string[];
   seeDoctor: string[];
+  emergency: string[];
 };
 
 export const symptomGuides: SymptomGuide[] = [
@@ -21,6 +22,7 @@ export const symptomGuides: SymptomGuide[] = [
       "Weight loss, very little urine, or dark urine",
       "Blood in vomit",
     ],
+    emergency: []
   },
   {
     name: "Heartburn / acidity",
@@ -34,6 +36,7 @@ export const symptomGuides: SymptomGuide[] = [
       "Severe upper-abdomen pain, especially on the right side",
       "Heartburn with severe headache or vision changes (rule out preeclampsia)",
     ],
+    emergency: []
   },
   {
     name: "Constipation",
@@ -46,6 +49,7 @@ export const symptomGuides: SymptomGuide[] = [
     seeDoctor: [
       "Blood in stool, severe pain, or no motion for many days",
     ],
+    emergency: []
   },
   {
     name: "Leg cramps & swelling",
@@ -59,6 +63,7 @@ export const symptomGuides: SymptomGuide[] = [
       "Sudden swelling of face, hands, or one leg",
       "Painful, hot, red swelling in one calf (possible clot)",
     ],
+    emergency: []
   },
   {
     name: "Vaginal discharge",
@@ -71,6 +76,7 @@ export const symptomGuides: SymptomGuide[] = [
       "Itching, burning, foul smell, greenish or curdy discharge",
       "Any bleeding or a sudden gush of watery fluid",
     ],
+    emergency: []
   },
   {
     name: "Backache & pelvic pain",
@@ -83,6 +89,7 @@ export const symptomGuides: SymptomGuide[] = [
       "Rhythmic pain that comes and goes before 37 weeks (possible preterm labor)",
       "Pain with fever, burning urine, or bleeding",
     ],
+    emergency: []
   },
   {
     name: "Breathlessness",
@@ -93,6 +100,7 @@ export const symptomGuides: SymptomGuide[] = [
     seeDoctor: [
       "Breathlessness at rest, chest pain, blue lips, or fainting",
     ],
+    emergency: []
   },
   {
     name: "Itching",
@@ -103,6 +111,7 @@ export const symptomGuides: SymptomGuide[] = [
     seeDoctor: [
       "Severe itching on palms and soles, especially in the 3rd trimester (rule out obstetric cholestasis)",
     ],
+    emergency: []
   },
 ];
 

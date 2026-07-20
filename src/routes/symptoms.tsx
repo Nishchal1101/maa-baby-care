@@ -388,20 +388,55 @@ function SymptomsPage() {
           <TabsContent value="guide">
             <DisclaimerBanner />
 
-            {symptomGuides.map((g) => (
-              <section key={g.name} className="mt-3 rounded-lg bg-card p-4 shadow-sm">
-                <p className="font-medium">{g.name}</p>
-                <p className="mt-1 text-sm text-muted-foreground">{g.normal}</p>
-                <p className="mt-3 text-xs uppercase tracking-wider text-muted-foreground">Self-care</p>
-                <ul className="mt-1 space-y-1 text-sm">
-                  {g.selfCare.map((s) => <li key={s} className="flex gap-2"><span>•</span><span>{s}</span></li>)}
-                </ul>
-                <p className="mt-3 text-xs uppercase tracking-wider text-destructive">See a doctor if</p>
-                <ul className="mt-1 space-y-1 text-sm">
-                  {g.seeDoctor.map((s) => <li key={s} className="flex gap-2"><span>•</span><span>{s}</span></li>)}
-                </ul>
-              </section>
-            ))}
+           {symptomGuides.map((g) => (
+  <section key={g.name} className="mt-3 rounded-lg bg-card p-4 shadow-sm">
+    <p className="font-medium">{g.name}</p>
+    <p className="mt-1 text-sm text-muted-foreground">{g.normal}</p>
+
+    <p className="mt-3 text-xs uppercase tracking-wider text-muted-foreground">
+      Self-care
+    </p>
+
+    <ul className="mt-1 space-y-1 text-sm">
+      {g.selfCare.map((s) => (
+        <li key={s} className="flex gap-2">
+          <span>•</span>
+          <span>{s}</span>
+        </li>
+      ))}
+    </ul>
+
+    <p className="mt-3 text-xs uppercase tracking-wider text-destructive">
+      See a doctor if
+    </p>
+
+    <ul className="mt-1 space-y-1 text-sm">
+      {g.seeDoctor.map((s) => (
+        <li key={s} className="flex gap-2">
+          <span>•</span>
+          <span>{s}</span>
+        </li>
+      ))}
+    </ul>
+
+    {g.emergency.length > 0 && (
+      <>
+        <p className="mt-3 text-xs uppercase tracking-wider text-red-600">
+          Seek emergency care immediately if
+        </p>
+
+        <ul className="mt-1 space-y-1 text-sm">
+          {g.emergency.map((s) => (
+            <li key={s} className="flex gap-2">
+              <span>•</span>
+              <span>{s}</span>
+            </li>
+          ))}
+        </ul>
+      </>
+    )}
+  </section>
+))}
             <SourceNote source={symptomsSource} />
           </TabsContent>
         </Tabs>
