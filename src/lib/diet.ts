@@ -59,13 +59,11 @@ export function mealPlan(pref: DietPref, t: Trim): Meal {
 
 export const foodsToAvoid = [
   "Raw or undercooked papaya (can trigger contractions)",
-  "Raw pineapple in large quantity",
-  "Excess caffeine  -  limit to 1 cup tea/coffee/day",
+  "Limit caffeine intake during pregnancy and discuss concerns with your healthcare provider.",
   "Unpasteurized milk and soft cheeses",
   "High-mercury fish (king mackerel, shark, swordfish)",
   "Raw eggs, runny yolks",
-  "Sprouts that are raw  -  cook them well",
-  "Street food, cut fruits from stalls",
-  "Alcohol and tobacco  -  completely avoid",
-  "Excess saunf, methi seeds, ajwain in 1st trimester",
+  "Sprouts that are raw - cook them well",
+  "Avoid foods that may be unhygienically prepared or stored.",
+  "Alcohol and tobacco - completely avoid",
 ];
