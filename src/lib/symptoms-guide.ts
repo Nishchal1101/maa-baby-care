@@ -12,10 +12,10 @@ export const symptomGuides: SymptomGuide[] = [
     name: "Nausea & vomiting",
     normal: "Very common in the 1st trimester, usually eases by 12–16 weeks.",
     selfCare: [
-      "Eat small frequent meals; keep a dry biscuit before getting up",
-      "Sip ginger-lemon water or nimbu-pani",
-      "Avoid strong smells and oily food",
-    ],
+  "Eat small frequent meals; keep a dry biscuit before getting up",
+  "Take small sips of fluids throughout the day to stay hydrated",
+  "Avoid strong smells and oily food",
+],
     seeDoctor: [
       "Vomiting everything, unable to keep fluids down for 24 hours",
       "Weight loss, very little urine, or dark urine",
@@ -39,10 +39,10 @@ export const symptomGuides: SymptomGuide[] = [
     name: "Constipation",
     normal: "Hormones + iron tablets slow the gut. Very common.",
     selfCare: [
-      "2.5–3 L water daily; fibre  -  fruits, salad, whole dal, oats",
-      "Walk 20–30 min a day",
-      "Do not use unprescribed laxatives",
-    ],
+  "Drink adequate water and include fibre-rich foods such as fruits, vegetables, whole grains and dals",
+  "Walk 20–30 min a day",
+  "Do not use unprescribed laxatives",
+],
     seeDoctor: [
       "Blood in stool, severe pain, or no motion for many days",
     ],
@@ -76,9 +76,9 @@ export const symptomGuides: SymptomGuide[] = [
     name: "Backache & pelvic pain",
     normal: "Weight and posture changes strain the lower back.",
     selfCare: [
-      "Gentle prenatal yoga, pelvic tilts, warm (not hot) compress",
-      "Supportive footwear; avoid heavy lifting",
-    ],
+  "Gentle pregnancy-safe exercises approved by your healthcare provider, pelvic tilts, warm (not hot) compress",
+  "Supportive footwear; avoid heavy lifting",
+],
     seeDoctor: [
       "Rhythmic pain that comes and goes before 37 weeks (possible preterm labor)",
       "Pain with fever, burning urine, or bleeding",
