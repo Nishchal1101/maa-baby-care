@@ -113,6 +113,109 @@ export const symptomGuides: SymptomGuide[] = [
     ],
     emergency: []
   },
+  {
+  name: "Headache",
+  normal: "Mild headaches can occur during pregnancy due to hormonal changes, stress, fatigue, dehydration, or hunger.",
+
+  selfCare: [
+    "Drink adequate water throughout the day",
+    "Rest in a quiet, well-ventilated room",
+    "Eat regular meals and avoid skipping meals"
+  ],
+
+  seeDoctor: [
+    "Frequent headaches that keep returning",
+    "Headaches not improving with rest",
+    "Headaches affecting daily activities"
+  ],
+
+  emergency: [
+    "Severe sudden headache",
+    "Headache with blurred vision or flashing lights",
+    "Headache with swelling of face or hands",
+    "Headache with high blood pressure"
+  ]
+},
+{
+  name: "Fever",
+  normal: "A mild fever may occur with common infections and should be monitored carefully during pregnancy.",
+
+  selfCare: [
+    "Rest adequately",
+    "Drink plenty of fluids",
+    "Wear light clothing"
+  ],
+
+  seeDoctor: [
+    "Fever lasting more than 24 hours",
+    "Persistent cough or sore throat",
+    "Burning while passing urine"
+  ],
+
+  emergency: [
+    "High fever or rapidly worsening fever",
+    "Difficulty breathing",
+    "Confusion or extreme weakness",
+    "Reduced fetal movement with fever"
+  ]
+},
+{
+  name: "Vaginal Bleeding",
+  normal: "Any bleeding during pregnancy should be discussed with a healthcare provider.",
+
+  selfCare: [],
+
+  seeDoctor: [
+    "Light spotting",
+    "Small amount of bleeding without pain"
+  ],
+
+  emergency: [
+    "Heavy bleeding",
+    "Bleeding with abdominal pain",
+    "Bleeding with dizziness or fainting",
+    "Passing clots or tissue"
+  ]
+},
+{
+  name: "Reduced Fetal Movement",
+  normal: "After fetal movements become established, mothers usually notice a regular pattern of movement.",
+
+  selfCare: [
+    "Lie on your left side",
+    "Pay attention to your baby's usual movement pattern",
+    "Drink water and rest"
+  ],
+
+  seeDoctor: [
+    "Movement feels less than usual"
+  ],
+
+  emergency: [
+    "No fetal movement after monitoring",
+    "Sudden significant decrease in movements",
+    "Reduced movement with bleeding or abdominal pain"
+  ]
+},
+{
+  name: "Severe Abdominal Pain",
+  normal: "Mild stretching discomfort can occur as the uterus grows, but severe pain is not considered normal.",
+
+  selfCare: [],
+
+  seeDoctor: [
+    "Persistent abdominal pain",
+    "Pain associated with constipation or urinary symptoms"
+  ],
+
+  emergency: [
+    "Severe abdominal pain",
+    "Pain with vaginal bleeding",
+    "Pain with fever",
+    "Pain with fainting or dizziness"
+  ]
+}
+
 ];
 
 export const symptomsSource = `${SRC.nice}; ${SRC.fogsi}; ${SRC.mohfwSM}`;
