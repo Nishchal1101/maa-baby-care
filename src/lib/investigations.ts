@@ -20,7 +20,7 @@ export const investigations: InvestigationBlock[] = [
       "Blood sugar  -  fasting or random; OGTT if high-risk",
       "Thyroid profile (TSH ± T3/T4)",
       "Dating ultrasound; NT scan at 11–13+6 weeks",
-      "Start folic acid 400–500 µg daily (from pre-conception if possible)",
+      "Discuss supplements such as folic acid with your healthcare provider",
     ],
   },
   {
@@ -33,8 +33,8 @@ export const investigations: InvestigationBlock[] = [
       "Repeat Hb around 26–28 weeks",
       "OGTT (75 g, 2-hour) between 24–28 weeks  -  screens for GDM",
       "Anomaly scan (TIFFA) at 18–22 weeks",
-      "Td/Tdap vaccination  -  2 doses 4 weeks apart (booster if prior)",
-      "Iron + folic acid and calcium supplements as prescribed",
+      "Review recommended vaccinations with your healthcare provider",
+      "Continue supplements recommended by your healthcare provider",
     ],
   },
   {
@@ -46,9 +46,9 @@ export const investigations: InvestigationBlock[] = [
       "Urine protein at every visit (pre-eclampsia screening)",
       "Repeat Hb in the 3rd trimester",
       "Growth ultrasound around 32 weeks; presentation scan ~ 36 weeks",
-      "Anti-D injection at 28 weeks if mother is Rh-negative",
-      "Kick count daily from 28 weeks (count-to-10)",
-      "Birth preparedness: hospital, transport, blood donor, JSY/PMMVY papers",
+      "Rh-negative mothers may require Anti-D prophylaxis if advised by their healthcare provider",
+      "Pay attention to your baby's usual movement pattern and discuss concerns with your healthcare provider",
+      "Birth preparedness: hospital planning, transport arrangements, important documents, and available support systems",
     ],
   },
 ];
