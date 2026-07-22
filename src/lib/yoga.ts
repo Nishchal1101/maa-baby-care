@@ -31,7 +31,7 @@ export const yogaPoses: YogaPose[] = [
     nameHi: "मार्जरी आसन",
     trimester: [1, 2, 3],
     duration: "1–2 min",
-    benefits: "Eases back pain, gently mobilises spine, helps baby into ideal position.",
+    benefits: "Eases back discomfort and gently mobilises the spine.",
     steps: [
       "Come on hands and knees, wrists under shoulders, knees under hips.",
       "Inhale, drop belly, lift chest and tailbone (Cow).",
@@ -45,7 +45,7 @@ export const yogaPoses: YogaPose[] = [
     nameHi: "बद्ध कोणासन",
     trimester: [1, 2, 3],
     duration: "3–5 min",
-    benefits: "Opens pelvis, prepares hips for labour, eases inner-thigh tension.",
+    benefits: "Gently stretches the hips and eases inner-thigh tension.",
     steps: [
       "Sit tall, soles of feet together, knees falling open.",
       "Hold ankles, keep spine long.",
@@ -59,7 +59,7 @@ export const yogaPoses: YogaPose[] = [
     nameHi: "विपरीत करणी",
     trimester: [1, 2],
     duration: "5–10 min",
-    benefits: "Reduces leg swelling and fatigue, calms nervous system.",
+    benefits: "May help improve comfort and promote relaxation.",
     steps: [
       "Sit sideways next to a wall.",
       "Swing legs up the wall and lie back on a folded blanket.",
@@ -142,7 +142,7 @@ export const breathing = [
     name: "Deep Belly Breathing",
     nameHi: "गहरी श्वास",
     rounds: "10 breaths",
-    benefits: "Increases oxygen to baby, reduces stress.",
+    benefits: "Promotes relaxation and helps manage stress.",
     steps: [
       "Sit or lie on left side.",
       "Inhale 4 counts into the belly.",
@@ -157,7 +157,7 @@ export const kegelGuide = {
     "Identify the muscles: try to stop urine mid-flow (only to locate, do NOT do this regularly).",
     "Empty bladder, lie or sit comfortably.",
     "Squeeze and hold for 5 seconds, then release for 5 seconds.",
-    "Do 10 reps, 3 times a day.",
+    "Practice regularly if comfortable and advised by your healthcare provider.",
     "Breathe normally throughout.",
   ],
 };
@@ -172,11 +172,11 @@ export const exerciseAvoid = [
 ];
 
 export const walkingGoal = {
-  goal: "20–30 minutes of brisk walking, most days of the week.",
+  goal: "Walking is commonly recommended during pregnancy. Suitable activity levels should be discussed with your healthcare provider.",
   tips: [
     "Walk in cool hours (early morning / evening).",
     "Wear supportive footwear.",
-    "Stay hydrated  -  sip water before and after.",
+    "Stay hydrated before, during, and after activity.",
     "Slow down if you feel breathless or dizzy.",
   ],
 };
