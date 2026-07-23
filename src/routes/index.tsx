@@ -54,7 +54,7 @@ function Landing() {
         </header>
 
         <section className="mt-10 flex-1">
-          <div className="rounded-3xl bg-gradient-to-br from-[oklch(0.92_0.07_15)] to-[oklch(0.9_0.06_150)] p-6 shadow-sm">
+          <div className="rounded-3xl bg-gradient-to-br from-[oklch(0.97_0.02_145)] to-[oklch(0.9_0.06_150)] p-6 shadow-sm">
             <Sparkles className="h-6 w-6 text-primary" />
             <h1 className="mt-4 font-display text-3xl leading-tight text-foreground">
               {t("welcome")}

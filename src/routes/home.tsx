@@ -77,7 +77,7 @@ function HomePage() {
         <Link
           to="/week/$week"
           params={{ week: String(week) }}
-          className="mt-6 block rounded-3xl bg-gradient-to-br from-[oklch(0.92_0.07_15)] to-[oklch(0.9_0.06_150)] p-5 shadow-sm transition-transform active:scale-[0.99]"
+          className="mt-6 block rounded-3xl bg-gradient-to-br from-[oklch(0.96_0.03_145)] to-[oklch(0.90_0.06_150)] p-5 shadow-sm transition-transform active:scale-[0.99]"
         >
           <p className="text-xs uppercase tracking-wider text-muted-foreground">{t("week_of")}</p>
           <div className="mt-1 flex items-baseline gap-2">

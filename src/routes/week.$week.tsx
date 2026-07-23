@@ -44,7 +44,7 @@ function WeekPage() {
           ><ChevronRight className="h-5 w-5" /></Link>
         </div>
 
-        <div className="mt-6 rounded-3xl bg-gradient-to-br from-[oklch(0.92_0.07_15)] to-[oklch(0.9_0.06_150)] p-5 text-center shadow-sm">
+        <div className="mt-6 rounded-3xl bg-gradient-to-br from-[oklch(0.97_0.02_145)] to-[oklch(0.92_0.05_150)] p-5 text-center shadow-sm">
           <p className="text-xs uppercase tracking-wider text-muted-foreground">{t("baby_size")}</p>
           <p className="mt-2 font-display text-2xl">{info.size}</p>
         </div>

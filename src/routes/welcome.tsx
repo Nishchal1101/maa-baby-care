@@ -10,11 +10,11 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/welcome")({
   head: () => ({
     meta: [
-      { title: "Welcome  -  MatruCare" },
+      { title: "Welcome  -  Maatri" },
       {
         name: "description",
         content:
-          "Welcome to MatruCare  -  a gentle India-first pregnancy companion. Tracking, diet, ANC reminders and community.",
+          "Welcome to Maatri  -  a gentle India-first pregnancy companion. Tracking, diet, ANC reminders and community.",
       },
     ],
   }),
@@ -45,7 +45,7 @@ function WelcomePage() {
       icon: <Heart className="h-7 w-7" />,
       title: t("welcome_3_title"),
       body: t("welcome_3_body"),
-      art: "from-[oklch(0.9_0.06_150)] to-[oklch(0.92_0.07_15)]",
+      art: "from-[oklch(0.97_0.02_145)] to-[oklch(0.92_0.05_150)]",
       emoji: "💗",
     },
   ];
