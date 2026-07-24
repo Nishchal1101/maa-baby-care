@@ -38,7 +38,7 @@ function OnboardingPage() {
   React.useEffect(() => {
     if (loading) return;
     if (!user) nav({ to: "/login" });
-    else if (profile?.onboarded) nav({ to: "/home" });
+    // else if (profile?.onboarded) nav({ to: "/home" });
     else if (profile?.name) setName(profile.name);
   }, [user, profile, loading, nav]);
 
@@ -67,7 +67,7 @@ function OnboardingPage() {
     if (error) { toast.error(error.message); return; }
     await refreshProfile();
     toast.success(t("saved"));
-    nav({ to: "/home" });
+    nav({ to: "/consent" });
   };
 
   return (

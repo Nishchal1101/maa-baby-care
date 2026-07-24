@@ -97,18 +97,37 @@ function MorePage() {
         </div>
 
         <p className="mt-5 mb-2 text-xs uppercase tracking-wider text-muted-foreground">More</p>
-        <div className="space-y-2">
-          <Link to="/community" className="flex items-center gap-3 rounded-lg bg-card p-4 shadow-sm">
-            <MessageCircle className="h-5 w-5 shrink-0 text-primary" /> <span>{t("community")}</span>
-          </Link>
-          <Link to="/schemes" className="flex items-center gap-3 rounded-lg bg-card p-4 shadow-sm">
-            <Landmark className="h-5 w-5 shrink-0 text-primary" /> <span>{t("schemes_title")}</span>
-          </Link>
-          <div className="flex items-center justify-between rounded-lg bg-card p-4 shadow-sm">
-            <span>{t("language")}</span>
-            <LanguageToggle />
-          </div>
-        </div>
+
+<div className="space-y-2">
+  <Link
+    to="/medical-disclaimer"
+    className="flex items-center gap-3 rounded-lg bg-card p-4 shadow-sm"
+  >
+    <AlertTriangle className="h-5 w-5 shrink-0 text-primary" />
+    <span>Medical Disclaimer</span>
+  </Link>
+
+  <Link
+    to="/community"
+    className="flex items-center gap-3 rounded-lg bg-card p-4 shadow-sm"
+  >
+    <MessageCircle className="h-5 w-5 shrink-0 text-primary" />
+    <span>{t("community")}</span>
+  </Link>
+
+  <Link
+    to="/schemes"
+    className="flex items-center gap-3 rounded-lg bg-card p-4 shadow-sm"
+  >
+    <Landmark className="h-5 w-5 shrink-0 text-primary" />
+    <span>{t("schemes_title")}</span>
+  </Link>
+
+  <div className="flex items-center justify-between rounded-lg bg-card p-4 shadow-sm">
+    <span>{t("language")}</span>
+    <LanguageToggle />
+  </div>
+</div>
 
         <Button
           variant="ghost"

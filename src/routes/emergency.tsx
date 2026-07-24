@@ -23,7 +23,7 @@ function EmergencyPage() {
       <div className="px-5 pb-6 pt-4">
         <h1 className="font-display text-2xl">Emergency signs</h1>
         <p className="mt-1 text-sm text-muted-foreground">
-          If you notice any of these, do not wait  -  go to the nearest hospital or call for help.
+          If you notice any of these danger signs, seek urgent medical care immediately. Do not rely on this app during an emergency. Call 108 or go to the nearest hospital.
         </p>
 
         <div className="mt-4 flex flex-wrap gap-2">

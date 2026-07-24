@@ -21,6 +21,7 @@ import { Route as OnboardingRouteImport } from './routes/onboarding'
 import { Route as NutritionGuideRouteImport } from './routes/nutrition-guide'
 import { Route as MoreRouteImport } from './routes/more'
 import { Route as MedsSafetyRouteImport } from './routes/meds-safety'
+import { Route as MedicalDisclaimerRouteImport } from './routes/medical-disclaimer'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as LaborSignsRouteImport } from './routes/labor-signs'
 import { Route as KicksRouteImport } from './routes/kicks'
@@ -30,6 +31,7 @@ import { Route as FaqRouteImport } from './routes/faq'
 import { Route as ExerciseRouteImport } from './routes/exercise'
 import { Route as EmergencyRouteImport } from './routes/emergency'
 import { Route as DietRouteImport } from './routes/diet'
+import { Route as ConsentRouteImport } from './routes/consent'
 import { Route as CommunityRouteImport } from './routes/community'
 import { Route as BabyRouteImport } from './routes/baby'
 import { Route as AppointmentsRouteImport } from './routes/appointments'
@@ -101,6 +103,11 @@ const MedsSafetyRoute = MedsSafetyRouteImport.update({
   path: '/meds-safety',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MedicalDisclaimerRoute = MedicalDisclaimerRouteImport.update({
+  id: '/medical-disclaimer',
+  path: '/medical-disclaimer',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
@@ -144,6 +151,11 @@ const EmergencyRoute = EmergencyRouteImport.update({
 const DietRoute = DietRouteImport.update({
   id: '/diet',
   path: '/diet',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConsentRoute = ConsentRouteImport.update({
+  id: '/consent',
+  path: '/consent',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CommunityRoute = CommunityRouteImport.update({
@@ -202,6 +214,7 @@ export interface FileRoutesByFullPath {
   '/appointments': typeof AppointmentsRoute
   '/baby': typeof BabyRouteWithChildren
   '/community': typeof CommunityRouteWithChildren
+  '/consent': typeof ConsentRoute
   '/diet': typeof DietRoute
   '/emergency': typeof EmergencyRoute
   '/exercise': typeof ExerciseRoute
@@ -211,6 +224,7 @@ export interface FileRoutesByFullPath {
   '/kicks': typeof KicksRoute
   '/labor-signs': typeof LaborSignsRoute
   '/login': typeof LoginRoute
+  '/medical-disclaimer': typeof MedicalDisclaimerRoute
   '/meds-safety': typeof MedsSafetyRoute
   '/more': typeof MoreRoute
   '/nutrition-guide': typeof NutritionGuideRoute
@@ -235,6 +249,7 @@ export interface FileRoutesByTo {
   '/appointments': typeof AppointmentsRoute
   '/baby': typeof BabyRouteWithChildren
   '/community': typeof CommunityRouteWithChildren
+  '/consent': typeof ConsentRoute
   '/diet': typeof DietRoute
   '/emergency': typeof EmergencyRoute
   '/exercise': typeof ExerciseRoute
@@ -244,6 +259,7 @@ export interface FileRoutesByTo {
   '/kicks': typeof KicksRoute
   '/labor-signs': typeof LaborSignsRoute
   '/login': typeof LoginRoute
+  '/medical-disclaimer': typeof MedicalDisclaimerRoute
   '/meds-safety': typeof MedsSafetyRoute
   '/more': typeof MoreRoute
   '/nutrition-guide': typeof NutritionGuideRoute
@@ -269,6 +285,7 @@ export interface FileRoutesById {
   '/appointments': typeof AppointmentsRoute
   '/baby': typeof BabyRouteWithChildren
   '/community': typeof CommunityRouteWithChildren
+  '/consent': typeof ConsentRoute
   '/diet': typeof DietRoute
   '/emergency': typeof EmergencyRoute
   '/exercise': typeof ExerciseRoute
@@ -278,6 +295,7 @@ export interface FileRoutesById {
   '/kicks': typeof KicksRoute
   '/labor-signs': typeof LaborSignsRoute
   '/login': typeof LoginRoute
+  '/medical-disclaimer': typeof MedicalDisclaimerRoute
   '/meds-safety': typeof MedsSafetyRoute
   '/more': typeof MoreRoute
   '/nutrition-guide': typeof NutritionGuideRoute
@@ -304,6 +322,7 @@ export interface FileRouteTypes {
     | '/appointments'
     | '/baby'
     | '/community'
+    | '/consent'
     | '/diet'
     | '/emergency'
     | '/exercise'
@@ -313,6 +332,7 @@ export interface FileRouteTypes {
     | '/kicks'
     | '/labor-signs'
     | '/login'
+    | '/medical-disclaimer'
     | '/meds-safety'
     | '/more'
     | '/nutrition-guide'
@@ -337,6 +357,7 @@ export interface FileRouteTypes {
     | '/appointments'
     | '/baby'
     | '/community'
+    | '/consent'
     | '/diet'
     | '/emergency'
     | '/exercise'
@@ -346,6 +367,7 @@ export interface FileRouteTypes {
     | '/kicks'
     | '/labor-signs'
     | '/login'
+    | '/medical-disclaimer'
     | '/meds-safety'
     | '/more'
     | '/nutrition-guide'
@@ -370,6 +392,7 @@ export interface FileRouteTypes {
     | '/appointments'
     | '/baby'
     | '/community'
+    | '/consent'
     | '/diet'
     | '/emergency'
     | '/exercise'
@@ -379,6 +402,7 @@ export interface FileRouteTypes {
     | '/kicks'
     | '/labor-signs'
     | '/login'
+    | '/medical-disclaimer'
     | '/meds-safety'
     | '/more'
     | '/nutrition-guide'
@@ -404,6 +428,7 @@ export interface RootRouteChildren {
   AppointmentsRoute: typeof AppointmentsRoute
   BabyRoute: typeof BabyRouteWithChildren
   CommunityRoute: typeof CommunityRouteWithChildren
+  ConsentRoute: typeof ConsentRoute
   DietRoute: typeof DietRoute
   EmergencyRoute: typeof EmergencyRoute
   ExerciseRoute: typeof ExerciseRoute
@@ -413,6 +438,7 @@ export interface RootRouteChildren {
   KicksRoute: typeof KicksRoute
   LaborSignsRoute: typeof LaborSignsRoute
   LoginRoute: typeof LoginRoute
+  MedicalDisclaimerRoute: typeof MedicalDisclaimerRoute
   MedsSafetyRoute: typeof MedsSafetyRoute
   MoreRoute: typeof MoreRoute
   NutritionGuideRoute: typeof NutritionGuideRoute
@@ -514,6 +540,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MedsSafetyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/medical-disclaimer': {
+      id: '/medical-disclaimer'
+      path: '/medical-disclaimer'
+      fullPath: '/medical-disclaimer'
+      preLoaderRoute: typeof MedicalDisclaimerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/login': {
       id: '/login'
       path: '/login'
@@ -575,6 +608,13 @@ declare module '@tanstack/react-router' {
       path: '/diet'
       fullPath: '/diet'
       preLoaderRoute: typeof DietRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/consent': {
+      id: '/consent'
+      path: '/consent'
+      fullPath: '/consent'
+      preLoaderRoute: typeof ConsentRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/community': {
@@ -683,6 +723,7 @@ const rootRouteChildren: RootRouteChildren = {
   AppointmentsRoute: AppointmentsRoute,
   BabyRoute: BabyRouteWithChildren,
   CommunityRoute: CommunityRouteWithChildren,
+  ConsentRoute: ConsentRoute,
   DietRoute: DietRoute,
   EmergencyRoute: EmergencyRoute,
   ExerciseRoute: ExerciseRoute,
@@ -692,6 +733,7 @@ const rootRouteChildren: RootRouteChildren = {
   KicksRoute: KicksRoute,
   LaborSignsRoute: LaborSignsRoute,
   LoginRoute: LoginRoute,
+  MedicalDisclaimerRoute: MedicalDisclaimerRoute,
   MedsSafetyRoute: MedsSafetyRoute,
   MoreRoute: MoreRoute,
   NutritionGuideRoute: NutritionGuideRoute,
