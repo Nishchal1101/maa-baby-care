@@ -4,7 +4,7 @@ import { useAuth } from "@/lib/auth";
 import { useI18n } from "@/lib/i18n";
 import { LanguageToggle } from "@/components/language-toggle";
 import { Button } from "@/components/ui/button";
-import { Footprints, Activity, LogOut, User, Flower2, Landmark, MessageCircle, Baby, Heart, Trash2, AlertTriangle, Stethoscope, Syringe, Apple, Dumbbell, Pill, HelpCircle, Timer } from "lucide-react";
+import { Footprints, Activity, LogOut, User, Flower2, Landmark, MessageCircle, Baby, Heart, Trash2, AlertTriangle, Stethoscope, Syringe, Apple, Dumbbell, Pill, HelpCircle, Timer, Shield, Paperclip } from "lucide-react";
 import { useState } from "react";
 
 export const Route = createFileRoute("/more")({
@@ -106,7 +106,20 @@ function MorePage() {
     <AlertTriangle className="h-5 w-5 shrink-0 text-primary" />
     <span>Medical Disclaimer</span>
   </Link>
-
+<Link
+  to="/privacy-policy"
+  className="flex items-center gap-3 rounded-lg bg-card p-4 shadow-sm"
+>
+  <Shield className="h-5 w-5 shrink-0 text-primary" />
+  <span>Privacy Policy</span>
+</Link>
+<Link
+  to="/terms"
+  className="flex items-center gap-3 rounded-lg bg-card p-4 shadow-sm"
+>
+  <Paperclip className="h-5 w-5 shrink-0 text-primary" />
+  <span>Terms & Conditions</span>
+</Link>
   <Link
     to="/community"
     className="flex items-center gap-3 rounded-lg bg-card p-4 shadow-sm"

@@ -46,7 +46,18 @@ function ConsentPage() {
         >
           Read Full Medical Disclaimer
         </Link>
-
+<Link
+  to="/privacy-policy"
+  className="mt-2 block text-center text-primary underline"
+>
+  Read Privacy Policy
+</Link>
+<Link
+  to="/terms"
+  className="mt-2 block text-center text-primary underline"
+>
+  Read Terms & Conditions
+</Link>
         <Button
           onClick={accept}
           className="mt-6 h-12 w-full rounded-lg"

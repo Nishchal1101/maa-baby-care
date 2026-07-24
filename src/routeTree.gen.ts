@@ -13,9 +13,11 @@ import { Route as YogaRouteImport } from './routes/yoga'
 import { Route as WelcomeRouteImport } from './routes/welcome'
 import { Route as VaccinesPregnancyRouteImport } from './routes/vaccines-pregnancy'
 import { Route as TrackerRouteImport } from './routes/tracker'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SymptomsRouteImport } from './routes/symptoms'
 import { Route as SignupRouteImport } from './routes/signup'
 import { Route as SchemesRouteImport } from './routes/schemes'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as PostpartumRouteImport } from './routes/postpartum'
 import { Route as OnboardingRouteImport } from './routes/onboarding'
 import { Route as NutritionGuideRouteImport } from './routes/nutrition-guide'
@@ -63,6 +65,11 @@ const TrackerRoute = TrackerRouteImport.update({
   path: '/tracker',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SymptomsRoute = SymptomsRouteImport.update({
   id: '/symptoms',
   path: '/symptoms',
@@ -76,6 +83,11 @@ const SignupRoute = SignupRouteImport.update({
 const SchemesRoute = SchemesRouteImport.update({
   id: '/schemes',
   path: '/schemes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PostpartumRoute = PostpartumRouteImport.update({
@@ -230,9 +242,11 @@ export interface FileRoutesByFullPath {
   '/nutrition-guide': typeof NutritionGuideRoute
   '/onboarding': typeof OnboardingRoute
   '/postpartum': typeof PostpartumRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/schemes': typeof SchemesRoute
   '/signup': typeof SignupRoute
   '/symptoms': typeof SymptomsRoute
+  '/terms': typeof TermsRoute
   '/tracker': typeof TrackerRoute
   '/vaccines-pregnancy': typeof VaccinesPregnancyRoute
   '/welcome': typeof WelcomeRoute
@@ -265,9 +279,11 @@ export interface FileRoutesByTo {
   '/nutrition-guide': typeof NutritionGuideRoute
   '/onboarding': typeof OnboardingRoute
   '/postpartum': typeof PostpartumRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/schemes': typeof SchemesRoute
   '/signup': typeof SignupRoute
   '/symptoms': typeof SymptomsRoute
+  '/terms': typeof TermsRoute
   '/tracker': typeof TrackerRoute
   '/vaccines-pregnancy': typeof VaccinesPregnancyRoute
   '/welcome': typeof WelcomeRoute
@@ -301,9 +317,11 @@ export interface FileRoutesById {
   '/nutrition-guide': typeof NutritionGuideRoute
   '/onboarding': typeof OnboardingRoute
   '/postpartum': typeof PostpartumRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/schemes': typeof SchemesRoute
   '/signup': typeof SignupRoute
   '/symptoms': typeof SymptomsRoute
+  '/terms': typeof TermsRoute
   '/tracker': typeof TrackerRoute
   '/vaccines-pregnancy': typeof VaccinesPregnancyRoute
   '/welcome': typeof WelcomeRoute
@@ -338,9 +356,11 @@ export interface FileRouteTypes {
     | '/nutrition-guide'
     | '/onboarding'
     | '/postpartum'
+    | '/privacy-policy'
     | '/schemes'
     | '/signup'
     | '/symptoms'
+    | '/terms'
     | '/tracker'
     | '/vaccines-pregnancy'
     | '/welcome'
@@ -373,9 +393,11 @@ export interface FileRouteTypes {
     | '/nutrition-guide'
     | '/onboarding'
     | '/postpartum'
+    | '/privacy-policy'
     | '/schemes'
     | '/signup'
     | '/symptoms'
+    | '/terms'
     | '/tracker'
     | '/vaccines-pregnancy'
     | '/welcome'
@@ -408,9 +430,11 @@ export interface FileRouteTypes {
     | '/nutrition-guide'
     | '/onboarding'
     | '/postpartum'
+    | '/privacy-policy'
     | '/schemes'
     | '/signup'
     | '/symptoms'
+    | '/terms'
     | '/tracker'
     | '/vaccines-pregnancy'
     | '/welcome'
@@ -444,9 +468,11 @@ export interface RootRouteChildren {
   NutritionGuideRoute: typeof NutritionGuideRoute
   OnboardingRoute: typeof OnboardingRoute
   PostpartumRoute: typeof PostpartumRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   SchemesRoute: typeof SchemesRoute
   SignupRoute: typeof SignupRoute
   SymptomsRoute: typeof SymptomsRoute
+  TermsRoute: typeof TermsRoute
   TrackerRoute: typeof TrackerRoute
   VaccinesPregnancyRoute: typeof VaccinesPregnancyRoute
   WelcomeRoute: typeof WelcomeRoute
@@ -484,6 +510,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TrackerRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/symptoms': {
       id: '/symptoms'
       path: '/symptoms'
@@ -503,6 +536,13 @@ declare module '@tanstack/react-router' {
       path: '/schemes'
       fullPath: '/schemes'
       preLoaderRoute: typeof SchemesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/postpartum': {
@@ -739,9 +779,11 @@ const rootRouteChildren: RootRouteChildren = {
   NutritionGuideRoute: NutritionGuideRoute,
   OnboardingRoute: OnboardingRoute,
   PostpartumRoute: PostpartumRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
   SchemesRoute: SchemesRoute,
   SignupRoute: SignupRoute,
   SymptomsRoute: SymptomsRoute,
+  TermsRoute: TermsRoute,
   TrackerRoute: TrackerRoute,
   VaccinesPregnancyRoute: VaccinesPregnancyRoute,
   WelcomeRoute: WelcomeRoute,
