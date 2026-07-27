@@ -341,50 +341,65 @@ export type Database = {
       }
       profiles: {
         Row: {
-          city: string | null
-          created_at: string
-          diet: string
-          due_date: string | null
-          high_risk_conditions: string[] | null
-          id: string
-          language: string
-          lmp_date: string | null
-          name: string | null
-          onboarded: boolean
-          state: string | null
-          updated_at: string
-          user_id: string
-        }
+  blood_group: string | null
+  city: string | null
+  created_at: string
+  diet: string
+  due_date: string | null
+  high_risk_conditions: string[] | null
+  id: string
+  language: string
+  lmp_date: string | null
+  medical_conditions: string[] | null
+  name: string | null
+  onboarded: boolean
+  previous_pregnancies_count: number | null
+  previous_pregnancy_complications: string[] | null
+  previously_pregnant: boolean | null
+  state: string | null
+  updated_at: string
+  user_id: string
+}
         Insert: {
-          city?: string | null
-          created_at?: string
-          diet?: string
-          due_date?: string | null
-          high_risk_conditions?: string[] | null
-          id?: string
-          language?: string
-          lmp_date?: string | null
-          name?: string | null
-          onboarded?: boolean
-          state?: string | null
-          updated_at?: string
-          user_id: string
-        }
+  blood_group?: string | null
+  city?: string | null
+  created_at?: string
+  diet?: string
+  due_date?: string | null
+  high_risk_conditions?: string[] | null
+  id?: string
+  language?: string
+  lmp_date?: string | null
+  medical_conditions?: string[] | null
+  name?: string | null
+  onboarded?: boolean
+  previous_pregnancies_count?: number | null
+  previous_pregnancy_complications?: string[] | null
+  previously_pregnant?: boolean | null
+  state?: string | null
+  updated_at?: string
+  user_id: string
+}
         Update: {
-          city?: string | null
-          created_at?: string
-          diet?: string
-          due_date?: string | null
-          high_risk_conditions?: string[] | null
-          id?: string
-          language?: string
-          lmp_date?: string | null
-          name?: string | null
-          onboarded?: boolean
-          state?: string | null
-          updated_at?: string
-          user_id?: string
-        }
+  blood_group?: string | null
+  city?: string | null
+  created_at?: string
+  diet?: string
+  due_date?: string | null
+  high_risk_conditions?: string[] | null
+  id?: string
+  language?: string
+  lmp_date?: string | null
+  medical_conditions?: string[] | null
+  name?: string | null
+  onboarded?: boolean
+  previous_pregnancies_count?: number | null
+  previous_pregnancy_complications?: string[] | null
+  previously_pregnant?: boolean | null
+  state?: string | null
+  updated_at?: string
+  user_id?: string
+}
         Relationships: []
       }
       reports: {
