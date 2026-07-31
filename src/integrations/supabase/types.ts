@@ -354,8 +354,10 @@ export type Database = {
   name: string | null
   onboarded: boolean
   previous_pregnancies_count: number | null
-  previous_pregnancy_complications: string[] | null
-  previously_pregnant: boolean | null
+previous_pregnancy_complications: string[] | null
+previous_pregnancy_end_date: string | null
+previous_td_history: string | null
+previously_pregnant: boolean | null
   state: string | null
   updated_at: string
   user_id: string
@@ -374,8 +376,10 @@ export type Database = {
   name?: string | null
   onboarded?: boolean
   previous_pregnancies_count?: number | null
-  previous_pregnancy_complications?: string[] | null
-  previously_pregnant?: boolean | null
+previous_pregnancy_complications?: string[] | null
+previous_pregnancy_end_date?: string | null
+previous_td_history?: string | null
+previously_pregnant?: boolean | null
   state?: string | null
   updated_at?: string
   user_id: string
@@ -394,12 +398,50 @@ export type Database = {
   name?: string | null
   onboarded?: boolean
   previous_pregnancies_count?: number | null
-  previous_pregnancy_complications?: string[] | null
-  previously_pregnant?: boolean | null
+previous_pregnancy_complications?: string[] | null
+previous_pregnancy_end_date?: string | null
+previous_td_history?: string | null
+previously_pregnant?: boolean | null
   state?: string | null
   updated_at?: string
   user_id?: string
 }
+                Relationships: []
+      }
+      maternal_vaccinations: {
+        Row: {
+          created_at: string
+          date_received: string | null
+          dose: string
+          id: string
+          pregnancy_context: string
+          status: string
+          updated_at: string
+          user_id: string
+          vaccine: string
+        }
+        Insert: {
+          created_at?: string
+          date_received?: string | null
+          dose: string
+          id?: string
+          pregnancy_context?: string
+          status?: string
+          updated_at?: string
+          user_id: string
+          vaccine: string
+        }
+        Update: {
+          created_at?: string
+          date_received?: string | null
+          dose?: string
+          id?: string
+          pregnancy_context?: string
+          status?: string
+          updated_at?: string
+          user_id?: string
+          vaccine?: string
+        }
         Relationships: []
       }
       reports: {

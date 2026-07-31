@@ -13,6 +13,15 @@ type Profile = {
   city: string | null;
   state: string | null;
   high_risk_conditions: string[] | null;
+
+  blood_group: string | null;
+  previous_pregnancies_count: number | null;
+previous_pregnancy_complications: string[] | null;
+previous_pregnancy_end_date: string | null;
+previous_td_history: string | null;
+previously_pregnant: boolean | null;
+medical_conditions: string[] | null;
+
   onboarded: boolean;
 };
 
