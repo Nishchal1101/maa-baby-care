@@ -5,7 +5,8 @@ import { useI18n } from "@/lib/i18n";
 import { useAuth } from "@/lib/auth";
 import { supabase } from "@/integrations/supabase/client";
 import { calcWeekFromLMP, calcWeekFromDue, trimester } from "@/lib/pregnancy";
-import { mealPlan, foodsToAvoid, type DietPref, type Trim } from "@/lib/diet";
+import { foodsToAvoid, type DietPref, type Trim } from "@/lib/diet";
+import { regionalMealPlan } from "@/lib/diet-regional";
 import {
   DIET_REGIONS,
   regionLabels,
@@ -26,11 +27,12 @@ function DietPage() {
   })();
   const [tri, setTri] = React.useState<Trim>(initialTri);
   const pref = (profile?.diet as DietPref) || "veg";
-  const meals = mealPlan(pref, tri);
 
   const [region, setRegion] = React.useState<DietRegion>(
     resolveDietRegion(profile?.diet_region, profile?.state),
   );
+
+  const meals = regionalMealPlan(region, pref, tri);
 
   React.useEffect(() => {
     setRegion(resolveDietRegion(profile?.diet_region, profile?.state));
