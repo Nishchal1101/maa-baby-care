@@ -277,6 +277,42 @@ export type Database = {
         }
         Relationships: []
       }
+      maternal_vaccinations: {
+        Row: {
+          created_at: string
+          date_received: string | null
+          dose: string
+          id: string
+          pregnancy_context: string
+          status: string
+          updated_at: string
+          user_id: string
+          vaccine: string
+        }
+        Insert: {
+          created_at?: string
+          date_received?: string | null
+          dose: string
+          id?: string
+          pregnancy_context?: string
+          status?: string
+          updated_at?: string
+          user_id: string
+          vaccine: string
+        }
+        Update: {
+          created_at?: string
+          date_received?: string | null
+          dose?: string
+          id?: string
+          pregnancy_context?: string
+          status?: string
+          updated_at?: string
+          user_id?: string
+          vaccine?: string
+        }
+        Relationships: []
+      }
       post_votes: {
         Row: {
           created_at: string
@@ -341,106 +377,70 @@ export type Database = {
       }
       profiles: {
         Row: {
-  blood_group: string | null
-  city: string | null
-  created_at: string
-  diet: string
-  due_date: string | null
-  high_risk_conditions: string[] | null
-  id: string
-  language: string
-  lmp_date: string | null
-  medical_conditions: string[] | null
-  name: string | null
-  onboarded: boolean
-  previous_pregnancies_count: number | null
-previous_pregnancy_complications: string[] | null
-previous_pregnancy_end_date: string | null
-previous_td_history: string | null
-previously_pregnant: boolean | null
-  state: string | null
-  updated_at: string
-  user_id: string
-}
-        Insert: {
-  blood_group?: string | null
-  city?: string | null
-  created_at?: string
-  diet?: string
-  due_date?: string | null
-  high_risk_conditions?: string[] | null
-  id?: string
-  language?: string
-  lmp_date?: string | null
-  medical_conditions?: string[] | null
-  name?: string | null
-  onboarded?: boolean
-  previous_pregnancies_count?: number | null
-previous_pregnancy_complications?: string[] | null
-previous_pregnancy_end_date?: string | null
-previous_td_history?: string | null
-previously_pregnant?: boolean | null
-  state?: string | null
-  updated_at?: string
-  user_id: string
-}
-        Update: {
-  blood_group?: string | null
-  city?: string | null
-  created_at?: string
-  diet?: string
-  due_date?: string | null
-  high_risk_conditions?: string[] | null
-  id?: string
-  language?: string
-  lmp_date?: string | null
-  medical_conditions?: string[] | null
-  name?: string | null
-  onboarded?: boolean
-  previous_pregnancies_count?: number | null
-previous_pregnancy_complications?: string[] | null
-previous_pregnancy_end_date?: string | null
-previous_td_history?: string | null
-previously_pregnant?: boolean | null
-  state?: string | null
-  updated_at?: string
-  user_id?: string
-}
-                Relationships: []
-      }
-      maternal_vaccinations: {
-        Row: {
+          blood_group: string | null
+          city: string | null
           created_at: string
-          date_received: string | null
-          dose: string
+          diet: string
+          due_date: string | null
+          high_risk_conditions: string[] | null
           id: string
-          pregnancy_context: string
-          status: string
+          language: string
+          lmp_date: string | null
+          medical_conditions: string[] | null
+          name: string | null
+          onboarded: boolean
+          previous_pregnancies_count: number | null
+          previous_pregnancy_complications: string[] | null
+          previous_pregnancy_end_date: string | null
+          previous_td_history: string | null
+          previously_pregnant: boolean | null
+          state: string | null
           updated_at: string
           user_id: string
-          vaccine: string
         }
         Insert: {
+          blood_group?: string | null
+          city?: string | null
           created_at?: string
-          date_received?: string | null
-          dose: string
+          diet?: string
+          due_date?: string | null
+          high_risk_conditions?: string[] | null
           id?: string
-          pregnancy_context?: string
-          status?: string
+          language?: string
+          lmp_date?: string | null
+          medical_conditions?: string[] | null
+          name?: string | null
+          onboarded?: boolean
+          previous_pregnancies_count?: number | null
+          previous_pregnancy_complications?: string[] | null
+          previous_pregnancy_end_date?: string | null
+          previous_td_history?: string | null
+          previously_pregnant?: boolean | null
+          state?: string | null
           updated_at?: string
           user_id: string
-          vaccine: string
         }
         Update: {
+          blood_group?: string | null
+          city?: string | null
           created_at?: string
-          date_received?: string | null
-          dose?: string
+          diet?: string
+          due_date?: string | null
+          high_risk_conditions?: string[] | null
           id?: string
-          pregnancy_context?: string
-          status?: string
+          language?: string
+          lmp_date?: string | null
+          medical_conditions?: string[] | null
+          name?: string | null
+          onboarded?: boolean
+          previous_pregnancies_count?: number | null
+          previous_pregnancy_complications?: string[] | null
+          previous_pregnancy_end_date?: string | null
+          previous_td_history?: string | null
+          previously_pregnant?: boolean | null
+          state?: string | null
           updated_at?: string
           user_id?: string
-          vaccine?: string
         }
         Relationships: []
       }
