@@ -3,8 +3,15 @@ import * as React from "react";
 import { MobileShell } from "@/components/mobile-shell";
 import { useI18n } from "@/lib/i18n";
 import { useAuth } from "@/lib/auth";
+import { supabase } from "@/integrations/supabase/client";
 import { calcWeekFromLMP, calcWeekFromDue, trimester } from "@/lib/pregnancy";
 import { mealPlan, foodsToAvoid, type DietPref, type Trim } from "@/lib/diet";
+import {
+  DIET_REGIONS,
+  regionLabels,
+  resolveDietRegion,
+  type DietRegion,
+} from "@/lib/diet-region";
 
 export const Route = createFileRoute("/diet")({
   component: DietPage,
@@ -12,7 +19,7 @@ export const Route = createFileRoute("/diet")({
 
 function DietPage() {
   const { t } = useI18n();
-  const { profile } = useAuth();
+  const { profile, user, refreshProfile } = useAuth();
   const initialTri = (() => {
     const w = calcWeekFromLMP(profile?.lmp_date) ?? calcWeekFromDue(profile?.due_date) ?? 1;
     return trimester(w) as Trim;
@@ -21,13 +28,45 @@ function DietPage() {
   const pref = (profile?.diet as DietPref) || "veg";
   const meals = mealPlan(pref, tri);
 
+  const [region, setRegion] = React.useState<DietRegion>(
+    resolveDietRegion(profile?.diet_region, profile?.state),
+  );
+
+  React.useEffect(() => {
+    setRegion(resolveDietRegion(profile?.diet_region, profile?.state));
+  }, [profile?.diet_region, profile?.state]);
+
+  const selectRegion = async (r: DietRegion) => {
+    setRegion(r);
+    if (!user) return;
+    await supabase.from("profiles").update({ diet_region: r }).eq("user_id", user.id);
+    await refreshProfile();
+  };
+
   return (
     <MobileShell>
       <div className="px-5 pb-6 pt-8">
         <h1 className="font-display text-2xl">{t("diet_title")}</h1>
         <p className="mt-1 text-xs text-muted-foreground">{t(pref)}</p>
 
-        <div className="mt-5 inline-flex rounded-full bg-muted p-1 text-xs">
+        <div className="mt-5 flex gap-2 overflow-x-auto pb-1 text-xs [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {DIET_REGIONS.map((r) => (
+            <button
+              key={r}
+              onClick={() => selectRegion(r)}
+              className={
+                "shrink-0 rounded-full border px-4 py-1.5 transition-colors " +
+                (region === r
+                  ? "border-primary bg-primary/10 text-primary"
+                  : "border-border text-muted-foreground")
+              }
+            >
+              {regionLabels[r]}
+            </button>
+          ))}
+        </div>
+
+        <div className="mt-3 inline-flex rounded-full bg-muted p-1 text-xs">
           {([1, 2, 3] as Trim[]).map((n) => (
             <button
               key={n}
@@ -41,6 +80,7 @@ function DietPage() {
             </button>
           ))}
         </div>
+
 
         <Meal label={t("breakfast")} items={meals.breakfast} />
         <Meal label={t("lunch")} items={meals.lunch} />

@@ -10,6 +10,7 @@ type Profile = {
   due_date: string | null;
   language: string;
   diet: string;
+  diet_region: string | null;
   city: string | null;
   state: string | null;
   high_risk_conditions: string[] | null;
