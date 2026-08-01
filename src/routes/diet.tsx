@@ -27,11 +27,12 @@ function DietPage() {
   })();
   const [tri, setTri] = React.useState<Trim>(initialTri);
   const pref = (profile?.diet as DietPref) || "veg";
-  const meals = mealPlan(pref, tri);
 
   const [region, setRegion] = React.useState<DietRegion>(
     resolveDietRegion(profile?.diet_region, profile?.state),
   );
+
+  const meals = regionalMealPlan(region, pref, tri);
 
   React.useEffect(() => {
     setRegion(resolveDietRegion(profile?.diet_region, profile?.state));
