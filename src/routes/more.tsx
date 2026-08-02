@@ -31,15 +31,15 @@ function MorePage() {
       <div className="px-5 pb-6 pt-8">
         <h1 className="font-display text-2xl">{t("more")}</h1>
 
-        <div className="mt-6 rounded-lg bg-card p-4 shadow-sm">
-          <div className="flex items-center gap-3">
-            <span className="grid h-12 w-12 place-items-center rounded-full bg-primary/10 text-primary"><User className="h-5 w-5" /></span>
-            <div className="min-w-0">
-              <p className="truncate font-medium">{profile?.name || " - "}</p>
-              <p className="truncate text-xs text-muted-foreground">{[profile?.city, profile?.state].filter(Boolean).join(", ") || " - "}</p>
-            </div>
+        <Link to="/profile" className="mt-6 flex items-center gap-3 rounded-lg bg-card p-4 shadow-sm">
+          <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-primary/10 text-primary"><User className="h-5 w-5" /></span>
+          <div className="min-w-0 flex-1">
+            <p className="truncate font-medium">{profile?.name || " - "}</p>
+            <p className="truncate text-xs text-muted-foreground">{[profile?.city, profile?.state].filter(Boolean).join(", ") || " - "}</p>
           </div>
-        </div>
+          <ChevronRight className="h-5 w-5 shrink-0 text-muted-foreground" />
+        </Link>
+
 
         <p className="mt-6 mb-2 text-xs uppercase tracking-wider text-muted-foreground">Urgent</p>
         <div className="space-y-2">
