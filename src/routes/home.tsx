@@ -20,6 +20,22 @@ function hoursUntil(iso: string) {
   return (new Date(iso).getTime() - Date.now()) / 36e5;
 }
 
+type MealSlot = "breakfast" | "lunch" | "snack" | "dinner";
+
+function currentMealSlot(d: Date): MealSlot {
+  const h = d.getHours();
+  if (h >= 12 && h < 17) return "lunch";
+  if (h >= 17 && h < 22) return "dinner";
+  return "breakfast";
+}
+
+function dayIndex(d: Date) {
+  return Math.floor(
+    Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) / 864e5,
+  );
+}
+
+
 function HomePage() {
   const { t } = useI18n();
   const { user, profile, loading } = useAuth();
