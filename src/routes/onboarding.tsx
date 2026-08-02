@@ -208,6 +208,23 @@ nav({ to: "/consent" });
             <Label htmlFor="name">{t("name")}</Label>
             <Input id="name" value={name} onChange={(e) => setName(e.target.value)} className="h-12 rounded-md" />
           </div>
+          <div className="space-y-2">
+            <Label htmlFor="dob">Date of birth</Label>
+            <Input
+              id="dob"
+              type="date"
+              max={new Date().toISOString().slice(0, 10)}
+              value={dob}
+              onChange={(e) => setDob(e.target.value)}
+              className="h-12 rounded-md"
+            />
+            <p className="text-xs text-muted-foreground">
+              {age !== null
+                ? `You are ${age} years old. This helps us flag age-related pregnancy care.`
+                : "We use this to calculate your age for age-related pregnancy care."}
+            </p>
+          </div>
+
         </div>
       )}
 
