@@ -17,6 +17,7 @@ import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SymptomsRouteImport } from './routes/symptoms'
 import { Route as SignupRouteImport } from './routes/signup'
 import { Route as SchemesRouteImport } from './routes/schemes'
+import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as PostpartumRouteImport } from './routes/postpartum'
 import { Route as OnboardingRouteImport } from './routes/onboarding'
@@ -83,6 +84,11 @@ const SignupRoute = SignupRouteImport.update({
 const SchemesRoute = SchemesRouteImport.update({
   id: '/schemes',
   path: '/schemes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
@@ -243,6 +249,7 @@ export interface FileRoutesByFullPath {
   '/onboarding': typeof OnboardingRoute
   '/postpartum': typeof PostpartumRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/profile': typeof ProfileRoute
   '/schemes': typeof SchemesRoute
   '/signup': typeof SignupRoute
   '/symptoms': typeof SymptomsRoute
@@ -280,6 +287,7 @@ export interface FileRoutesByTo {
   '/onboarding': typeof OnboardingRoute
   '/postpartum': typeof PostpartumRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/profile': typeof ProfileRoute
   '/schemes': typeof SchemesRoute
   '/signup': typeof SignupRoute
   '/symptoms': typeof SymptomsRoute
@@ -318,6 +326,7 @@ export interface FileRoutesById {
   '/onboarding': typeof OnboardingRoute
   '/postpartum': typeof PostpartumRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/profile': typeof ProfileRoute
   '/schemes': typeof SchemesRoute
   '/signup': typeof SignupRoute
   '/symptoms': typeof SymptomsRoute
@@ -357,6 +366,7 @@ export interface FileRouteTypes {
     | '/onboarding'
     | '/postpartum'
     | '/privacy-policy'
+    | '/profile'
     | '/schemes'
     | '/signup'
     | '/symptoms'
@@ -394,6 +404,7 @@ export interface FileRouteTypes {
     | '/onboarding'
     | '/postpartum'
     | '/privacy-policy'
+    | '/profile'
     | '/schemes'
     | '/signup'
     | '/symptoms'
@@ -431,6 +442,7 @@ export interface FileRouteTypes {
     | '/onboarding'
     | '/postpartum'
     | '/privacy-policy'
+    | '/profile'
     | '/schemes'
     | '/signup'
     | '/symptoms'
@@ -469,6 +481,7 @@ export interface RootRouteChildren {
   OnboardingRoute: typeof OnboardingRoute
   PostpartumRoute: typeof PostpartumRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  ProfileRoute: typeof ProfileRoute
   SchemesRoute: typeof SchemesRoute
   SignupRoute: typeof SignupRoute
   SymptomsRoute: typeof SymptomsRoute
@@ -536,6 +549,13 @@ declare module '@tanstack/react-router' {
       path: '/schemes'
       fullPath: '/schemes'
       preLoaderRoute: typeof SchemesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy-policy': {
@@ -780,6 +800,7 @@ const rootRouteChildren: RootRouteChildren = {
   OnboardingRoute: OnboardingRoute,
   PostpartumRoute: PostpartumRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
+  ProfileRoute: ProfileRoute,
   SchemesRoute: SchemesRoute,
   SignupRoute: SignupRoute,
   SymptomsRoute: SymptomsRoute,
