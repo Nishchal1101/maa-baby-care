@@ -63,8 +63,13 @@ function HomePage() {
 
   const week = calcWeekFromLMP(profile?.lmp_date) ?? calcWeekFromDue(profile?.due_date) ?? 1;
   const info = weekInfo(week);
-  const tri = trimester(week) as 1 | 2 | 3;
-  const meals = mealPlan((profile?.diet as DietPref) || "veg", tri);
+  const tri = trimester(week) as Trim;
+  const region = resolveDietRegion(profile?.diet_region, profile?.state);
+  const meals = regionalMealPlan(region, (profile?.diet as DietPref) || "veg", tri);
+  const now = new Date();
+  const slot = currentMealSlot(now);
+  const slotItems = meals[slot];
+  const suggestion = slotItems[dayIndex(now) % slotItems.length];
 
   return (
     <MobileShell>
