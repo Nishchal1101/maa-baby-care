@@ -85,7 +85,10 @@ const medicalConditionSuggestions = React.useMemo(() => {
     if (loading) return;
     if (!user) nav({ to: "/login" });
     // else if (profile?.onboarded) nav({ to: "/home" });
-    else if (profile?.name) setName(profile.name);
+    else {
+      if (profile?.name) setName(profile.name);
+      if (profile?.dob) setDob(profile.dob);
+    }
   }, [user, profile, loading, nav]);
 
   const next = () => setStep((s) => Math.min(s + 1, 3));
