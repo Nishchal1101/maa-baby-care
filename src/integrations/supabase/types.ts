@@ -382,6 +382,7 @@ export type Database = {
           created_at: string
           diet: string
           diet_region: string | null
+          dob: string | null
           due_date: string | null
           high_risk_conditions: string[] | null
           id: string
@@ -405,6 +406,7 @@ export type Database = {
           created_at?: string
           diet?: string
           diet_region?: string | null
+          dob?: string | null
           due_date?: string | null
           high_risk_conditions?: string[] | null
           id?: string
@@ -428,6 +430,7 @@ export type Database = {
           created_at?: string
           diet?: string
           diet_region?: string | null
+          dob?: string | null
           due_date?: string | null
           high_risk_conditions?: string[] | null
           id?: string
