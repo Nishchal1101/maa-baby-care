@@ -153,6 +153,7 @@ const medicalConditionSuggestions = React.useMemo(() => {
     const payload = {
   user_id: user.id,
   name: name || null,
+  dob: dob || null,
   lmp_date: lmp || null,
   due_date: computedDue,
   diet,
