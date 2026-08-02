@@ -5,7 +5,9 @@ import { useI18n } from "@/lib/i18n";
 import { MobileShell } from "@/components/mobile-shell";
 import { LanguageToggle } from "@/components/language-toggle";
 import { calcWeekFromLMP, calcWeekFromDue, weekInfo, trimester } from "@/lib/pregnancy";
-import { mealPlan, type DietPref } from "@/lib/diet";
+import { type DietPref, type Trim } from "@/lib/diet";
+import { regionalMealPlan } from "@/lib/diet-regional";
+import { resolveDietRegion } from "@/lib/diet-region";
 import { supabase } from "@/integrations/supabase/client";
 import { Activity, Salad, Calendar, Footprints, AlertTriangle, ChevronRight } from "lucide-react";
 
@@ -17,6 +19,22 @@ export const Route = createFileRoute("/home")({
 function hoursUntil(iso: string) {
   return (new Date(iso).getTime() - Date.now()) / 36e5;
 }
+
+type MealSlot = "breakfast" | "lunch" | "snack" | "dinner";
+
+function currentMealSlot(d: Date): MealSlot {
+  const h = d.getHours();
+  if (h >= 12 && h < 17) return "lunch";
+  if (h >= 17 && h < 22) return "dinner";
+  return "breakfast";
+}
+
+function dayIndex(d: Date) {
+  return Math.floor(
+    Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) / 864e5,
+  );
+}
+
 
 function HomePage() {
   const { t } = useI18n();
@@ -45,8 +63,13 @@ function HomePage() {
 
   const week = calcWeekFromLMP(profile?.lmp_date) ?? calcWeekFromDue(profile?.due_date) ?? 1;
   const info = weekInfo(week);
-  const tri = trimester(week) as 1 | 2 | 3;
-  const meals = mealPlan((profile?.diet as DietPref) || "veg", tri);
+  const tri = trimester(week) as Trim;
+  const region = resolveDietRegion(profile?.diet_region, profile?.state);
+  const meals = regionalMealPlan(region, (profile?.diet as DietPref) || "veg", tri);
+  const now = new Date();
+  const slot = currentMealSlot(now);
+  const slotItems = meals[slot];
+  const suggestion = slotItems[dayIndex(now) % slotItems.length];
 
   return (
     <MobileShell>
@@ -163,10 +186,10 @@ function HomePage() {
         {/* Diet preview */}
         <section className="mt-6 rounded-lg bg-card p-4 shadow-sm">
           <div className="flex items-center justify-between">
-            <p className="text-xs uppercase tracking-wider text-muted-foreground">{t("breakfast")}</p>
+            <p className="text-xs uppercase tracking-wider text-muted-foreground">{t(slot)}</p>
             <Link to="/diet" className="text-xs font-medium text-primary">{t("view_diet")}</Link>
           </div>
-          <p className="mt-2 text-sm">{meals.breakfast[0]}</p>
+          <p className="mt-2 text-sm">{suggestion}</p>
         </section>
       </div>
     </MobileShell>
