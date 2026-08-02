@@ -6,6 +6,7 @@ type Profile = {
   id: string;
   user_id: string;
   name: string | null;
+  dob: string | null;
   lmp_date: string | null;
   due_date: string | null;
   language: string;
