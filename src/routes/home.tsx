@@ -186,10 +186,10 @@ function HomePage() {
         {/* Diet preview */}
         <section className="mt-6 rounded-lg bg-card p-4 shadow-sm">
           <div className="flex items-center justify-between">
-            <p className="text-xs uppercase tracking-wider text-muted-foreground">{t("breakfast")}</p>
+            <p className="text-xs uppercase tracking-wider text-muted-foreground">{t(slot)}</p>
             <Link to="/diet" className="text-xs font-medium text-primary">{t("view_diet")}</Link>
           </div>
-          <p className="mt-2 text-sm">{meals.breakfast[0]}</p>
+          <p className="mt-2 text-sm">{suggestion}</p>
         </section>
       </div>
     </MobileShell>
