@@ -5,7 +5,9 @@ import { useI18n } from "@/lib/i18n";
 import { MobileShell } from "@/components/mobile-shell";
 import { LanguageToggle } from "@/components/language-toggle";
 import { calcWeekFromLMP, calcWeekFromDue, weekInfo, trimester } from "@/lib/pregnancy";
-import { mealPlan, type DietPref } from "@/lib/diet";
+import { type DietPref, type Trim } from "@/lib/diet";
+import { regionalMealPlan } from "@/lib/diet-regional";
+import { resolveDietRegion } from "@/lib/diet-region";
 import { supabase } from "@/integrations/supabase/client";
 import { Activity, Salad, Calendar, Footprints, AlertTriangle, ChevronRight } from "lucide-react";
 
