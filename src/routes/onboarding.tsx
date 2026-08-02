@@ -36,6 +36,17 @@ function OnboardingPage() {
   const nav = useNavigate();
   const [step, setStep] = React.useState(0);
   const [name, setName] = React.useState("");
+  const [dob, setDob] = React.useState("");
+  const age = React.useMemo(() => {
+    if (!dob) return null;
+    const b = new Date(dob);
+    if (Number.isNaN(b.getTime())) return null;
+    const now = new Date();
+    let a = now.getFullYear() - b.getFullYear();
+    const m = now.getMonth() - b.getMonth();
+    if (m < 0 || (m === 0 && now.getDate() < b.getDate())) a--;
+    return a >= 0 && a < 120 ? a : null;
+  }, [dob]);
   const [lmp, setLmp] = React.useState("");
   const [due, setDue] = React.useState("");
   const [diet, setDiet] = React.useState<"veg" | "nonveg" | "egg">("veg");
