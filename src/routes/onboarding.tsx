@@ -36,6 +36,17 @@ function OnboardingPage() {
   const nav = useNavigate();
   const [step, setStep] = React.useState(0);
   const [name, setName] = React.useState("");
+  const [dob, setDob] = React.useState("");
+  const age = React.useMemo(() => {
+    if (!dob) return null;
+    const b = new Date(dob);
+    if (Number.isNaN(b.getTime())) return null;
+    const now = new Date();
+    let a = now.getFullYear() - b.getFullYear();
+    const m = now.getMonth() - b.getMonth();
+    if (m < 0 || (m === 0 && now.getDate() < b.getDate())) a--;
+    return a >= 0 && a < 120 ? a : null;
+  }, [dob]);
   const [lmp, setLmp] = React.useState("");
   const [due, setDue] = React.useState("");
   const [diet, setDiet] = React.useState<"veg" | "nonveg" | "egg">("veg");
@@ -74,7 +85,10 @@ const medicalConditionSuggestions = React.useMemo(() => {
     if (loading) return;
     if (!user) nav({ to: "/login" });
     // else if (profile?.onboarded) nav({ to: "/home" });
-    else if (profile?.name) setName(profile.name);
+    else {
+      if (profile?.name) setName(profile.name);
+      if (profile?.dob) setDob(profile.dob);
+    }
   }, [user, profile, loading, nav]);
 
   const next = () => setStep((s) => Math.min(s + 1, 3));
@@ -142,6 +156,7 @@ const medicalConditionSuggestions = React.useMemo(() => {
     const payload = {
   user_id: user.id,
   name: name || null,
+  dob: dob || null,
   lmp_date: lmp || null,
   due_date: computedDue,
   diet,
@@ -208,6 +223,23 @@ nav({ to: "/consent" });
             <Label htmlFor="name">{t("name")}</Label>
             <Input id="name" value={name} onChange={(e) => setName(e.target.value)} className="h-12 rounded-md" />
           </div>
+          <div className="space-y-2">
+            <Label htmlFor="dob">Date of birth</Label>
+            <Input
+              id="dob"
+              type="date"
+              max={new Date().toISOString().slice(0, 10)}
+              value={dob}
+              onChange={(e) => setDob(e.target.value)}
+              className="h-12 rounded-md"
+            />
+            <p className="text-xs text-muted-foreground">
+              {age !== null
+                ? `You are ${age} years old. This helps us flag age-related pregnancy care.`
+                : "We use this to calculate your age for age-related pregnancy care."}
+            </p>
+          </div>
+
         </div>
       )}
 
