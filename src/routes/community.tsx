@@ -31,7 +31,7 @@ type Post = {
 export const Route = createFileRoute("/community")({
   head: () => ({
     meta: [
-      { title: "Community  -  MatruCare" },
+      { title: "Community  -  Maatri" },
       { name: "description", content: "Ask questions and connect with other Indian mothers  -  anonymously if you wish. Topics: nutrition, symptoms, labor, newborn care, mental health." },
     ],
   }),

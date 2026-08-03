@@ -15,7 +15,7 @@ function MedicalDisclaimerPage() {
           <section className="rounded-lg bg-card p-4 shadow-sm">
             <h2 className="font-medium">Educational Information Only</h2>
             <p className="mt-2 text-sm text-muted-foreground">
-              Maa Baby Care provides educational information related to pregnancy,
+              Maatri provides educational information related to pregnancy,
               postpartum care, newborn care, nutrition, exercise, and maternal
               health. The content is intended to support awareness and is not a
               substitute for professional medical advice.
@@ -55,7 +55,7 @@ function MedicalDisclaimerPage() {
           <section className="rounded-lg bg-card p-4 shadow-sm">
             <h2 className="font-medium">User Responsibility</h2>
             <p className="mt-2 text-sm text-muted-foreground">
-              By using Maa Baby Care, you acknowledge that healthcare decisions are
+              By using Maatri, you acknowledge that healthcare decisions are
               your responsibility and that the app is intended only as an
               informational companion.
             </p>

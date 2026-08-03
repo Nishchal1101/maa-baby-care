@@ -8,7 +8,7 @@ import { exerciseSafe, exerciseAvoid, stopIfWarning, exerciseSource } from "@/li
 export const Route = createFileRoute("/exercise")({
   head: () => ({
     meta: [
-      { title: "Safe exercise in pregnancy  -  Maa Baby Care" },
+      { title: "Safe exercise in pregnancy  -  Maatri" },
       { name: "description", content: "Safe activities, what to avoid, and warning signs to stop exercising during pregnancy." },
     ],
   }),

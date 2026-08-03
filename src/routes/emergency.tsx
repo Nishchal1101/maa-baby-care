@@ -8,9 +8,9 @@ import { PhoneCall } from "lucide-react";
 export const Route = createFileRoute("/emergency")({
   head: () => ({
     meta: [
-      { title: "Emergency signs  -  Maa Baby Care" },
+      { title: "Emergency signs  -  Maatri" },
       { name: "description", content: "Pregnancy, postpartum, and newborn danger signs that need urgent medical care." },
-      { property: "og:title", content: "Emergency signs  -  Maa Baby Care" },
+      { property: "og:title", content: "Emergency signs  -  Maatri" },
       { property: "og:description", content: "Pregnancy, postpartum, and newborn danger signs that need urgent medical care." },
     ],
   }),

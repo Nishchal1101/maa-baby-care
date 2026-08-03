@@ -7,7 +7,7 @@ import { rda, indianFoodSources, nutritionTips, nutritionSource } from "@/lib/nu
 export const Route = createFileRoute("/nutrition-guide")({
   head: () => ({
     meta: [
-      { title: "Nutrition in pregnancy  -  Maa Baby Care" },
+      { title: "Nutrition in pregnancy  -  Maatri" },
       { name: "description", content: "ICMR-NIN nutrition targets and Indian food sources for pregnant mothers." },
     ],
   }),

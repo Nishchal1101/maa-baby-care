@@ -10,7 +10,7 @@ import { Heart, Sparkles, Calendar, Salad } from "lucide-react";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "MatruCare  -  Pregnancy care for Indian mothers" },
+      { title: "Maatri  -  Pregnancy care for Indian mothers" },
       {
         name: "description",
         content:

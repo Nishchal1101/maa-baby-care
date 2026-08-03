@@ -8,7 +8,7 @@ import { Phone, Landmark, ExternalLink } from "lucide-react";
 export const Route = createFileRoute("/schemes")({
   head: () => ({
     meta: [
-      { title: "Govt Schemes & Emergency  -  MatruCare" },
+      { title: "Govt Schemes & Emergency  -  Maatri" },
       { name: "description", content: "PMMVY, JSY, JSSK, Ayushman Bharat  -  Indian government maternity schemes and emergency helpline numbers for pregnant mothers." },
     ],
   }),
