@@ -8,7 +8,7 @@ import { trueLabor, falseLabor, whenToGoHospital, pretermSigns, laborSource } fr
 export const Route = createFileRoute("/labor-signs")({
   head: () => ({
     meta: [
-      { title: "Labor warning signs  -  Maa Baby Care" },
+      { title: "Labor warning signs  -  Maatri" },
       { name: "description", content: "How to tell true labor from false labor, when to leave for hospital, and preterm labor signs." },
     ],
   }),

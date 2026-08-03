@@ -5,7 +5,7 @@ export type Lang = "en" | "hi";
 type Dict = Record<string, string>;
 
 const en: Dict = {
-  app_name: "MatruCare",
+  app_name: "Maatri",
   tagline: "Your pregnancy companion",
   login: "Log in",
   signup: "Sign up",

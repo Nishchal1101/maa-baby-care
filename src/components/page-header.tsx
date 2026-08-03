@@ -15,7 +15,7 @@ type Props = {
 };
 
 /**
- * Consistent page header used across MatruCare screens.
+ * Consistent page header used across Maatri screens.
  * - Brand mark + language toggle on top-level screens
  * - Back chevron on sub-screens
  * - Wraps long titles safely (never breaks the outer card)

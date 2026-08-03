@@ -26,17 +26,17 @@ import { resolveDietRegion, regionLabels } from "@/lib/diet-region";
 export const Route = createFileRoute("/profile")({
   head: () => ({
     meta: [
-      { title: "My Profile - Maa Baby Care" },
+      { title: "My Profile - Maatri" },
       {
         name: "description",
         content:
-          "View your personal, pregnancy and health details saved in Maa Baby Care.",
+          "View your personal, pregnancy and health details saved in Maatri.",
       },
-      { property: "og:title", content: "My Profile - Maa Baby Care" },
+      { property: "og:title", content: "My Profile - Maatri" },
       {
         property: "og:description",
         content:
-          "View your personal, pregnancy and health details saved in Maa Baby Care.",
+          "View your personal, pregnancy and health details saved in Maatri.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

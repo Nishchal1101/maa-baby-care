@@ -7,7 +7,7 @@ import { investigations, investigationsSource } from "@/lib/investigations";
 export const Route = createFileRoute("/investigations")({
   head: () => ({
     meta: [
-      { title: "ANC checkups & tests  -  Maa Baby Care" },
+      { title: "ANC checkups & tests  -  Maatri" },
       { name: "description", content: "Trimester-wise antenatal checkups and investigations per Indian ANC guidelines." },
     ],
   }),

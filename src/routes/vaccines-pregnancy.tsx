@@ -14,7 +14,7 @@ import { supabase } from "@/integrations/supabase/client";
 export const Route = createFileRoute("/vaccines-pregnancy")({
   head: () => ({
     meta: [
-      { title: "Vaccinations in pregnancy  -  Maa Baby Care" },
+      { title: "Vaccinations in pregnancy  -  Maatri" },
       { name: "description", content: "Recommended and contraindicated vaccines during pregnancy per Indian and WHO guidance." },
     ],
   }),

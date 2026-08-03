@@ -11,7 +11,7 @@ import { Wind, Footprints, ShieldAlert, Flower2 } from "lucide-react";
 export const Route = createFileRoute("/yoga")({
   head: () => ({
     meta: [
-      { title: "Yoga & Exercise  -  MatruCare" },
+      { title: "Yoga & Exercise  -  Maatri" },
       { name: "description", content: "Trimester-wise prenatal yoga, pranayama breathing, kegels and walking goals  -  safe for Indian mothers." },
     ],
   }),

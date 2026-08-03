@@ -7,7 +7,7 @@ import { medsGuidance, medsSource } from "@/lib/meds-safety";
 export const Route = createFileRoute("/meds-safety")({
   head: () => ({
     meta: [
-      { title: "Medication safety in pregnancy  -  Maa Baby Care" },
+      { title: "Medication safety in pregnancy  -  Maatri" },
       { name: "description", content: "General guidance on medicines in pregnancy. Not a prescription. Always confirm with your doctor." },
     ],
   }),

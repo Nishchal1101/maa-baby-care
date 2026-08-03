@@ -10,7 +10,7 @@ import { ChevronDown } from "lucide-react";
 export const Route = createFileRoute("/faq")({
   head: () => ({
     meta: [
-      { title: "Pregnancy FAQ  -  Maa Baby Care" },
+      { title: "Pregnancy FAQ  -  Maatri" },
       { name: "description", content: "Common questions Indian mothers ask their doctors, with sourced short answers." },
     ],
   }),
