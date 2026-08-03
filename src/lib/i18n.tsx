@@ -216,7 +216,7 @@ const en: Dict = {
 };
 
 const hi: Dict = {
-  app_name: "मातृकेयर",
+  app_name: "मातृ",
   tagline: "आपकी गर्भावस्था की साथी",
   login: "लॉग इन",
   signup: "साइन अप",
