@@ -8,7 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 export const Route = createFileRoute("/baby/care")({ component: CarePage });
 
 function CarePage() {
-  const { t, lang } = useI18n();
+  const { t, contentLang: lang } = useI18n();
 
   return (
     <MobileShell>

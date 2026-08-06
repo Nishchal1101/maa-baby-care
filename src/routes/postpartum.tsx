@@ -18,7 +18,7 @@ const POSITIVE = new Set(["q1", "q2"]);
 export const Route = createFileRoute("/postpartum")({ component: PostpartumPage });
 
 function PostpartumPage() {
-  const { t, lang } = useI18n();
+  const { t, contentLang: lang } = useI18n();
   const { user } = useAuth();
   const [answers, setAnswers] = React.useState<Record<string, number>>({});
   const [sleep, setSleep] = React.useState("");

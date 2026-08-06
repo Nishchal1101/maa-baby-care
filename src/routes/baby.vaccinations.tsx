@@ -19,7 +19,7 @@ type VaccRow = {
 export const Route = createFileRoute("/baby/vaccinations")({ component: VaccPage });
 
 function VaccPage() {
-  const { t, lang } = useI18n();
+  const { t, contentLang: lang } = useI18n();
   const { user } = useAuth();
   const [rows, setRows] = React.useState<VaccRow[]>([]);
   const [loading, setLoading] = React.useState(true);

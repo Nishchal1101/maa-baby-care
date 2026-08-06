@@ -22,7 +22,7 @@ type Baby = {
 export const Route = createFileRoute("/baby")({ component: BabyPage });
 
 function BabyPage() {
-  const { t, lang } = useI18n();
+  const { t, contentLang: lang } = useI18n();
   const { user } = useAuth();
   const [baby, setBaby] = React.useState<Baby | null>(null);
   const [loading, setLoading] = React.useState(true);
