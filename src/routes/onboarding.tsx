@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { BackButton } from "@/components/back-button";
 import { LanguagePicker } from "@/components/language-toggle";
+import { LANGUAGES, type LangCode } from "@/lib/languages";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { calcDueFromLMP } from "@/lib/pregnancy";
@@ -32,7 +33,7 @@ export const Route = createFileRoute("/onboarding")({
 });
 
 function OnboardingPage() {
-  const { t, lang } = useI18n();
+  const { t, lang, setLang } = useI18n();
   const { user, profile, loading, refreshProfile } = useAuth();
   const nav = useNavigate();
   const [step, setStep] = React.useState(0);
