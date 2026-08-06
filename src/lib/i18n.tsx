@@ -1,6 +1,8 @@
 import * as React from "react";
+import { CORE_DICTS } from "./i18n-core-dicts";
+import { LANGUAGES, RTL_LANGS, type LangCode } from "./languages";
 
-export type Lang = "en" | "hi";
+export type Lang = LangCode;
 
 type Dict = Record<string, string>;
 
