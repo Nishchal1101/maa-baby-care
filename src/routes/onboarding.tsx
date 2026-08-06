@@ -89,7 +89,11 @@ const medicalConditionSuggestions = React.useMemo(() => {
     else {
       if (profile?.name) setName(profile.name);
       if (profile?.dob) setDob(profile.dob);
+      if (profile?.language && profile.language !== lang && LANGUAGES.some((l) => l.code === profile.language)) {
+        setLang(profile.language as LangCode);
+      }
     }
+
   }, [user, profile, loading, nav]);
 
   const next = () => setStep((s) => Math.min(s + 1, 3));
