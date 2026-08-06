@@ -6,6 +6,8 @@ import { useI18n } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { BackButton } from "@/components/back-button";
+import { LanguagePicker } from "@/components/language-toggle";
+import { LANGUAGES, type LangCode } from "@/lib/languages";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { calcDueFromLMP } from "@/lib/pregnancy";
@@ -31,7 +33,7 @@ export const Route = createFileRoute("/onboarding")({
 });
 
 function OnboardingPage() {
-  const { t, lang } = useI18n();
+  const { t, lang, setLang } = useI18n();
   const { user, profile, loading, refreshProfile } = useAuth();
   const nav = useNavigate();
   const [step, setStep] = React.useState(0);
@@ -88,7 +90,11 @@ const medicalConditionSuggestions = React.useMemo(() => {
     else {
       if (profile?.name) setName(profile.name);
       if (profile?.dob) setDob(profile.dob);
+      if (profile?.language && profile.language !== lang && LANGUAGES.some((l) => l.code === profile.language)) {
+        setLang(profile.language as LangCode);
+      }
     }
+
   }, [user, profile, loading, nav]);
 
   const next = () => setStep((s) => Math.min(s + 1, 3));
@@ -220,9 +226,17 @@ nav({ to: "/consent" });
             <p className="mt-2 text-sm text-muted-foreground">{t("onb_intro")}</p>
           </div>
           <div className="space-y-2">
+            <Label className="block">{t("language")}</Label>
+            <p className="text-xs text-muted-foreground">
+              Choose the language you are most comfortable reading in. You can change it anytime.
+            </p>
+            <LanguagePicker />
+          </div>
+          <div className="space-y-2">
             <Label htmlFor="name">{t("name")}</Label>
             <Input id="name" value={name} onChange={(e) => setName(e.target.value)} className="h-12 rounded-md" />
           </div>
+
           <div className="space-y-2">
             <Label htmlFor="dob">Date of birth</Label>
             <Input

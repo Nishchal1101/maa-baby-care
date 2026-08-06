@@ -1,6 +1,8 @@
 import * as React from "react";
+import { CORE_DICTS } from "./i18n-core-dicts";
+import { LANGUAGES, RTL_LANGS, type LangCode } from "./languages";
 
-export type Lang = "en" | "hi";
+export type Lang = LangCode;
 
 type Dict = Record<string, string>;
 
@@ -415,18 +417,40 @@ const hi: Dict = {
   alert_q10: "यदि खुद को नुकसान पहुँचाने का विचार आया है तो कृपया अभी iCall (9152987821) या वंदरेवाला फ़ाउंडेशन (1860-2662-345) पर कॉल करें।",
 };
 
-const dicts: Record<Lang, Dict> = { en, hi };
+const dicts: Record<Lang, Dict> = LANGUAGES.reduce(
+  (acc, l) => {
+    acc[l.code] = l.code === "en" ? en : l.code === "hi" ? hi : { ...en, ...(CORE_DICTS[l.code] ?? {}) };
+    return acc;
+  },
+  {} as Record<Lang, Dict>,
+);
 
-type Ctx = { lang: Lang; setLang: (l: Lang) => void; t: (k: keyof typeof en) => string };
+/** Long-form content is authored in English and Hindi only. */
+export type ContentLang = "en" | "hi";
+
+type Ctx = {
+  lang: Lang;
+  contentLang: ContentLang;
+  setLang: (l: Lang) => void;
+  t: (k: keyof typeof en) => string;
+};
 const I18nCtx = React.createContext<Ctx | null>(null);
+
+const isLang = (v: unknown): v is Lang => LANGUAGES.some((l) => l.code === v);
 
 export function I18nProvider({ children }: { children: React.ReactNode }) {
   const [lang, setLangState] = React.useState<Lang>("en");
 
   React.useEffect(() => {
-    const stored = (typeof window !== "undefined" && localStorage.getItem("lang")) as Lang | null;
-    if (stored === "en" || stored === "hi") setLangState(stored);
+    const stored = typeof window !== "undefined" ? localStorage.getItem("lang") : null;
+    if (isLang(stored)) setLangState(stored);
   }, []);
+
+  React.useEffect(() => {
+    if (typeof document === "undefined") return;
+    document.documentElement.lang = lang;
+    document.documentElement.dir = RTL_LANGS.includes(lang) ? "rtl" : "ltr";
+  }, [lang]);
 
   const setLang = (l: Lang) => {
     setLangState(l);
@@ -438,7 +462,9 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
     [lang],
   );
 
-  return <I18nCtx.Provider value={{ lang, setLang, t }}>{children}</I18nCtx.Provider>;
+  const contentLang: ContentLang = lang === "hi" ? "hi" : "en";
+
+  return <I18nCtx.Provider value={{ lang, contentLang, setLang, t }}>{children}</I18nCtx.Provider>;
 }
 
 export function useI18n() {
@@ -446,3 +472,4 @@ export function useI18n() {
   if (!ctx) throw new Error("useI18n must be used inside I18nProvider");
   return ctx;
 }
+
