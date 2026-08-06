@@ -220,9 +220,17 @@ nav({ to: "/consent" });
             <p className="mt-2 text-sm text-muted-foreground">{t("onb_intro")}</p>
           </div>
           <div className="space-y-2">
+            <Label className="block">{t("language")}</Label>
+            <p className="text-xs text-muted-foreground">
+              Choose the language you are most comfortable reading in. You can change it anytime.
+            </p>
+            <LanguagePicker />
+          </div>
+          <div className="space-y-2">
             <Label htmlFor="name">{t("name")}</Label>
             <Input id="name" value={name} onChange={(e) => setName(e.target.value)} className="h-12 rounded-md" />
           </div>
+
           <div className="space-y-2">
             <Label htmlFor="dob">Date of birth</Label>
             <Input
