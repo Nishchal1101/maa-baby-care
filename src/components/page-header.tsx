@@ -25,7 +25,7 @@ export function PageHeader({
   subtitle,
   backTo,
   showBrand = false,
-  showLang = true,
+  showLang = false,
   right,
   icon,
 }: Props) {
