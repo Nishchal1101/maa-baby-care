@@ -62,9 +62,9 @@ export function AutoTranslate({ children }: { children: React.ReactNode }) {
       const raw = node.nodeValue ?? "";
       if (!translatable(raw)) return;
       const key = raw.trim();
-      const hit = cache[key];
-      if (hit) {
-        if (hit !== key) node.nodeValue = raw.replace(key, hit);
+      if (key in cache) {
+        const hit = cache[key];
+        if (hit && hit !== key) node.nodeValue = raw.replace(key, hit);
         return;
       }
       pending.add(key);
@@ -74,9 +74,9 @@ export function AutoTranslate({ children }: { children: React.ReactNode }) {
       const raw = el.getAttribute(attr);
       if (!raw || !translatable(raw)) return;
       const key = raw.trim();
-      const hit = cache[key];
-      if (hit) {
-        if (hit !== key) el.setAttribute(attr, hit);
+      if (key in cache) {
+        const hit = cache[key];
+        if (hit && hit !== key) el.setAttribute(attr, hit);
         return;
       }
       pending.add(key);

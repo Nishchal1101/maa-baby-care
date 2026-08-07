@@ -454,7 +454,11 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
 
   const setLang = (l: Lang) => {
     setLangState(l);
-    if (typeof window !== "undefined") localStorage.setItem("lang", l);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("lang", l);
+      // re-render every screen (cards, carousels, long-form content) in the new language
+      window.location.reload();
+    }
   };
 
   const t = React.useCallback(

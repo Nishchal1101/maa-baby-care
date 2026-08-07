@@ -3,7 +3,6 @@ import * as React from "react";
 import { useAuth } from "@/lib/auth";
 import { useI18n } from "@/lib/i18n";
 import { MobileShell } from "@/components/mobile-shell";
-import { LanguageToggle } from "@/components/language-toggle";
 import { calcWeekFromLMP, calcWeekFromDue, weekInfo, trimester } from "@/lib/pregnancy";
 import { type DietPref, type Trim } from "@/lib/diet";
 import { regionalMealPlan } from "@/lib/diet-regional";
@@ -79,7 +78,6 @@ function HomePage() {
             <p className="text-xs text-muted-foreground">{t("app_name")}</p>
             <h1 className="truncate font-display text-2xl">Hi {profile?.name || "mama"} 🌸</h1>
           </div>
-          <div className="shrink-0"><LanguageToggle /></div>
         </div>
 
         <Link
