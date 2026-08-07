@@ -3,6 +3,7 @@ import * as React from "react";
 import { useAuth } from "@/lib/auth";
 import { useI18n } from "@/lib/i18n";
 import { MobileShell } from "@/components/mobile-shell";
+import { DailyAffirmation } from "@/components/daily-affirmation";
 import { calcWeekFromLMP, calcWeekFromDue, weekInfo, trimester } from "@/lib/pregnancy";
 import { type DietPref, type Trim } from "@/lib/diet";
 import { regionalMealPlan } from "@/lib/diet-regional";
@@ -72,6 +73,7 @@ function HomePage() {
 
   return (
     <MobileShell>
+      <DailyAffirmation />
       <div className="px-5 pb-6 pt-8">
         <div className="flex items-center justify-between gap-3">
           <div className="min-w-0 flex-1">
