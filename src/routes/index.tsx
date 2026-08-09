@@ -6,6 +6,8 @@ import { LanguageToggle } from "@/components/language-toggle";
 import { BackButton } from "@/components/back-button";
 import { Button } from "@/components/ui/button";
 import { Heart, Sparkles, Calendar, Salad } from "lucide-react";
+import { MaatriMark } from "@/components/maatri-logo";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
