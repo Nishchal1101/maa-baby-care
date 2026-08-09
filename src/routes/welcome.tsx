@@ -1,6 +1,8 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import * as React from "react";
 import { Heart, Calendar, Salad, Sparkles } from "lucide-react";
+import { MaatriMark } from "@/components/maatri-logo";
+
 import { useI18n } from "@/lib/i18n";
 import { BackButton } from "@/components/back-button";
 import { LanguageToggle } from "@/components/language-toggle";
