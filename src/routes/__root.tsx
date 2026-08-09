@@ -84,6 +84,7 @@ function RootComponent() {
   return (
     <I18nProvider>
       <AuthProvider>
+        <SplashScreen />
         <AutoTranslate>
           <Outlet />
         </AutoTranslate>
@@ -93,3 +94,4 @@ function RootComponent() {
     </I18nProvider>
   );
 }
+
