@@ -1,6 +1,8 @@
 import * as React from "react";
 import { Link } from "@tanstack/react-router";
-import { ChevronLeft, Heart } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
+import { MaatriMark } from "@/components/maatri-logo";
+
 import { useI18n } from "@/lib/i18n";
 import { LanguageToggle } from "@/components/language-toggle";
 
