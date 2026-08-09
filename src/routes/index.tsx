@@ -45,13 +45,12 @@ function Landing() {
         <header className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <BackButton />
-            <span className="grid h-9 w-9 place-items-center rounded-full bg-primary text-primary-foreground">
-              <Heart className="h-5 w-5" />
-            </span>
+            <MaatriMark className="h-9 w-9" />
             <span className="font-display text-xl font-semibold">{t("app_name")}</span>
           </div>
           <LanguageToggle />
         </header>
+
 
         <section className="mt-10 flex-1">
           <div className="rounded-3xl bg-gradient-to-br from-[oklch(0.97_0.02_145)] to-[oklch(0.9_0.06_150)] p-6 shadow-sm">
