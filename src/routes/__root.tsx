@@ -3,6 +3,8 @@ import { I18nProvider } from "@/lib/i18n";
 import { AuthProvider } from "@/lib/auth";
 import { AutoTranslate } from "@/lib/auto-translate";
 import { Toaster } from "@/components/ui/sonner";
+import { SplashScreen } from "@/components/splash-screen";
+
 import { Analytics } from "@vercel/analytics/react";
 
 import appCss from "../styles.css?url";
@@ -47,6 +49,9 @@ export const Route = createRootRoute({
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
+      { rel: "apple-touch-icon", href: "/maatri-mark.png" },
+
       {
         rel: "preconnect",
         href: "https://fonts.googleapis.com",
@@ -81,6 +86,7 @@ function RootComponent() {
   return (
     <I18nProvider>
       <AuthProvider>
+        <SplashScreen />
         <AutoTranslate>
           <Outlet />
         </AutoTranslate>
@@ -90,3 +96,4 @@ function RootComponent() {
     </I18nProvider>
   );
 }
+

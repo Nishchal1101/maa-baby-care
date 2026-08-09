@@ -1,6 +1,8 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import * as React from "react";
 import { Heart, Calendar, Salad, Sparkles } from "lucide-react";
+import { MaatriMark } from "@/components/maatri-logo";
+
 import { useI18n } from "@/lib/i18n";
 import { BackButton } from "@/components/back-button";
 import { LanguageToggle } from "@/components/language-toggle";
@@ -65,13 +67,12 @@ function WelcomePage() {
           <div className="flex min-w-0 items-center gap-2">
             <BackButton />
             <Link to="/" className="flex min-w-0 items-center gap-2">
-              <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground">
-                <Heart className="h-4 w-4" />
-              </span>
+              <MaatriMark className="h-8 w-8 shrink-0" />
               <span className="truncate font-display text-base font-semibold">
                 {t("app_name")}
               </span>
             </Link>
+
           </div>
           <div className="flex shrink-0 items-center gap-2">
             <button
