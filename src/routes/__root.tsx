@@ -3,6 +3,8 @@ import { I18nProvider } from "@/lib/i18n";
 import { AuthProvider } from "@/lib/auth";
 import { AutoTranslate } from "@/lib/auto-translate";
 import { Toaster } from "@/components/ui/sonner";
+import { SplashScreen } from "@/components/splash-screen";
+
 import { Analytics } from "@vercel/analytics/react";
 
 import appCss from "../styles.css?url";
