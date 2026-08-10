@@ -3,10 +3,11 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { MobileShell } from "@/components/mobile-shell";
 import { useI18n } from "@/lib/i18n";
 import { yogaPoses, breathing, kegelGuide, exerciseAvoid, walkingGoal, type Trimester } from "@/lib/yoga";
+import { yogaImages } from "@/lib/yoga-images";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
-import { Wind, Footprints, ShieldAlert, Flower2 } from "lucide-react";
+import { Wind, Footprints, ShieldAlert, Flower2, ChevronRight } from "lucide-react";
+
 
 export const Route = createFileRoute("/yoga")({
   head: () => ({
