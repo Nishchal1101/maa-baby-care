@@ -40,6 +40,7 @@ import { Route as BabyRouteImport } from './routes/baby'
 import { Route as AppointmentsRouteImport } from './routes/appointments'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as WeekWeekRouteImport } from './routes/week.$week'
+import { Route as PosePoseIdRouteImport } from './routes/pose.$poseId'
 import { Route as CommunityPostIdRouteImport } from './routes/community.$postId'
 import { Route as BabyVaccinationsRouteImport } from './routes/baby.vaccinations'
 import { Route as BabyGrowthRouteImport } from './routes/baby.growth'
@@ -201,6 +202,11 @@ const WeekWeekRoute = WeekWeekRouteImport.update({
   path: '/week/$week',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PosePoseIdRoute = PosePoseIdRouteImport.update({
+  id: '/pose/$poseId',
+  path: '/pose/$poseId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CommunityPostIdRoute = CommunityPostIdRouteImport.update({
   id: '/$postId',
   path: '/$postId',
@@ -263,6 +269,7 @@ export interface FileRoutesByFullPath {
   '/baby/growth': typeof BabyGrowthRoute
   '/baby/vaccinations': typeof BabyVaccinationsRoute
   '/community/$postId': typeof CommunityPostIdRoute
+  '/pose/$poseId': typeof PosePoseIdRoute
   '/week/$week': typeof WeekWeekRoute
 }
 export interface FileRoutesByTo {
@@ -301,6 +308,7 @@ export interface FileRoutesByTo {
   '/baby/growth': typeof BabyGrowthRoute
   '/baby/vaccinations': typeof BabyVaccinationsRoute
   '/community/$postId': typeof CommunityPostIdRoute
+  '/pose/$poseId': typeof PosePoseIdRoute
   '/week/$week': typeof WeekWeekRoute
 }
 export interface FileRoutesById {
@@ -340,6 +348,7 @@ export interface FileRoutesById {
   '/baby/growth': typeof BabyGrowthRoute
   '/baby/vaccinations': typeof BabyVaccinationsRoute
   '/community/$postId': typeof CommunityPostIdRoute
+  '/pose/$poseId': typeof PosePoseIdRoute
   '/week/$week': typeof WeekWeekRoute
 }
 export interface FileRouteTypes {
@@ -380,6 +389,7 @@ export interface FileRouteTypes {
     | '/baby/growth'
     | '/baby/vaccinations'
     | '/community/$postId'
+    | '/pose/$poseId'
     | '/week/$week'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -418,6 +428,7 @@ export interface FileRouteTypes {
     | '/baby/growth'
     | '/baby/vaccinations'
     | '/community/$postId'
+    | '/pose/$poseId'
     | '/week/$week'
   id:
     | '__root__'
@@ -456,6 +467,7 @@ export interface FileRouteTypes {
     | '/baby/growth'
     | '/baby/vaccinations'
     | '/community/$postId'
+    | '/pose/$poseId'
     | '/week/$week'
   fileRoutesById: FileRoutesById
 }
@@ -490,6 +502,7 @@ export interface RootRouteChildren {
   VaccinesPregnancyRoute: typeof VaccinesPregnancyRoute
   WelcomeRoute: typeof WelcomeRoute
   YogaRoute: typeof YogaRoute
+  PosePoseIdRoute: typeof PosePoseIdRoute
   WeekWeekRoute: typeof WeekWeekRoute
 }
 
@@ -712,6 +725,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WeekWeekRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/pose/$poseId': {
+      id: '/pose/$poseId'
+      path: '/pose/$poseId'
+      fullPath: '/pose/$poseId'
+      preLoaderRoute: typeof PosePoseIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/community/$postId': {
       id: '/community/$postId'
       path: '/$postId'
@@ -809,6 +829,7 @@ const rootRouteChildren: RootRouteChildren = {
   VaccinesPregnancyRoute: VaccinesPregnancyRoute,
   WelcomeRoute: WelcomeRoute,
   YogaRoute: YogaRoute,
+  PosePoseIdRoute: PosePoseIdRoute,
   WeekWeekRoute: WeekWeekRoute,
 }
 export const routeTree = rootRouteImport
