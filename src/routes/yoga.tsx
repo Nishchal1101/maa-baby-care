@@ -60,31 +60,41 @@ function YogaPage() {
               ))}
             </div>
 
-            <Accordion type="single" collapsible className="space-y-2">
+            <div className="space-y-2">
               {filtered.map((pose) => (
-                <AccordionItem key={pose.id} value={pose.id} className="overflow-hidden rounded-lg border-0 bg-card shadow-sm">
-                  <AccordionTrigger className="px-4 py-3 hover:no-underline">
-                    <div className="flex flex-1 flex-col items-start text-left">
-                      <span className="font-medium">{pose.name}</span>
-                      {pose.nameHi ? <span className="text-xs text-muted-foreground">{pose.nameHi}</span> : null}
-                      <div className="mt-1 flex flex-wrap gap-1">
-                        {pose.trimester.map((tr) => (
-                          <Badge key={tr} variant="secondary" className="text-[10px]">T{tr}</Badge>
-                        ))}
-                        <Badge variant="outline" className="text-[10px]">{pose.duration}</Badge>
-                      </div>
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="px-4 pb-4 pt-0">
-                    <p className="text-sm text-muted-foreground"><strong className="text-foreground">{t("benefits")}:</strong> {pose.benefits}</p>
-                    <p className="mt-3 text-sm font-medium">{t("steps")}</p>
-                    <ol className="mt-1 list-decimal space-y-1 pl-5 text-sm text-muted-foreground">
-                      {pose.steps.map((s, i) => <li key={i}>{s}</li>)}
-                    </ol>
-                  </AccordionContent>
-                </AccordionItem>
+                <Link
+                  key={pose.id}
+                  to="/pose/$poseId"
+                  params={{ poseId: pose.id }}
+                  className="flex items-center gap-3 overflow-hidden rounded-lg bg-card p-2 shadow-sm"
+                >
+                  <span className="h-16 w-16 shrink-0 overflow-hidden rounded-lg bg-muted">
+                    {yogaImages[pose.id] ? (
+                      <img
+                        src={yogaImages[pose.id]}
+                        alt={`${pose.name} pose`}
+                        className="h-full w-full object-cover object-top"
+                        loading="lazy"
+                      />
+                    ) : null}
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block truncate font-medium">{pose.name}</span>
+                    {pose.nameHi ? (
+                      <span className="block truncate text-xs text-muted-foreground">{pose.nameHi}</span>
+                    ) : null}
+                    <span className="mt-1 flex flex-wrap gap-1">
+                      {pose.trimester.map((tr) => (
+                        <Badge key={tr} variant="secondary" className="text-[10px]">T{tr}</Badge>
+                      ))}
+                      <Badge variant="outline" className="text-[10px]">{pose.duration}</Badge>
+                    </span>
+                  </span>
+                  <ChevronRight className="h-5 w-5 shrink-0 text-muted-foreground" />
+                </Link>
               ))}
-            </Accordion>
+            </div>
+
 
             <div className="rounded-lg border border-destructive/30 bg-destructive/5 p-4">
               <div className="flex items-center gap-2 font-medium text-destructive">
