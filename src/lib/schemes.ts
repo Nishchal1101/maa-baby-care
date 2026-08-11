@@ -92,6 +92,114 @@ export const schemes: Scheme[] = [
     ],
     link: "https://wcd.nic.in/schemes/integrated-child-development-services-icds-scheme",
   },
+  {
+    id: "sterilization-compensation",
+    name: "Compensation Scheme for Sterilization Acceptors",
+    shortName: "Sterilization Compensation",
+    ministry: "Ministry of Health & Family Welfare  -  National Health Mission",
+    benefit:
+      "Compensation for loss of wages after sterilisation  -  female sterilisation (tubectomy / minilap / laparoscopic) and male sterilisation (No-Scalpel Vasectomy, NSV). Incentives are also paid to the service provider and health team. Amount varies by state and type of facility.",
+    eligibility: [
+      "Eligible couples opting for permanent contraception at a public health facility",
+      "Also available at private facilities accredited under NHM",
+      "As per state-specific NHM norms",
+    ],
+    howToApply: [
+      "Speak to your ASHA worker, ANM or the nearest PHC/CHC about family planning counselling.",
+      "Register for a sterilisation camp or fixed-day service at a government or NHM-accredited facility.",
+      "Compensation is credited after the procedure  -  carry Aadhaar and bank account details.",
+    ],
+    link: "https://nhm.gov.in/index1.php?lang=1&level=3&sublinkid=816&lid=222",
+  },
+  {
+    id: "fpis",
+    name: "Family Planning Indemnity Scheme",
+    shortName: "FPIS",
+    ministry: "Ministry of Health & Family Welfare  -  National Health Mission",
+    benefit:
+      "Financial protection if something goes wrong after sterilisation  -  covers death following the procedure, failure of sterilisation (pregnancy afterwards), and treatment of complications. Also gives legal indemnity cover to doctors and accredited facilities.",
+    eligibility: [
+      "Any person who has undergone sterilisation at a government or NHM-accredited facility",
+      "Claims are as per the timelines and categories notified under the scheme",
+    ],
+    howToApply: [
+      "Report the death, failure or complication to the facility where the procedure was done.",
+      "The District Quality Assurance Committee processes the claim  -  no premium is paid by you.",
+      "Keep the sterilisation certificate and hospital records safe.",
+    ],
+    link: "https://nhm.gov.in/index1.php?lang=1&level=3&sublinkid=821&lid=222",
+  },
+  {
+    id: "ppiucd",
+    name: "PPIUCD Incentive Scheme",
+    shortName: "PPIUCD",
+    ministry: "Ministry of Health & Family Welfare  -  National Health Mission",
+    benefit:
+      "Promotes Post-Partum IUCD insertion immediately after delivery. Incentive for the woman accepting PPIUCD (as per the applicable state/central package), plus incentives for the provider and supporting health workers.",
+    eligibility: [
+      "Women delivering at a public health facility who choose a PPIUCD",
+      "Insertion within the post-partum window as advised by the doctor",
+    ],
+    howToApply: [
+      "Ask for family planning counselling during your ANC visits.",
+      "Give consent for PPIUCD before delivery  -  insertion is done free of cost at the facility.",
+      "Attend the follow-up visit for a check of the IUCD.",
+    ],
+    link: "https://nhm.gov.in/index1.php?lang=1&level=3&sublinkid=816&lid=222",
+  },
+  {
+    id: "iucd-compensation",
+    name: "IUCD Insertion Compensation Scheme",
+    shortName: "IUCD Compensation",
+    ministry: "Ministry of Health & Family Welfare  -  National Health Mission",
+    benefit:
+      "Free interval IUCD insertion (Cu 380A or Cu 375) at government facilities, with a compensation package for eligible beneficiaries and incentives for providers and ASHAs as per NHM guidelines.",
+    eligibility: [
+      "Eligible women choosing an interval IUCD (not immediately after delivery)",
+      "Services availed at a government or NHM-accredited facility",
+    ],
+    howToApply: [
+      "Visit your sub-centre, PHC or CHC on a fixed-day family planning service day.",
+      "Counselling and insertion are free  -  your ASHA can accompany you.",
+      "Compensation, where applicable, is paid as per state NHM norms.",
+    ],
+    link: "https://nhm.gov.in/index1.php?lang=1&level=3&sublinkid=816&lid=222",
+  },
+  {
+    id: "asha-fp-incentive",
+    name: "ASHA Incentive Scheme (Family Planning)",
+    shortName: "ASHA Incentives",
+    ministry: "Ministry of Health & Family Welfare  -  National Health Mission",
+    benefit:
+      "ASHAs are paid incentives for motivating eligible couples for sterilisation, for IUCD/PPIUCD acceptance, for follow-up after family planning services, and for home delivery of contraceptives (condoms, oral pills, emergency contraceptive pills).",
+    eligibility: [
+      "Accredited ASHA workers under NHM",
+      "Families get free counselling and doorstep contraceptive supplies through their ASHA",
+    ],
+    howToApply: [
+      "Contact your area ASHA worker for counselling or contraceptive supplies at home.",
+      "ASHAs claim incentives through the ANM / PHC records.",
+    ],
+    link: "https://nhm.gov.in/index1.php?lang=1&level=1&sublinkid=150&lid=226",
+  },
+  {
+    id: "mpv",
+    name: "Mission Parivar Vikas",
+    shortName: "MPV",
+    ministry: "Ministry of Health & Family Welfare  -  National Health Mission",
+    benefit:
+      "Implemented in selected high-focus states and districts to improve access to family planning  -  expanded contraceptive choices, easier access to sterilisation, IUCD and PPIUCD services, plus community awareness and counselling.",
+    eligibility: [
+      "Eligible couples living in Mission Parivar Vikas districts",
+      "Check with your ASHA or PHC whether your district is covered",
+    ],
+    howToApply: [
+      "Attend Saas-Bahu Sammelan / Nayi Pahel counselling sessions in your village.",
+      "Collect free Nayi Pahel kits and contraceptives from your ASHA.",
+      "Avail services on fixed-day family planning days at the nearest facility.",
+    ],
+    link: "https://nhm.gov.in/index1.php?lang=1&level=3&sublinkid=1489&lid=798",
+  },
 ];
 
 export const emergencyContacts = [
