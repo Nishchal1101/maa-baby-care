@@ -9,7 +9,7 @@ import { type DietPref, type Trim } from "@/lib/diet";
 import { regionalMealPlan } from "@/lib/diet-regional";
 import { resolveDietRegion } from "@/lib/diet-region";
 import { supabase } from "@/integrations/supabase/client";
-import { Activity, Salad, Calendar, Footprints, AlertTriangle, ChevronRight } from "lucide-react";
+import { Activity, Salad, Calendar, Footprints, AlertTriangle, ChevronRight, Pill } from "lucide-react";
 
 export const Route = createFileRoute("/home")({
   component: HomePage,
