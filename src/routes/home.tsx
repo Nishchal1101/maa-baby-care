@@ -9,7 +9,7 @@ import { type DietPref, type Trim } from "@/lib/diet";
 import { regionalMealPlan } from "@/lib/diet-regional";
 import { resolveDietRegion } from "@/lib/diet-region";
 import { supabase } from "@/integrations/supabase/client";
-import { Activity, Salad, Calendar, Footprints, AlertTriangle, ChevronRight } from "lucide-react";
+import { Activity, Salad, Calendar, Footprints, AlertTriangle, ChevronRight, Pill } from "lucide-react";
 
 export const Route = createFileRoute("/home")({
   component: HomePage,
@@ -80,6 +80,13 @@ function HomePage() {
             <p className="text-xs text-muted-foreground">{t("app_name")}</p>
             <h1 className="truncate font-display text-2xl">Hi {profile?.name || "mama"} 🌸</h1>
           </div>
+          <Link
+            to="/medicines"
+            aria-label="Medicine reminders"
+            className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-primary/10 text-primary shadow-sm transition-transform active:scale-95"
+          >
+            <Pill className="h-5 w-5" />
+          </Link>
         </div>
 
         <Link
@@ -176,6 +183,7 @@ function HomePage() {
         <section className="mt-6">
           <p className="mb-3 text-xs uppercase tracking-wider text-muted-foreground">{t("quick_actions")}</p>
           <div className="grid grid-cols-2 gap-3">
+            <ActionCard to="/medicines" icon={<Pill className="h-5 w-5" />} label="Medicine reminders" />
             <ActionCard to="/kicks" icon={<Footprints className="h-5 w-5" />} label={t("count_kicks")} />
             <ActionCard to="/symptoms" icon={<Activity className="h-5 w-5" />} label={t("log_symptom")} />
             <ActionCard to="/diet" icon={<Salad className="h-5 w-5" />} label={t("view_diet")} />

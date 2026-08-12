@@ -24,6 +24,7 @@ import { Route as OnboardingRouteImport } from './routes/onboarding'
 import { Route as NutritionGuideRouteImport } from './routes/nutrition-guide'
 import { Route as MoreRouteImport } from './routes/more'
 import { Route as MedsSafetyRouteImport } from './routes/meds-safety'
+import { Route as MedicinesRouteImport } from './routes/medicines'
 import { Route as MedicalDisclaimerRouteImport } from './routes/medical-disclaimer'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as LaborSignsRouteImport } from './routes/labor-signs'
@@ -120,6 +121,11 @@ const MoreRoute = MoreRouteImport.update({
 const MedsSafetyRoute = MedsSafetyRouteImport.update({
   id: '/meds-safety',
   path: '/meds-safety',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MedicinesRoute = MedicinesRouteImport.update({
+  id: '/medicines',
+  path: '/medicines',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MedicalDisclaimerRoute = MedicalDisclaimerRouteImport.update({
@@ -249,6 +255,7 @@ export interface FileRoutesByFullPath {
   '/labor-signs': typeof LaborSignsRoute
   '/login': typeof LoginRoute
   '/medical-disclaimer': typeof MedicalDisclaimerRoute
+  '/medicines': typeof MedicinesRoute
   '/meds-safety': typeof MedsSafetyRoute
   '/more': typeof MoreRoute
   '/nutrition-guide': typeof NutritionGuideRoute
@@ -288,6 +295,7 @@ export interface FileRoutesByTo {
   '/labor-signs': typeof LaborSignsRoute
   '/login': typeof LoginRoute
   '/medical-disclaimer': typeof MedicalDisclaimerRoute
+  '/medicines': typeof MedicinesRoute
   '/meds-safety': typeof MedsSafetyRoute
   '/more': typeof MoreRoute
   '/nutrition-guide': typeof NutritionGuideRoute
@@ -328,6 +336,7 @@ export interface FileRoutesById {
   '/labor-signs': typeof LaborSignsRoute
   '/login': typeof LoginRoute
   '/medical-disclaimer': typeof MedicalDisclaimerRoute
+  '/medicines': typeof MedicinesRoute
   '/meds-safety': typeof MedsSafetyRoute
   '/more': typeof MoreRoute
   '/nutrition-guide': typeof NutritionGuideRoute
@@ -369,6 +378,7 @@ export interface FileRouteTypes {
     | '/labor-signs'
     | '/login'
     | '/medical-disclaimer'
+    | '/medicines'
     | '/meds-safety'
     | '/more'
     | '/nutrition-guide'
@@ -408,6 +418,7 @@ export interface FileRouteTypes {
     | '/labor-signs'
     | '/login'
     | '/medical-disclaimer'
+    | '/medicines'
     | '/meds-safety'
     | '/more'
     | '/nutrition-guide'
@@ -447,6 +458,7 @@ export interface FileRouteTypes {
     | '/labor-signs'
     | '/login'
     | '/medical-disclaimer'
+    | '/medicines'
     | '/meds-safety'
     | '/more'
     | '/nutrition-guide'
@@ -487,6 +499,7 @@ export interface RootRouteChildren {
   LaborSignsRoute: typeof LaborSignsRoute
   LoginRoute: typeof LoginRoute
   MedicalDisclaimerRoute: typeof MedicalDisclaimerRoute
+  MedicinesRoute: typeof MedicinesRoute
   MedsSafetyRoute: typeof MedsSafetyRoute
   MoreRoute: typeof MoreRoute
   NutritionGuideRoute: typeof NutritionGuideRoute
@@ -611,6 +624,13 @@ declare module '@tanstack/react-router' {
       path: '/meds-safety'
       fullPath: '/meds-safety'
       preLoaderRoute: typeof MedsSafetyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/medicines': {
+      id: '/medicines'
+      path: '/medicines'
+      fullPath: '/medicines'
+      preLoaderRoute: typeof MedicinesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/medical-disclaimer': {
@@ -814,6 +834,7 @@ const rootRouteChildren: RootRouteChildren = {
   LaborSignsRoute: LaborSignsRoute,
   LoginRoute: LoginRoute,
   MedicalDisclaimerRoute: MedicalDisclaimerRoute,
+  MedicinesRoute: MedicinesRoute,
   MedsSafetyRoute: MedsSafetyRoute,
   MoreRoute: MoreRoute,
   NutritionGuideRoute: NutritionGuideRoute,
@@ -835,12 +856,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-  }
-}
