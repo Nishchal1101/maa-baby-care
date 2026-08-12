@@ -176,6 +176,7 @@ function HomePage() {
         <section className="mt-6">
           <p className="mb-3 text-xs uppercase tracking-wider text-muted-foreground">{t("quick_actions")}</p>
           <div className="grid grid-cols-2 gap-3">
+            <ActionCard to="/medicines" icon={<Pill className="h-5 w-5" />} label="Medicine reminders" />
             <ActionCard to="/kicks" icon={<Footprints className="h-5 w-5" />} label={t("count_kicks")} />
             <ActionCard to="/symptoms" icon={<Activity className="h-5 w-5" />} label={t("log_symptom")} />
             <ActionCard to="/diet" icon={<Salad className="h-5 w-5" />} label={t("view_diet")} />
