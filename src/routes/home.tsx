@@ -80,6 +80,13 @@ function HomePage() {
             <p className="text-xs text-muted-foreground">{t("app_name")}</p>
             <h1 className="truncate font-display text-2xl">Hi {profile?.name || "mama"} 🌸</h1>
           </div>
+          <Link
+            to="/medicines"
+            aria-label="Medicine reminders"
+            className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-primary/10 text-primary shadow-sm transition-transform active:scale-95"
+          >
+            <Pill className="h-5 w-5" />
+          </Link>
         </div>
 
         <Link
