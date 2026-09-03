@@ -85,17 +85,44 @@ const medicalConditionSuggestions = React.useMemo(() => {
 
   React.useEffect(() => {
     if (loading) return;
-    if (!user) nav({ to: "/login" });
-    // else if (profile?.onboarded) nav({ to: "/home" });
-    else {
-      if (profile?.name) setName(profile.name);
-      if (profile?.dob) setDob(profile.dob);
-      if (profile?.language && profile.language !== lang && LANGUAGES.some((l) => l.code === profile.language)) {
-        setLang(profile.language as LangCode);
-      }
+    if (!user) {
+      nav({ to: "/login" });
+      return;
     }
+    if (profile?.onboarded) {
+      nav({ to: "/home", replace: true });
+      return;
+    }
+    if (!profile) return;
 
+    // Prefill everything we already know so nothing has to be typed twice.
+    if (profile.name) setName(profile.name);
+    if (profile.dob) setDob(profile.dob);
+    if (profile.lmp_date) setLmp(profile.lmp_date);
+    if (profile.due_date && !profile.lmp_date) setDue(profile.due_date);
+    if (profile.diet) setDiet(profile.diet as "veg" | "nonveg" | "egg");
+    if (profile.city) setCity(profile.city);
+    if (profile.state) setStateName(profile.state);
+    if (profile.blood_group) setBloodGroup(profile.blood_group);
+    if (typeof profile.previously_pregnant === "boolean") {
+      setPreviouslyPregnant(profile.previously_pregnant);
+    }
+    if (profile.previous_pregnancies_count != null) {
+      setPreviousPregnanciesCount(String(profile.previous_pregnancies_count));
+    }
+    if (profile.previous_pregnancy_complications?.length) {
+      setHadPregnancyComplications(true);
+      setPregnancyComplications(profile.previous_pregnancy_complications);
+    }
+    if (profile.medical_conditions?.length) {
+      setHasMedicalConditions(true);
+      setMedicalConditions(profile.medical_conditions);
+    }
+    if (profile.language && profile.language !== lang && LANGUAGES.some((l) => l.code === profile.language)) {
+      setLang(profile.language as LangCode);
+    }
   }, [user, profile, loading, nav]);
+
 
   const next = () => setStep((s) => Math.min(s + 1, 3));
   const back = () => setStep((s) => Math.max(s - 1, 0));
