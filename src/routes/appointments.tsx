@@ -55,15 +55,21 @@ function ApptPage() {
 
   return (
     <MobileShell>
-      <div className="px-5 pb-6 pt-8">
-        <div className="flex items-center justify-between">
-          <h1 className="font-display text-2xl">{t("appts_title")}</h1>
-          <Button size="sm" onClick={() => setOpen(true)} className="rounded-full">
-            <Plus className="h-4 w-4" />{t("add_appt")}
+      <div className="overflow-x-hidden px-5 pb-6 pt-8">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <h1 className="min-w-0 flex-1 break-words font-display text-2xl">{t("appts_title")}</h1>
+          <Button
+            size="sm"
+            onClick={() => setOpen((v) => !v)}
+            className="shrink-0 gap-1.5 whitespace-nowrap rounded-full px-4"
+          >
+            <Plus className="h-4 w-4 shrink-0" />
+            <span className="max-w-[9rem] truncate">{t("add_appt")}</span>
           </Button>
         </div>
 
         {open && <ApptForm onDone={() => { setOpen(false); load(); }} onCancel={() => setOpen(false)} />}
+
 
         <section className="mt-5 space-y-3">
           {items.length === 0 && <p className="text-sm text-muted-foreground">{t("none_scheduled")}</p>}
