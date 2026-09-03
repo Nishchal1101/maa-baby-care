@@ -93,7 +93,9 @@ const medicalConditionSuggestions = React.useMemo(() => {
       nav({ to: "/home", replace: true });
       return;
     }
-    if (!profile) return;
+    if (!profile || prefilled.current) return;
+    prefilled.current = true;
+
 
     // Prefill everything we already know so nothing has to be typed twice.
     if (profile.name) setName(profile.name);
