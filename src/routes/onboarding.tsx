@@ -5,7 +5,6 @@ import { useAuth } from "@/lib/auth";
 import { useI18n } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { BackButton } from "@/components/back-button";
 import { LanguagePicker } from "@/components/language-toggle";
 import { LANGUAGES, type LangCode } from "@/lib/languages";
 import { Label } from "@/components/ui/label";
@@ -243,7 +242,6 @@ nav({ to: "/consent" });
 
   return (
   <div className="mx-auto min-h-screen max-w-md px-6 pb-10 pt-8">
-      <BackButton />
       <div className="mb-6 mt-5 flex gap-2">
         {[0, 1, 2, 3].map((i) => (
           <span key={i} className={"h-1.5 flex-1 rounded-full " + (i <= step ? "bg-primary" : "bg-muted")} />
