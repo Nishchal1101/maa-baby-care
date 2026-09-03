@@ -4,7 +4,6 @@ import { Heart, Calendar, Salad, Sparkles } from "lucide-react";
 import { MaatriMark } from "@/components/maatri-logo";
 
 import { useI18n } from "@/lib/i18n";
-import { BackButton } from "@/components/back-button";
 import { LanguageToggle } from "@/components/language-toggle";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -65,7 +64,6 @@ function WelcomePage() {
       <div className="mx-auto flex min-h-screen w-full max-w-md flex-col px-6 pb-8 pt-6">
         <header className="flex items-center justify-between">
           <div className="flex min-w-0 items-center gap-2">
-            <BackButton />
             <Link to="/" className="flex min-w-0 items-center gap-2">
               <MaatriMark className="h-8 w-8 shrink-0" />
               <span className="truncate font-display text-base font-semibold">

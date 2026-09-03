@@ -55,15 +55,21 @@ function ApptPage() {
 
   return (
     <MobileShell>
-      <div className="px-5 pb-6 pt-8">
-        <div className="flex items-center justify-between">
-          <h1 className="font-display text-2xl">{t("appts_title")}</h1>
-          <Button size="sm" onClick={() => setOpen(true)} className="rounded-full">
-            <Plus className="h-4 w-4" />{t("add_appt")}
+      <div className="overflow-x-hidden px-5 pb-6 pt-8">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <h1 className="min-w-0 flex-1 break-words font-display text-2xl">{t("appts_title")}</h1>
+          <Button
+            size="sm"
+            onClick={() => setOpen((v) => !v)}
+            className="shrink-0 gap-1.5 whitespace-nowrap rounded-full px-4"
+          >
+            <Plus className="h-4 w-4 shrink-0" />
+            <span className="max-w-[9rem] truncate">{t("add_appt")}</span>
           </Button>
         </div>
 
         {open && <ApptForm onDone={() => { setOpen(false); load(); }} onCancel={() => setOpen(false)} />}
+
 
         <section className="mt-5 space-y-3">
           {items.length === 0 && <p className="text-sm text-muted-foreground">{t("none_scheduled")}</p>}
@@ -146,17 +152,17 @@ function ApptForm({ onDone, onCancel }: { onDone: () => void; onCancel: () => vo
   };
 
   return (
-    <form onSubmit={save} className="mt-4 space-y-3 rounded-lg bg-card p-4 shadow-sm">
+    <form onSubmit={save} className="mt-4 w-full max-w-full space-y-3 overflow-hidden rounded-lg bg-card p-4 shadow-sm">
       <div className="space-y-1.5">
         <Label>{t("appt_title")}</Label>
         <Input required value={title} onChange={(e) => setTitle(e.target.value)} className="h-11 rounded-md" />
       </div>
-      <div className="grid grid-cols-2 gap-2">
-        <div className="space-y-1.5">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <div className="min-w-0 space-y-1.5">
           <Label>{t("doctor")}</Label>
           <Input value={doctor} onChange={(e) => setDoctor(e.target.value)} className="h-11 rounded-md" />
         </div>
-        <div className="space-y-1.5">
+        <div className="min-w-0 space-y-1.5">
           <Label>{t("hospital")}</Label>
           <Input value={hospital} onChange={(e) => setHospital(e.target.value)} className="h-11 rounded-md" />
         </div>

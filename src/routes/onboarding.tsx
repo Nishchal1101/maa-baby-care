@@ -5,7 +5,6 @@ import { useAuth } from "@/lib/auth";
 import { useI18n } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { BackButton } from "@/components/back-button";
 import { LanguagePicker } from "@/components/language-toggle";
 import { LANGUAGES, type LangCode } from "@/lib/languages";
 import { Label } from "@/components/ui/label";
@@ -83,19 +82,50 @@ const medicalConditionSuggestions = React.useMemo(() => {
     return INDIAN_CITIES.filter((c) => c.toLowerCase().startsWith(q)).slice(0, 8);
   }, [city]);
 
+  const prefilled = React.useRef(false);
+
   React.useEffect(() => {
     if (loading) return;
-    if (!user) nav({ to: "/login" });
-    // else if (profile?.onboarded) nav({ to: "/home" });
-    else {
-      if (profile?.name) setName(profile.name);
-      if (profile?.dob) setDob(profile.dob);
-      if (profile?.language && profile.language !== lang && LANGUAGES.some((l) => l.code === profile.language)) {
-        setLang(profile.language as LangCode);
-      }
+    if (!user) {
+      nav({ to: "/login" });
+      return;
     }
+    if (profile?.onboarded) {
+      nav({ to: "/home", replace: true });
+      return;
+    }
+    if (!profile || prefilled.current) return;
+    prefilled.current = true;
 
+
+    // Prefill everything we already know so nothing has to be typed twice.
+    if (profile.name) setName(profile.name);
+    if (profile.dob) setDob(profile.dob);
+    if (profile.lmp_date) setLmp(profile.lmp_date);
+    if (profile.due_date && !profile.lmp_date) setDue(profile.due_date);
+    if (profile.diet) setDiet(profile.diet as "veg" | "nonveg" | "egg");
+    if (profile.city) setCity(profile.city);
+    if (profile.state) setStateName(profile.state);
+    if (profile.blood_group) setBloodGroup(profile.blood_group);
+    if (typeof profile.previously_pregnant === "boolean") {
+      setPreviouslyPregnant(profile.previously_pregnant);
+    }
+    if (profile.previous_pregnancies_count != null) {
+      setPreviousPregnanciesCount(String(profile.previous_pregnancies_count));
+    }
+    if (profile.previous_pregnancy_complications?.length) {
+      setHadPregnancyComplications(true);
+      setPregnancyComplications(profile.previous_pregnancy_complications);
+    }
+    if (profile.medical_conditions?.length) {
+      setHasMedicalConditions(true);
+      setMedicalConditions(profile.medical_conditions);
+    }
+    if (profile.language && profile.language !== lang && LANGUAGES.some((l) => l.code === profile.language)) {
+      setLang(profile.language as LangCode);
+    }
   }, [user, profile, loading, nav]);
+
 
   const next = () => setStep((s) => Math.min(s + 1, 3));
   const back = () => setStep((s) => Math.max(s - 1, 0));
@@ -211,8 +241,7 @@ nav({ to: "/consent" });
   };
 
   return (
-  <div className="mx-auto min-h-screen max-w-md px-6 pb-10 pt-8">
-      <BackButton />
+  <div className="mx-auto min-h-screen w-full max-w-md overflow-x-hidden px-6 pb-10 pt-8">
       <div className="mb-6 mt-5 flex gap-2">
         {[0, 1, 2, 3].map((i) => (
           <span key={i} className={"h-1.5 flex-1 rounded-full " + (i <= step ? "bg-primary" : "bg-muted")} />
@@ -293,8 +322,8 @@ nav({ to: "/consent" });
               ))}
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-3">
-            <div className="space-y-2">
+          <div className="grid grid-cols-1 gap-3">
+            <div className="min-w-0 space-y-2">
               <Label htmlFor="city">{t("city")}</Label>
               <Input
                 id="city"
@@ -323,7 +352,7 @@ nav({ to: "/consent" });
                 </div>
               )}
             </div>
-            <div className="space-y-2">
+            <div className="min-w-0 space-y-2">
               <Label htmlFor="state">{t("state")}</Label>
               <Select value={stateName} onValueChange={setStateName}>
                 <SelectTrigger id="state" className="h-12 rounded-md">
@@ -355,7 +384,7 @@ nav({ to: "/consent" });
               Blood group <span className="text-destructive">*</span>
             </Label>
 
-            <div className="grid grid-cols-4 gap-2">
+            <div className="grid grid-cols-4 gap-2 text-center">
               {["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"].map((group) => (
                 <button
                   key={group}

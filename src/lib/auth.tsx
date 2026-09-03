@@ -49,7 +49,20 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       .select("*")
       .eq("user_id", uid)
       .maybeSingle();
-    setProfile((data as Profile | null) ?? null);
+
+    if (data) {
+      setProfile(data as Profile);
+      return;
+    }
+
+    // No profile row yet (e.g. created before the trigger, or removed) - create one
+    // so the user is never bounced around between screens.
+    const { data: created } = await supabase
+      .from("profiles")
+      .insert({ user_id: uid })
+      .select("*")
+      .maybeSingle();
+    setProfile((created as Profile | null) ?? null);
   }, []);
 
   React.useEffect(() => {
@@ -64,14 +77,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       }
     });
 
-    supabase.auth.getSession().then(({ data }) => {
-      setSession(data.session);
-      if (data.session?.user) loadProfile(data.session.user.id);
-      setLoading(false);
-    });
+    supabase.auth
+      .getSession()
+      .then(async ({ data }) => {
+        setSession(data.session);
+        if (data.session?.user) await loadProfile(data.session.user.id);
+      })
+      .catch(() => {})
+      .finally(() => setLoading(false));
 
     return () => sub.subscription.unsubscribe();
   }, [loadProfile]);
+
 
   const value: AuthCtx = {
     session,
