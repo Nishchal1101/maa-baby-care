@@ -152,17 +152,17 @@ function ApptForm({ onDone, onCancel }: { onDone: () => void; onCancel: () => vo
   };
 
   return (
-    <form onSubmit={save} className="mt-4 space-y-3 rounded-lg bg-card p-4 shadow-sm">
+    <form onSubmit={save} className="mt-4 w-full max-w-full space-y-3 overflow-hidden rounded-lg bg-card p-4 shadow-sm">
       <div className="space-y-1.5">
         <Label>{t("appt_title")}</Label>
         <Input required value={title} onChange={(e) => setTitle(e.target.value)} className="h-11 rounded-md" />
       </div>
-      <div className="grid grid-cols-2 gap-2">
-        <div className="space-y-1.5">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <div className="min-w-0 space-y-1.5">
           <Label>{t("doctor")}</Label>
           <Input value={doctor} onChange={(e) => setDoctor(e.target.value)} className="h-11 rounded-md" />
         </div>
-        <div className="space-y-1.5">
+        <div className="min-w-0 space-y-1.5">
           <Label>{t("hospital")}</Label>
           <Input value={hospital} onChange={(e) => setHospital(e.target.value)} className="h-11 rounded-md" />
         </div>

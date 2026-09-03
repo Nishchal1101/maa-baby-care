@@ -241,7 +241,7 @@ nav({ to: "/consent" });
   };
 
   return (
-  <div className="mx-auto min-h-screen max-w-md px-6 pb-10 pt-8">
+  <div className="mx-auto min-h-screen w-full max-w-md overflow-x-hidden px-6 pb-10 pt-8">
       <div className="mb-6 mt-5 flex gap-2">
         {[0, 1, 2, 3].map((i) => (
           <span key={i} className={"h-1.5 flex-1 rounded-full " + (i <= step ? "bg-primary" : "bg-muted")} />
@@ -322,8 +322,8 @@ nav({ to: "/consent" });
               ))}
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-3">
-            <div className="space-y-2">
+          <div className="grid grid-cols-1 gap-3">
+            <div className="min-w-0 space-y-2">
               <Label htmlFor="city">{t("city")}</Label>
               <Input
                 id="city"
@@ -352,7 +352,7 @@ nav({ to: "/consent" });
                 </div>
               )}
             </div>
-            <div className="space-y-2">
+            <div className="min-w-0 space-y-2">
               <Label htmlFor="state">{t("state")}</Label>
               <Select value={stateName} onValueChange={setStateName}>
                 <SelectTrigger id="state" className="h-12 rounded-md">
@@ -384,7 +384,7 @@ nav({ to: "/consent" });
               Blood group <span className="text-destructive">*</span>
             </Label>
 
-            <div className="grid grid-cols-4 gap-2">
+            <div className="grid grid-cols-4 gap-2 text-center">
               {["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"].map((group) => (
                 <button
                   key={group}
