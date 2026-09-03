@@ -83,6 +83,8 @@ const medicalConditionSuggestions = React.useMemo(() => {
     return INDIAN_CITIES.filter((c) => c.toLowerCase().startsWith(q)).slice(0, 8);
   }, [city]);
 
+  const prefilled = React.useRef(false);
+
   React.useEffect(() => {
     if (loading) return;
     if (!user) {
