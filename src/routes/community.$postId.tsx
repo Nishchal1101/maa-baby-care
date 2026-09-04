@@ -10,7 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { ArrowUp, Flag, Trash2 } from "lucide-react";
+import { ArrowUp, Flag, Trash2, UserX } from "lucide-react";
 import { toast } from "sonner";
 import { formatDistanceToNow } from "date-fns";
 
@@ -246,5 +246,32 @@ function ReportDialog({ postId, replyId, compact }: { postId?: string; replyId?:
         </div>
       </DialogContent>
     </Dialog>
+  );
+}
+
+function BlockButton({ authorId }: { authorId: string }) {
+  const { user } = useAuth();
+  const nav = useNavigate();
+  const [busy, setBusy] = React.useState(false);
+
+  const block = async () => {
+    if (!user) return;
+    setBusy(true);
+    const { error } = await supabase
+      .from("blocked_users")
+      .insert({ blocker_id: user.id, blocked_id: authorId });
+    setBusy(false);
+    if (error && !error.message.includes("duplicate")) {
+      toast.error(error.message);
+      return;
+    }
+    toast.success("Member blocked. You will not see their posts again.");
+    nav({ to: "/community" });
+  };
+
+  return (
+    <Button size="sm" variant="ghost" disabled={busy} onClick={block} className="rounded-full text-muted-foreground">
+      <UserX className="h-3.5 w-3.5" /> Block
+    </Button>
   );
 }
