@@ -37,6 +37,7 @@ import { Route as ExerciseRouteImport } from './routes/exercise'
 import { Route as EmergencyRouteImport } from './routes/emergency'
 import { Route as DietRouteImport } from './routes/diet'
 import { Route as ConsentRouteImport } from './routes/consent'
+import { Route as CommunityGuidelinesRouteImport } from './routes/community-guidelines'
 import { Route as CommunityRouteImport } from './routes/community'
 import { Route as BabyRouteImport } from './routes/baby'
 import { Route as AppointmentsRouteImport } from './routes/appointments'
@@ -190,6 +191,11 @@ const ConsentRoute = ConsentRouteImport.update({
   path: '/consent',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CommunityGuidelinesRoute = CommunityGuidelinesRouteImport.update({
+  id: '/community-guidelines',
+  path: '/community-guidelines',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CommunityRoute = CommunityRouteImport.update({
   id: '/community',
   path: '/community',
@@ -257,6 +263,7 @@ export interface FileRoutesByFullPath {
   '/appointments': typeof AppointmentsRoute
   '/baby': typeof BabyRouteWithChildren
   '/community': typeof CommunityRouteWithChildren
+  '/community-guidelines': typeof CommunityGuidelinesRoute
   '/consent': typeof ConsentRoute
   '/diet': typeof DietRoute
   '/emergency': typeof EmergencyRoute
@@ -299,6 +306,7 @@ export interface FileRoutesByTo {
   '/appointments': typeof AppointmentsRoute
   '/baby': typeof BabyRouteWithChildren
   '/community': typeof CommunityRouteWithChildren
+  '/community-guidelines': typeof CommunityGuidelinesRoute
   '/consent': typeof ConsentRoute
   '/diet': typeof DietRoute
   '/emergency': typeof EmergencyRoute
@@ -342,6 +350,7 @@ export interface FileRoutesById {
   '/appointments': typeof AppointmentsRoute
   '/baby': typeof BabyRouteWithChildren
   '/community': typeof CommunityRouteWithChildren
+  '/community-guidelines': typeof CommunityGuidelinesRoute
   '/consent': typeof ConsentRoute
   '/diet': typeof DietRoute
   '/emergency': typeof EmergencyRoute
@@ -386,6 +395,7 @@ export interface FileRouteTypes {
     | '/appointments'
     | '/baby'
     | '/community'
+    | '/community-guidelines'
     | '/consent'
     | '/diet'
     | '/emergency'
@@ -428,6 +438,7 @@ export interface FileRouteTypes {
     | '/appointments'
     | '/baby'
     | '/community'
+    | '/community-guidelines'
     | '/consent'
     | '/diet'
     | '/emergency'
@@ -470,6 +481,7 @@ export interface FileRouteTypes {
     | '/appointments'
     | '/baby'
     | '/community'
+    | '/community-guidelines'
     | '/consent'
     | '/diet'
     | '/emergency'
@@ -513,6 +525,7 @@ export interface RootRouteChildren {
   AppointmentsRoute: typeof AppointmentsRoute
   BabyRoute: typeof BabyRouteWithChildren
   CommunityRoute: typeof CommunityRouteWithChildren
+  CommunityGuidelinesRoute: typeof CommunityGuidelinesRoute
   ConsentRoute: typeof ConsentRoute
   DietRoute: typeof DietRoute
   EmergencyRoute: typeof EmergencyRoute
@@ -743,6 +756,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConsentRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/community-guidelines': {
+      id: '/community-guidelines'
+      path: '/community-guidelines'
+      fullPath: '/community-guidelines'
+      preLoaderRoute: typeof CommunityGuidelinesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/community': {
       id: '/community'
       path: '/community'
@@ -864,6 +884,7 @@ const rootRouteChildren: RootRouteChildren = {
   AppointmentsRoute: AppointmentsRoute,
   BabyRoute: BabyRouteWithChildren,
   CommunityRoute: CommunityRouteWithChildren,
+  CommunityGuidelinesRoute: CommunityGuidelinesRoute,
   ConsentRoute: ConsentRoute,
   DietRoute: DietRoute,
   EmergencyRoute: EmergencyRoute,
