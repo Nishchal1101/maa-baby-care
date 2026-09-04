@@ -15,6 +15,7 @@ import { Route as VaccinesPregnancyRouteImport } from './routes/vaccines-pregnan
 import { Route as TrackerRouteImport } from './routes/tracker'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SymptomsRouteImport } from './routes/symptoms'
+import { Route as SupportRouteImport } from './routes/support'
 import { Route as SignupRouteImport } from './routes/signup'
 import { Route as SchemesRouteImport } from './routes/schemes'
 import { Route as ProfileRouteImport } from './routes/profile'
@@ -77,6 +78,11 @@ const TermsRoute = TermsRouteImport.update({
 const SymptomsRoute = SymptomsRouteImport.update({
   id: '/symptoms',
   path: '/symptoms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SupportRoute = SupportRouteImport.update({
+  id: '/support',
+  path: '/support',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SignupRoute = SignupRouteImport.update({
@@ -272,6 +278,7 @@ export interface FileRoutesByFullPath {
   '/profile': typeof ProfileRoute
   '/schemes': typeof SchemesRoute
   '/signup': typeof SignupRoute
+  '/support': typeof SupportRoute
   '/symptoms': typeof SymptomsRoute
   '/terms': typeof TermsRoute
   '/tracker': typeof TrackerRoute
@@ -313,6 +320,7 @@ export interface FileRoutesByTo {
   '/profile': typeof ProfileRoute
   '/schemes': typeof SchemesRoute
   '/signup': typeof SignupRoute
+  '/support': typeof SupportRoute
   '/symptoms': typeof SymptomsRoute
   '/terms': typeof TermsRoute
   '/tracker': typeof TrackerRoute
@@ -355,6 +363,7 @@ export interface FileRoutesById {
   '/profile': typeof ProfileRoute
   '/schemes': typeof SchemesRoute
   '/signup': typeof SignupRoute
+  '/support': typeof SupportRoute
   '/symptoms': typeof SymptomsRoute
   '/terms': typeof TermsRoute
   '/tracker': typeof TrackerRoute
@@ -398,6 +407,7 @@ export interface FileRouteTypes {
     | '/profile'
     | '/schemes'
     | '/signup'
+    | '/support'
     | '/symptoms'
     | '/terms'
     | '/tracker'
@@ -439,6 +449,7 @@ export interface FileRouteTypes {
     | '/profile'
     | '/schemes'
     | '/signup'
+    | '/support'
     | '/symptoms'
     | '/terms'
     | '/tracker'
@@ -480,6 +491,7 @@ export interface FileRouteTypes {
     | '/profile'
     | '/schemes'
     | '/signup'
+    | '/support'
     | '/symptoms'
     | '/terms'
     | '/tracker'
@@ -522,6 +534,7 @@ export interface RootRouteChildren {
   ProfileRoute: typeof ProfileRoute
   SchemesRoute: typeof SchemesRoute
   SignupRoute: typeof SignupRoute
+  SupportRoute: typeof SupportRoute
   SymptomsRoute: typeof SymptomsRoute
   TermsRoute: typeof TermsRoute
   TrackerRoute: typeof TrackerRoute
@@ -574,6 +587,13 @@ declare module '@tanstack/react-router' {
       path: '/symptoms'
       fullPath: '/symptoms'
       preLoaderRoute: typeof SymptomsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/support': {
+      id: '/support'
+      path: '/support'
+      fullPath: '/support'
+      preLoaderRoute: typeof SupportRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/signup': {
@@ -865,6 +885,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProfileRoute: ProfileRoute,
   SchemesRoute: SchemesRoute,
   SignupRoute: SignupRoute,
+  SupportRoute: SupportRoute,
   SymptomsRoute: SymptomsRoute,
   TermsRoute: TermsRoute,
   TrackerRoute: TrackerRoute,
