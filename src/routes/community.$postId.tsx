@@ -137,7 +137,7 @@ function PostPage() {
           <h1 className="mt-2 font-display text-xl leading-snug">{post.title}</h1>
           <p className="mt-2 whitespace-pre-wrap text-sm text-foreground">{post.body}</p>
 
-          <div className="mt-4 flex items-center gap-2">
+          <div className="mt-4 flex flex-wrap items-center gap-2">
             <Button
               size="sm"
               variant={voted ? "default" : "outline"}
@@ -147,6 +147,7 @@ function PostPage() {
               <ArrowUp className="h-4 w-4" /> {post.vote_count}
             </Button>
             <ReportDialog postId={post.id} />
+            {!isOwner && <BlockButton authorId={post.user_id} />}
             {isOwner && (
               <Button size="sm" variant="ghost" onClick={deletePost} className="ml-auto text-destructive">
                 <Trash2 className="h-4 w-4" />
@@ -154,6 +155,7 @@ function PostPage() {
             )}
           </div>
         </article>
+
 
         {/* Replies */}
         <h2 className="mb-2 mt-6 text-sm font-medium text-muted-foreground">
