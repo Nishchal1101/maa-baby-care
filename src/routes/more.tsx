@@ -4,7 +4,7 @@ import { useAuth } from "@/lib/auth";
 import { useI18n } from "@/lib/i18n";
 import { LanguageToggle } from "@/components/language-toggle";
 import { Button } from "@/components/ui/button";
-import { Footprints, Activity, LogOut, User, Flower2, Landmark, MessageCircle, Baby, Heart, Trash2, AlertTriangle, Stethoscope, Syringe, Apple, Dumbbell, Pill, HelpCircle, Timer, Shield, Paperclip, ChevronRight } from "lucide-react";
+import { Footprints, Activity, LogOut, User, Flower2, Landmark, MessageCircle, Baby, Heart, Trash2, AlertTriangle, Stethoscope, Syringe, Apple, Dumbbell, Pill, HelpCircle, Timer, Shield, Paperclip, ChevronRight, Users, LifeBuoy, UserCog } from "lucide-react";
 import { useState } from "react";
 
 export const Route = createFileRoute("/more")({
