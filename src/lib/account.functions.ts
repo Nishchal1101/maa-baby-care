@@ -33,14 +33,13 @@ export const exportMyData = createServerFn({ method: "POST" })
 
     for (const table of USER_TABLES) {
       const column = table === "blocked_users" ? "blocker_id" : "user_id";
-      const { data } = await context.supabase
-        .from(table)
+      const { data } = await (context.supabase.from(table) as any)
         .select("*")
         .eq(column, context.userId);
       out[table] = data ?? [];
     }
 
-    return out;
+    return out as Record<string, unknown[] | string>;
   });
 
 export const deleteMyAccount = createServerFn({ method: "POST" })
@@ -52,7 +51,7 @@ export const deleteMyAccount = createServerFn({ method: "POST" })
     // Remove personal rows first so nothing is left behind.
     for (const table of USER_TABLES) {
       const column = table === "blocked_users" ? "blocker_id" : "user_id";
-      await supabaseAdmin.from(table).delete().eq(column, userId);
+      await (supabaseAdmin.from(table) as any).delete().eq(column, userId);
     }
     await supabaseAdmin.from("blocked_users").delete().eq("blocked_id", userId);
     await supabaseAdmin.from("post_votes").delete().eq("user_id", userId);
