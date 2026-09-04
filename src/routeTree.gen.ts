@@ -39,6 +39,7 @@ import { Route as ConsentRouteImport } from './routes/consent'
 import { Route as CommunityRouteImport } from './routes/community'
 import { Route as BabyRouteImport } from './routes/baby'
 import { Route as AppointmentsRouteImport } from './routes/appointments'
+import { Route as AccountRouteImport } from './routes/account'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as WeekWeekRouteImport } from './routes/week.$week'
 import { Route as PosePoseIdRouteImport } from './routes/pose.$poseId'
@@ -198,6 +199,11 @@ const AppointmentsRoute = AppointmentsRouteImport.update({
   path: '/appointments',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AccountRoute = AccountRouteImport.update({
+  id: '/account',
+  path: '/account',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -241,6 +247,7 @@ const BabyCareRoute = BabyCareRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
   '/appointments': typeof AppointmentsRoute
   '/baby': typeof BabyRouteWithChildren
   '/community': typeof CommunityRouteWithChildren
@@ -281,6 +288,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
   '/appointments': typeof AppointmentsRoute
   '/baby': typeof BabyRouteWithChildren
   '/community': typeof CommunityRouteWithChildren
@@ -322,6 +330,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
   '/appointments': typeof AppointmentsRoute
   '/baby': typeof BabyRouteWithChildren
   '/community': typeof CommunityRouteWithChildren
@@ -364,6 +373,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/account'
     | '/appointments'
     | '/baby'
     | '/community'
@@ -404,6 +414,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/account'
     | '/appointments'
     | '/baby'
     | '/community'
@@ -444,6 +455,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/account'
     | '/appointments'
     | '/baby'
     | '/community'
@@ -485,6 +497,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AccountRoute: typeof AccountRoute
   AppointmentsRoute: typeof AppointmentsRoute
   BabyRoute: typeof BabyRouteWithChildren
   CommunityRoute: typeof CommunityRouteWithChildren
@@ -731,6 +744,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppointmentsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/account': {
+      id: '/account'
+      path: '/account'
+      fullPath: '/account'
+      preLoaderRoute: typeof AccountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -820,6 +840,7 @@ const CommunityRouteWithChildren = CommunityRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AccountRoute: AccountRoute,
   AppointmentsRoute: AppointmentsRoute,
   BabyRoute: BabyRouteWithChildren,
   CommunityRoute: CommunityRouteWithChildren,
