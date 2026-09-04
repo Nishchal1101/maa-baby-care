@@ -26,15 +26,15 @@ const USER_TABLES = [
 export const exportMyData = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .handler(async ({ context }) => {
-    const out: Record<string, unknown> = {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const out: Record<string, any> = {
       exported_at: new Date().toISOString(),
       account_id: context.userId,
     };
 
     for (const table of USER_TABLES) {
       const column = table === "blocked_users" ? "blocker_id" : "user_id";
-      const { data } = await context.supabase
-        .from(table)
+      const { data } = await (context.supabase.from(table) as any)
         .select("*")
         .eq(column, context.userId);
       out[table] = data ?? [];
@@ -52,7 +52,7 @@ export const deleteMyAccount = createServerFn({ method: "POST" })
     // Remove personal rows first so nothing is left behind.
     for (const table of USER_TABLES) {
       const column = table === "blocked_users" ? "blocker_id" : "user_id";
-      await supabaseAdmin.from(table).delete().eq(column, userId);
+      await (supabaseAdmin.from(table) as any).delete().eq(column, userId);
     }
     await supabaseAdmin.from("blocked_users").delete().eq("blocked_id", userId);
     await supabaseAdmin.from("post_votes").delete().eq("user_id", userId);

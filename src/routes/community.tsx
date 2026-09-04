@@ -53,9 +53,16 @@ function CommunityPage() {
   const load = React.useCallback(async () => {
     let q = supabase.from("community_posts").select("*").eq("hidden", false).order("created_at", { ascending: false }).limit(50);
     if (topic !== "all") q = q.eq("topic", topic);
-    const { data } = await q;
-    setPosts((data as Post[]) ?? []);
-  }, [topic]);
+    const [{ data }, { data: blocks }] = await Promise.all([
+      q,
+      user
+        ? supabase.from("blocked_users").select("blocked_id").eq("blocker_id", user.id)
+        : Promise.resolve({ data: [] as { blocked_id: string }[] }),
+    ]);
+    const blockedIds = new Set((blocks ?? []).map((b) => b.blocked_id));
+    setPosts(((data as Post[]) ?? []).filter((p) => !blockedIds.has(p.user_id)));
+  }, [topic, user]);
+
 
   React.useEffect(() => { void load(); }, [load]);
 
@@ -220,9 +227,17 @@ function NewPostDialog({ onClose }: { onClose: () => void }) {
             <Input id="dn" value={displayName} onChange={(e) => setDisplayName(e.target.value)} maxLength={40} />
           </div>
         )}
+        <p className="text-[11px] leading-snug text-muted-foreground">
+          By posting you agree to our{" "}
+          <Link to="/community-guidelines" className="font-medium text-primary">community guidelines</Link>{" "}
+          and{" "}
+          <Link to="/terms" className="font-medium text-primary">terms of use</Link>. Objectionable
+          content and abusive members are removed within 24 hours.
+        </p>
         <Button onClick={submit} disabled={saving} className="h-11 w-full rounded-lg">
           {saving ? t("loading") : t("post")}
         </Button>
+
       </div>
     </DialogContent>
   );

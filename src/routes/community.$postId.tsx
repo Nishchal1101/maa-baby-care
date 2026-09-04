@@ -10,7 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { ArrowUp, Flag, Trash2 } from "lucide-react";
+import { ArrowUp, Flag, Trash2, UserX } from "lucide-react";
 import { toast } from "sonner";
 import { formatDistanceToNow } from "date-fns";
 
@@ -137,7 +137,7 @@ function PostPage() {
           <h1 className="mt-2 font-display text-xl leading-snug">{post.title}</h1>
           <p className="mt-2 whitespace-pre-wrap text-sm text-foreground">{post.body}</p>
 
-          <div className="mt-4 flex items-center gap-2">
+          <div className="mt-4 flex flex-wrap items-center gap-2">
             <Button
               size="sm"
               variant={voted ? "default" : "outline"}
@@ -147,6 +147,7 @@ function PostPage() {
               <ArrowUp className="h-4 w-4" /> {post.vote_count}
             </Button>
             <ReportDialog postId={post.id} />
+            {!isOwner && <BlockButton authorId={post.user_id} />}
             {isOwner && (
               <Button size="sm" variant="ghost" onClick={deletePost} className="ml-auto text-destructive">
                 <Trash2 className="h-4 w-4" />
@@ -154,6 +155,7 @@ function PostPage() {
             )}
           </div>
         </article>
+
 
         {/* Replies */}
         <h2 className="mb-2 mt-6 text-sm font-medium text-muted-foreground">
@@ -244,5 +246,32 @@ function ReportDialog({ postId, replyId, compact }: { postId?: string; replyId?:
         </div>
       </DialogContent>
     </Dialog>
+  );
+}
+
+function BlockButton({ authorId }: { authorId: string }) {
+  const { user } = useAuth();
+  const nav = useNavigate();
+  const [busy, setBusy] = React.useState(false);
+
+  const block = async () => {
+    if (!user) return;
+    setBusy(true);
+    const { error } = await supabase
+      .from("blocked_users")
+      .insert({ blocker_id: user.id, blocked_id: authorId });
+    setBusy(false);
+    if (error && !error.message.includes("duplicate")) {
+      toast.error(error.message);
+      return;
+    }
+    toast.success("Member blocked. You will not see their posts again.");
+    nav({ to: "/community" });
+  };
+
+  return (
+    <Button size="sm" variant="ghost" disabled={busy} onClick={block} className="rounded-full text-muted-foreground">
+      <UserX className="h-3.5 w-3.5" /> Block
+    </Button>
   );
 }

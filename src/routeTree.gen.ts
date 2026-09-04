@@ -15,6 +15,7 @@ import { Route as VaccinesPregnancyRouteImport } from './routes/vaccines-pregnan
 import { Route as TrackerRouteImport } from './routes/tracker'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SymptomsRouteImport } from './routes/symptoms'
+import { Route as SupportRouteImport } from './routes/support'
 import { Route as SignupRouteImport } from './routes/signup'
 import { Route as SchemesRouteImport } from './routes/schemes'
 import { Route as ProfileRouteImport } from './routes/profile'
@@ -36,9 +37,11 @@ import { Route as ExerciseRouteImport } from './routes/exercise'
 import { Route as EmergencyRouteImport } from './routes/emergency'
 import { Route as DietRouteImport } from './routes/diet'
 import { Route as ConsentRouteImport } from './routes/consent'
+import { Route as CommunityGuidelinesRouteImport } from './routes/community-guidelines'
 import { Route as CommunityRouteImport } from './routes/community'
 import { Route as BabyRouteImport } from './routes/baby'
 import { Route as AppointmentsRouteImport } from './routes/appointments'
+import { Route as AccountRouteImport } from './routes/account'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as WeekWeekRouteImport } from './routes/week.$week'
 import { Route as PosePoseIdRouteImport } from './routes/pose.$poseId'
@@ -76,6 +79,11 @@ const TermsRoute = TermsRouteImport.update({
 const SymptomsRoute = SymptomsRouteImport.update({
   id: '/symptoms',
   path: '/symptoms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SupportRoute = SupportRouteImport.update({
+  id: '/support',
+  path: '/support',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SignupRoute = SignupRouteImport.update({
@@ -183,6 +191,11 @@ const ConsentRoute = ConsentRouteImport.update({
   path: '/consent',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CommunityGuidelinesRoute = CommunityGuidelinesRouteImport.update({
+  id: '/community-guidelines',
+  path: '/community-guidelines',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CommunityRoute = CommunityRouteImport.update({
   id: '/community',
   path: '/community',
@@ -196,6 +209,11 @@ const BabyRoute = BabyRouteImport.update({
 const AppointmentsRoute = AppointmentsRouteImport.update({
   id: '/appointments',
   path: '/appointments',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccountRoute = AccountRouteImport.update({
+  id: '/account',
+  path: '/account',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -241,9 +259,11 @@ const BabyCareRoute = BabyCareRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
   '/appointments': typeof AppointmentsRoute
   '/baby': typeof BabyRouteWithChildren
   '/community': typeof CommunityRouteWithChildren
+  '/community-guidelines': typeof CommunityGuidelinesRoute
   '/consent': typeof ConsentRoute
   '/diet': typeof DietRoute
   '/emergency': typeof EmergencyRoute
@@ -265,6 +285,7 @@ export interface FileRoutesByFullPath {
   '/profile': typeof ProfileRoute
   '/schemes': typeof SchemesRoute
   '/signup': typeof SignupRoute
+  '/support': typeof SupportRoute
   '/symptoms': typeof SymptomsRoute
   '/terms': typeof TermsRoute
   '/tracker': typeof TrackerRoute
@@ -281,9 +302,11 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
   '/appointments': typeof AppointmentsRoute
   '/baby': typeof BabyRouteWithChildren
   '/community': typeof CommunityRouteWithChildren
+  '/community-guidelines': typeof CommunityGuidelinesRoute
   '/consent': typeof ConsentRoute
   '/diet': typeof DietRoute
   '/emergency': typeof EmergencyRoute
@@ -305,6 +328,7 @@ export interface FileRoutesByTo {
   '/profile': typeof ProfileRoute
   '/schemes': typeof SchemesRoute
   '/signup': typeof SignupRoute
+  '/support': typeof SupportRoute
   '/symptoms': typeof SymptomsRoute
   '/terms': typeof TermsRoute
   '/tracker': typeof TrackerRoute
@@ -322,9 +346,11 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
   '/appointments': typeof AppointmentsRoute
   '/baby': typeof BabyRouteWithChildren
   '/community': typeof CommunityRouteWithChildren
+  '/community-guidelines': typeof CommunityGuidelinesRoute
   '/consent': typeof ConsentRoute
   '/diet': typeof DietRoute
   '/emergency': typeof EmergencyRoute
@@ -346,6 +372,7 @@ export interface FileRoutesById {
   '/profile': typeof ProfileRoute
   '/schemes': typeof SchemesRoute
   '/signup': typeof SignupRoute
+  '/support': typeof SupportRoute
   '/symptoms': typeof SymptomsRoute
   '/terms': typeof TermsRoute
   '/tracker': typeof TrackerRoute
@@ -364,9 +391,11 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/account'
     | '/appointments'
     | '/baby'
     | '/community'
+    | '/community-guidelines'
     | '/consent'
     | '/diet'
     | '/emergency'
@@ -388,6 +417,7 @@ export interface FileRouteTypes {
     | '/profile'
     | '/schemes'
     | '/signup'
+    | '/support'
     | '/symptoms'
     | '/terms'
     | '/tracker'
@@ -404,9 +434,11 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/account'
     | '/appointments'
     | '/baby'
     | '/community'
+    | '/community-guidelines'
     | '/consent'
     | '/diet'
     | '/emergency'
@@ -428,6 +460,7 @@ export interface FileRouteTypes {
     | '/profile'
     | '/schemes'
     | '/signup'
+    | '/support'
     | '/symptoms'
     | '/terms'
     | '/tracker'
@@ -444,9 +477,11 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/account'
     | '/appointments'
     | '/baby'
     | '/community'
+    | '/community-guidelines'
     | '/consent'
     | '/diet'
     | '/emergency'
@@ -468,6 +503,7 @@ export interface FileRouteTypes {
     | '/profile'
     | '/schemes'
     | '/signup'
+    | '/support'
     | '/symptoms'
     | '/terms'
     | '/tracker'
@@ -485,9 +521,11 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AccountRoute: typeof AccountRoute
   AppointmentsRoute: typeof AppointmentsRoute
   BabyRoute: typeof BabyRouteWithChildren
   CommunityRoute: typeof CommunityRouteWithChildren
+  CommunityGuidelinesRoute: typeof CommunityGuidelinesRoute
   ConsentRoute: typeof ConsentRoute
   DietRoute: typeof DietRoute
   EmergencyRoute: typeof EmergencyRoute
@@ -509,6 +547,7 @@ export interface RootRouteChildren {
   ProfileRoute: typeof ProfileRoute
   SchemesRoute: typeof SchemesRoute
   SignupRoute: typeof SignupRoute
+  SupportRoute: typeof SupportRoute
   SymptomsRoute: typeof SymptomsRoute
   TermsRoute: typeof TermsRoute
   TrackerRoute: typeof TrackerRoute
@@ -561,6 +600,13 @@ declare module '@tanstack/react-router' {
       path: '/symptoms'
       fullPath: '/symptoms'
       preLoaderRoute: typeof SymptomsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/support': {
+      id: '/support'
+      path: '/support'
+      fullPath: '/support'
+      preLoaderRoute: typeof SupportRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/signup': {
@@ -710,6 +756,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConsentRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/community-guidelines': {
+      id: '/community-guidelines'
+      path: '/community-guidelines'
+      fullPath: '/community-guidelines'
+      preLoaderRoute: typeof CommunityGuidelinesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/community': {
       id: '/community'
       path: '/community'
@@ -729,6 +782,13 @@ declare module '@tanstack/react-router' {
       path: '/appointments'
       fullPath: '/appointments'
       preLoaderRoute: typeof AppointmentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/account': {
+      id: '/account'
+      path: '/account'
+      fullPath: '/account'
+      preLoaderRoute: typeof AccountRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -820,9 +880,11 @@ const CommunityRouteWithChildren = CommunityRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AccountRoute: AccountRoute,
   AppointmentsRoute: AppointmentsRoute,
   BabyRoute: BabyRouteWithChildren,
   CommunityRoute: CommunityRouteWithChildren,
+  CommunityGuidelinesRoute: CommunityGuidelinesRoute,
   ConsentRoute: ConsentRoute,
   DietRoute: DietRoute,
   EmergencyRoute: EmergencyRoute,
@@ -844,6 +906,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProfileRoute: ProfileRoute,
   SchemesRoute: SchemesRoute,
   SignupRoute: SignupRoute,
+  SupportRoute: SupportRoute,
   SymptomsRoute: SymptomsRoute,
   TermsRoute: TermsRoute,
   TrackerRoute: TrackerRoute,
@@ -858,10 +921,11 @@ export const routeTree = rootRouteImport
   ._addFileTypes<FileRouteTypes>()
 
 import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
+import type { startInstance } from './start.ts'
 declare module '@tanstack/react-start' {
   interface Register {
     ssr: true
     router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
   }
 }
