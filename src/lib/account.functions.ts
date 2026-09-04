@@ -26,7 +26,8 @@ const USER_TABLES = [
 export const exportMyData = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .handler(async ({ context }) => {
-    const out: Record<string, string | Record<string, unknown>[]> = {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const out: Record<string, any> = {
       exported_at: new Date().toISOString(),
       account_id: context.userId,
     };
@@ -36,7 +37,7 @@ export const exportMyData = createServerFn({ method: "POST" })
       const { data } = await (context.supabase.from(table) as any)
         .select("*")
         .eq(column, context.userId);
-      out[table] = (data ?? []) as Record<string, unknown>[];
+      out[table] = data ?? [];
     }
 
     return out;
