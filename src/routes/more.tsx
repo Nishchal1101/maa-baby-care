@@ -136,11 +136,36 @@ function MorePage() {
     <span>{t("schemes_title")}</span>
   </Link>
 
+  <Link
+    to="/community-guidelines"
+    className="flex items-center gap-3 rounded-lg bg-card p-4 shadow-sm"
+  >
+    <Users className="h-5 w-5 shrink-0 text-primary" />
+    <span>Community Guidelines</span>
+  </Link>
+
+  <Link
+    to="/support"
+    className="flex items-center gap-3 rounded-lg bg-card p-4 shadow-sm"
+  >
+    <LifeBuoy className="h-5 w-5 shrink-0 text-primary" />
+    <span>Help & Support</span>
+  </Link>
+
+  <Link
+    to="/account"
+    className="flex items-center gap-3 rounded-lg bg-card p-4 shadow-sm"
+  >
+    <UserCog className="h-5 w-5 shrink-0 text-primary" />
+    <span>Account & Data</span>
+  </Link>
+
   <div className="flex items-center justify-between rounded-lg bg-card p-4 shadow-sm">
     <span>{t("language")}</span>
     <LanguageToggle />
   </div>
 </div>
+
 
         <Button
           variant="ghost"
