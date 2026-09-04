@@ -227,9 +227,17 @@ function NewPostDialog({ onClose }: { onClose: () => void }) {
             <Input id="dn" value={displayName} onChange={(e) => setDisplayName(e.target.value)} maxLength={40} />
           </div>
         )}
+        <p className="text-[11px] leading-snug text-muted-foreground">
+          By posting you agree to our{" "}
+          <Link to="/community-guidelines" className="font-medium text-primary">community guidelines</Link>{" "}
+          and{" "}
+          <Link to="/terms" className="font-medium text-primary">terms of use</Link>. Objectionable
+          content and abusive members are removed within 24 hours.
+        </p>
         <Button onClick={submit} disabled={saving} className="h-11 w-full rounded-lg">
           {saving ? t("loading") : t("post")}
         </Button>
+
       </div>
     </DialogContent>
   );
