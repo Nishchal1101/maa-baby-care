@@ -4,7 +4,8 @@ import { BackButton } from "@/components/back-button";
 import { yogaPoses } from "@/lib/yoga";
 import { yogaImages } from "@/lib/yoga-images";
 import { Badge } from "@/components/ui/badge";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { ChevronLeft, ChevronRight, Expand } from "lucide-react";
 
 export const Route = createFileRoute("/pose/$poseId")({
   head: ({ params }) => {
