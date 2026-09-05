@@ -68,18 +68,40 @@ function PoseDetail() {
           </span>
         </div>
 
-        {/* Upper half: image */}
+        {/* Upper half: full image (never cropped)  -  tap to zoom */}
         <div className="mt-2 h-[45dvh] shrink-0 px-4">
-          <div className="h-full w-full overflow-hidden rounded-lg bg-muted shadow-sm">
-            {image ? (
-              <img
-                src={image}
-                alt={`${pose.name} prenatal yoga pose guide`}
-                className="h-full w-full object-cover object-top"
-                loading="lazy"
-              />
-            ) : null}
-          </div>
+          <Dialog>
+            <DialogTrigger asChild>
+              <button
+                type="button"
+                aria-label={`View full ${pose.name} guide image`}
+                className="relative h-full w-full overflow-hidden rounded-lg bg-muted shadow-sm"
+              >
+                {image ? (
+                  <img
+                    src={image}
+                    alt={`${pose.name} prenatal yoga pose guide`}
+                    className="h-full w-full object-contain"
+                    loading="lazy"
+                  />
+                ) : null}
+                <span className="absolute bottom-2 right-2 flex items-center gap-1 rounded-full bg-background/90 px-2.5 py-1 text-[10px] font-medium text-foreground shadow-sm">
+                  <Expand className="h-3 w-3" /> Tap to zoom
+                </span>
+              </button>
+            </DialogTrigger>
+            <DialogContent className="flex h-[90dvh] max-w-full flex-col gap-0 overflow-hidden p-2 [&>button]:z-10">
+              <div className="h-full w-full overflow-auto">
+                {image ? (
+                  <img
+                    src={image}
+                    alt={`${pose.name} full step-by-step guide`}
+                    className="mx-auto w-full min-w-[200%] max-w-none"
+                  />
+                ) : null}
+              </div>
+            </DialogContent>
+          </Dialog>
         </div>
 
         {/* Lower half: steps */}
