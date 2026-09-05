@@ -74,7 +74,7 @@ function YogaPage() {
                       <img
                         src={yogaImages[pose.id]}
                         alt={`${pose.name} pose`}
-                        className="h-full w-full object-cover object-top"
+                        className="h-full w-full object-contain"
                         loading="lazy"
                       />
                     ) : null}
